@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="de" style="background:#0d1117;background-color:#0d1117;">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Herzkompass &middot; Ludo Bernhard &middot; KIN 81</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --black:#0d1117;--dark:#161b22;--darker:#0a0e13;
+      --red:#e63946;--red-dim:rgba(230,57,70,0.15);--red-glow:rgba(230,57,70,0.08);
+      --gold:#f4a942;--gold-dim:rgba(244,169,66,0.12);
+      --white:#f0f6fc;--white-dim:rgba(240,246,252,0.6);--white-faint:rgba(240,246,252,0.25);
+      --border:rgba(240,246,252,0.08);
+    }
+    html{background:#0d1117!important;background-color:#0d1117!important;margin:0;padding:0;min-height:100%;}
+    body{background:#0d1117!important;background-color:#0d1117!important;min-height:100vh;margin:0;padding:0;font-family:'Space Grotesk',sans-serif;color:var(--white);}
+    *{box-sizing:border-box;}
+    .hero{text-align:center;padding:80px 24px 60px;background:var(--black);}
+    .hero-badge{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin:20px 0 12px;}
+    .hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,12vw,7rem);color:var(--white);letter-spacing:.04em;line-height:1;margin:0 0 12px;}
+    .hero-subtitle{font-family:'Space Grotesk',sans-serif;font-weight:300;font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;color:var(--white-dim);margin-bottom:32px;}
+    .red-line{width:60px;height:2px;background:var(--red);margin:0 auto 40px;}
+    .intro-text{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.05rem;line-height:1.9;color:var(--white-dim);max-width:560px;margin:0 auto;}
+    .stat-band{background:var(--dark);border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;justify-content:center;}
+    .stat-item{flex:1;max-width:220px;padding:28px 24px;text-align:center;border-right:1px solid var(--border);}
+    .stat-item:last-child{border-right:none;}
+    .stat-label{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--red);margin-bottom:8px;}
+    .stat-value{font-family:'Instrument Serif',serif;font-size:1.1rem;color:var(--white);}
+    .main{max-width:820px;margin:0 auto;padding:0 24px 80px;}
+    .section{padding:64px 0 40px;}
+    .gold-line{border:none;border-bottom:1px solid rgba(230,57,70,0.3);margin:0;}
+    .section-num{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:12px;}
+    .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,5vw,2.8rem);color:var(--white);letter-spacing:.05em;margin:0 0 36px;line-height:1.1;}
+    p{font-family:'Space Grotesk',sans-serif;font-size:1rem;line-height:1.8;color:var(--white-dim);margin:0 0 20px;}
+    p strong{color:var(--white);font-weight:600;}
+    .highlight{border-left:3px solid var(--red);padding:24px 32px;margin:40px 0;background:var(--red-glow);}
+    .highlight p{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.15rem;color:var(--white);margin:0;line-height:1.7;}
+    .highlight-gold{border-left:3px solid var(--gold);padding:24px 32px;margin:40px 0;background:var(--gold-dim);}
+    .highlight-gold p{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.15rem;color:var(--white);margin:0;line-height:1.7;}
+    .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;}
+    .tag{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red);border:1px solid rgba(230,57,70,.35);padding:7px 16px;border-radius:2px;background:var(--red-glow);}
+    .rel-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px;}
+    @media(max-width:600px){.rel-cards{grid-template-columns:1fr;}.stat-band{flex-wrap:wrap;}.stat-item{border-right:none;border-bottom:1px solid var(--border);max-width:100%;}}
+    .rel-card{background:var(--dark);border:1px solid var(--border);border-top:3px solid var(--red);padding:32px;}
+    .rel-card-title{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:16px;}
+    .rel-card p{font-size:.95rem;line-height:1.7;}
+    .promi-card{background:var(--dark);border:1px solid var(--border);border-left:3px solid var(--red);padding:32px;margin-bottom:20px;}
+    .promi-name{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.08em;color:var(--gold);margin-bottom:14px;}
+    .closing-quote{background:var(--darker);padding:80px 40px;text-align:center;}
+    .closing-quote-text{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(1.2rem,3vw,1.6rem);color:var(--white);line-height:1.6;max-width:640px;margin:0 auto;}
+    .guillemet{color:var(--red);}
+    .footer{background:var(--black);border-top:1px solid var(--border);padding:48px 24px;text-align:center;}
+    .footer-tagline{font-family:'Space Grotesk',sans-serif;font-weight:300;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--white-dim);margin:16px 0 6px;}
+    .footer-brand{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--red);letter-spacing:.1em;}
+    .footer-sub{font-family:'Space Grotesk',sans-serif;font-size:.8rem;color:var(--white-faint);margin-top:6px;}
+  </style>
+</head>
+<body style="background:#0d1117;background-color:#0d1117;min-height:100vh;">
+<div style="background:#0d1117;min-height:100vh;width:100%;">
+
+<div class="hero">
+  <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="32" cy="32" r="30" fill="none" stroke="#e63946" stroke-width="1.5"/>
+    <path d="M32 8 C20 18 20 28 32 34 C44 28 44 18 32 8Z" fill="none" stroke="#e63946" stroke-width="1.5"/>
+    <line x1="32" y1="10" x2="32" y2="54" stroke="#e63946" stroke-width="1" opacity="0.5"/>
+    <line x1="10" y1="32" x2="54" y2="32" stroke="#e63946" stroke-width="1" opacity="0.5"/>
+    <circle cx="32" cy="32" r="3" fill="#e63946"/>
+    <polygon points="32,14 34,20 32,18 30,20" fill="#e63946"/>
+  </svg>
+  <div class="hero-badge">Herzkompass &middot; Maya-Analyse &middot; KIN 81</div>
+  <div class="hero-name">Ludo Bernhard</div>
+  <div class="hero-subtitle">Roter Drache &middot; Ton 3 Elektrisch &middot; 14 Jahre</div>
+  <div class="red-line"></div>
+  <div class="intro-text">
+    Hey. Bevor du weiterliest &mdash; kurz ich.<br><br>
+    Ich bin kein Therapeut. Kein Guru. Kein Typ der wei&szlig; wie das Leben funktioniert.<br>
+    Ich bin einfach jemand der dich liebt &mdash; und der dieses System gefunden hat<br>
+    und dachte: verdammt nochmal, das ist er. Das ist so was von er.<br><br>
+    Ob das stimmt? Entscheid du.<br>
+    Aber ich wette, du liest hier Sachen und denkst: wie zur H&ouml;lle wei&szlig; das jemand.<br>
+    Das ist kein Zauber. Das bist du.
+  </div>
+</div>
+
+<div class="stat-band">
+  <div class="stat-item"><div class="stat-label">KIN</div><div class="stat-value">81</div></div>
+  <div class="stat-item"><div class="stat-label">Ton</div><div class="stat-value">3 &middot; Elektrisch</div></div>
+  <div class="stat-item"><div class="stat-label">Archetyp</div><div class="stat-value">Roter Drache</div></div>
+  <div class="stat-item"><div class="stat-label">Kernkraft</div><div class="stat-value">Urquelle &middot; Starter</div></div>
+</div>
+
+<div class="main">
+
+  <div class="section">
+    <div class="section-num">Teil 01</div>
+    <div class="section-title">Wer bin ich</div>
+    <p>Roter Drache. Elektrischer Ton. KIN 81 &mdash; das ist 9 mal 9, falls dir das was sagt. Kein Zufall. Du bist eine von insgesamt 260 m&ouml;glichen Kombinationen in diesem System und du hast ausgerechnet diese erwischt: die Urkraft trifft den Elektrischen Zündmechanismus. Das ist keine kleine Ansage.</p>
+    <p>Lass mich das so erkl&auml;ren wie es wirklich ist. Du bist der Typ der anf&auml;ngt. W&auml;hrend alle anderen noch &uuml;berlegen ob das eine gute Idee ist, hast du schon angefangen. W&auml;hrend alle diskutieren ob es m&ouml;glich ist, hast du schon die H&auml;lfte erledigt. Das ist kein Ehrgeiz. Das ist buchst&auml;blich dein Betriebssystem.</p>
+    <p>Und dann kommt der Elektrische Ton dazu &mdash; Ton 3. Dein Kopf l&auml;uft auf 200. Immer. Du sammelst Informationen, Ideen, Eindr&uuml;cke gleichzeitig, durcheinander, in alle Richtungen. Von au&szlig;en sieht das manchmal aus wie Chaos. Von innen? Das ist einfach wie dein Gehirn funktioniert. Und es funktioniert verdammt gut. Du bist das heilsamste Medikament gegen Stagnation das es gibt &mdash; und das ist keine Metapher.</p>
+    <div class="highlight">
+      <p>Dein pers&ouml;nlicher Kompass-Satz: &bdquo;Die sch&ouml;pferischen Urkr&auml;fte aus meiner Quelle sind heute mein Antrieb, um den Umformungsprozess voranzutreiben und Neues in Gang zu setzen.&ldquo;</p>
+    </div>
+    <p>Du bist in der Welle 7 &mdash; der Cauac-Welle, dem Blauen Sturm. Deine Welle sagt: <strong>Aktivierungskr&auml;fte n&auml;hren das aktuelle Leben &mdash; Neues bekommt Antrieb.</strong> Du bist nicht hier um Dinge in Ordnung zu halten. Du bist hier um sie in Bewegung zu bringen. Das hast du wahrscheinlich schon l&auml;ngst gesp&uuml;rt.</p>
+    <p>Das Wei&szlig;e Zeitschloss &mdash; dein &uuml;bergeordnetes Lebensprogramm &mdash; steht f&uuml;r Verfeinerung. Das Echte vom Rauschen trennen. Nicht alles kontrollieren wollen. Verstehen was wirklich z&auml;hlt. Mit 14 f&auml;ngt das gerade erst an. Es wird ein Lebensthema bleiben &mdash; und ein gutes.</p>
+    <p>Der Rote Drache ist die Urquelle. Das N&auml;hrende. Das Tatkr&auml;ftige. Du gibst anderen Energie, du startest Dinge die andere nicht mal zu tr&auml;umen wagen, du bist der Mensch f&uuml;r den andere einfach dankbar sind dass es ihn gibt. Auch wenn die das vielleicht nicht immer so sagen. Entweder ganz oder gar nicht &mdash; das ist deine Devise. Mittelmass ist f&uuml;r dich physisch unangenehm.</p>
+    <div class="tags">
+      <span class="tag">Startkraft</span>
+      <span class="tag">Elektrisch</span>
+      <span class="tag">Urkraft</span>
+      <span class="tag">N&auml;hrend</span>
+      <span class="tag">Impulsgeber</span>
+      <span class="tag">Vielseitig</span>
+      <span class="tag">Organisator</span>
+    </div>
+  </div>
+
+  <hr class="gold-line">
+
+  <div class="section">
+    <div class="section-num">Teil 02</div>
+    <div class="section-title">Wie sehen mich andere</div>
+    <p><strong>Was andere sofort sp&uuml;ren:</strong> Wenn du in einen Raum kommst &mdash; egal ob Klassenzimmer, Schulhof oder Whatsapp-Gruppe &mdash; merken es die anderen. Nicht weil du laut bist. Sondern weil du Energie mitbringst. Eine Vitalit&auml;t die ansteckend ist. Menschen um dich werden wacher. Produktiver. Die kriegen nicht mal mit warum. Das bist du. Das macht der Elektrische Rote Drache.</p>
+    <p>Du hast eine nat&uuml;rliche F&auml;higkeit zu organisieren und zu managen die die meisten erst nach Jahren lernen. Du siehst sofort wie Dinge funktionieren k&ouml;nnten. Du siehst die Struktur bevor sie da ist. Das merken andere &mdash; besonders Erwachsene &mdash; sehr schnell. Das kann manchmal unbequem sein wenn du 14 bist und Erwachsene pl&ouml;tzlich Erwartungen an dich haben die du gar nicht eingeladen hast.</p>
+    <p><strong>Was andere manchmal falsch verstehen:</strong> Du springst. Von Thema zu Thema, von Idee zu Idee, von Projekt zu Projekt. Das sieht f&uuml;r andere manchmal aus wie Unzuverl&auml;ssigkeit. Oder wie Sprunghaftigkeit. Klassische Schule: &ldquo;kann sich nicht konzentrieren.&rdquo; Das stimmt nicht. Du konzentrierst dich auf alles gleichzeitig. Das ist nicht dasselbe wie gar nicht. Du verfügst jederzeit &uuml;ber die n&ouml;tige mentale Wendigkeit um Schritt zu halten &mdash; das sehen andere nicht sofort.</p>
+    <p>Manchmal wirkst du nervend. Nicht weil du es willst. Sondern weil deine Energie gr&ouml;&szlig;er ist als der Raum der dir gerade zur Verf&uuml;gung steht. Das ist kein Fehler von dir &mdash; das ist ein Passungsproblem.</p>
+    <div class="highlight">
+      <p>Das wertvollste was andere an dir sp&uuml;ren aber selten in Worte fassen: Du bist der Mensch der verhindert dass alle im falschen Zug sitzen bleiben. Das heilsamste Medikament gegen Stagnation. Nicht weil du dr&auml;ngst &mdash; sondern weil du einfach lebst.</p>
+    </div>
+    <p><strong>Was andere sch&auml;tzen ohne es je zu sagen:</strong> Unter der ganzen Vibration ist da etwas Solides. Etwas Verl&auml;ssliches. Wenn du sagst du machst etwas &mdash; du machst es. Entweder ganz oder gar nicht. Das spielt in einer anderen Liga als das was die meisten liefern. Das sp&uuml;ren andere &mdash; auch wenn sie keine Worte daf&uuml;r haben.</p>
+  </div>
+
+  <hr class="gold-line">
+
+  <div class="section">
+    <div class="section-num">Teil 03</div>
+    <div class="section-title">Ich in Beziehungen</div>
+    <p>Was du in Beziehungen einbringst ist ein Geschenk das sich schwer beschreiben l&auml;sst. Du n&auml;hrst. Du gibst Impulse, Ideen, Energie &mdash; und du tust das nicht um etwas zur&uuml;ckzubekommen. Du tust es weil du nicht anders kannst. Der Rote Drache ist die Urquelle. Die gibt einfach. Das ist seine Natur.</p>
+    <p>Und genau da liegt dein blinder Fleck. Du startest Dinge f&uuml;r andere. Du gibst Ideen, du bringst Schwung, du machst dass es l&auml;uft &mdash; und dann, wenn alles perfekt funktioniert, gehst du leer aus. Kein Dankesch&ouml;n. Kein Anerkennen dass du derjenige warst der es in Gang gesetzt hat. Das tut weh. Auch wenn du es dir vielleicht nicht eingestehst. Du bist herzschmerzf&auml;hig auf eine Art die man dir von au&szlig;en nicht ansieht.</p>
+    <p>Was du brauchst um wirklich aufzublühen: Menschen die das sehen. Die sagen &ldquo;hey, das hier w&auml;re ohne dich nicht passiert.&rdquo; Nicht kompliziert. Nicht viel. Aber das. Wer dir das gibt &mdash; den wirst du mit allem was du hast unterst&uuml;tzen.</p>
+    <div class="highlight-gold">
+      <p>Du hast ein extremes Sicherheitsbed&uuml;rfnis. Das klingt nach Schwachsein &mdash; ist es nicht. Es bedeutet: du brauchst ein Fundament von dem aus du fliegen kannst. Ohne dieses Fundament wirst du rastlos und gereizt. Mit ihm? Keine Grenzen.</p>
+    </div>
+
+    <div class="rel-cards">
+      <div class="rel-card">
+        <div class="rel-card-title">Das sollte dein bester Freund / deine beste Freundin wissen</div>
+        <p>Ludo startet f&uuml;r dich. Gibt dir Ideen, Schwung, Energie &mdash; das ist echt, kein Kalk&uuml;l. Aber er braucht auch was zur&uuml;ck: gesehen werden. Nicht gro&szlig; &mdash; einfach &ldquo;hey, das war deine Idee, danke.&rdquo; Wenn er mal sprunghaft wirkt und von Thema zu Thema h&uuml;pft: lass ihn. Das ist kein Chaos. Das ist sein Kopf bei der Arbeit. Und wenn er pl&ouml;tzlich null Bock hat auf alles und sich zur&uuml;ckzieht &mdash; das ist nicht gegen dich. Das ist ein Drache der gerade tankt.</p>
+      </div>
+      <div class="rel-card">
+        <div class="rel-card-title">Das sollte deine Crew wissen</div>
+        <p>In der Gruppe ist Ludo derjenige der den ersten Schritt macht. Immer. Bevor alle noch diskutieren hat er schon angefangen. Das kann nerven wenn ihr gerade noch am Planen seid. Aber ohne ihn w&uuml;rdet ihr heute noch planen. Er &uuml;bernimmt nat&uuml;rlich Verantwortung und organisiert &mdash; nicht weil er Chef sein will, sondern weil Stillstand f&uuml;r ihn buchst&auml;blich inakzeptabel ist. Gebt ihm Anerkennung f&uuml;r das was er startet. Das kostet euch nichts. F&uuml;r ihn ist es alles.</p>
+      </div>
+      <div class="rel-card">
+        <div class="rel-card-title">Das sollte deine Mutter wissen</div>
+        <p>Ludo braucht Bewegung. Nicht als Wunsch &mdash; als biologisches Grundbed&uuml;rfnis. Ein Drache in einem zu engen K&auml;fig wird nicht b&ouml;se Wille &mdash; er wird rastlos und gereizt. Was er zuhause nie sagen w&uuml;rde aber braucht: das Gef&uuml;hl dass seine Leistungen gesehen und anerkannt werden. Was er anf&auml;ngt, in Gang setzt, aufbaut &mdash; f&uuml;r andere, ohne Dankeserwartung. Das ist seine Gabe. Wenn ihr Konflikte habt: meistens steckt dahinter das Gef&uuml;hl von zu wenig Raum. Mehr Freiheit ist oft die einfachste L&ouml;sung.</p>
+      </div>
+      <div class="rel-card">
+        <div class="rel-card-title">Das sollte deine Freundin / dein Freund wissen</div>
+        <p>Ludo liebt entweder ganz oder gar nicht. Mittelmässig ist keine Option f&uuml;r ihn &mdash; in keinem Bereich des Lebens, auch hier nicht. Er bringt Energie und Schwung und wird dich n&auml;hren und vorantreiben auf eine Art die du nicht erwartest. Aber er ist herzschmerzf&auml;hig auf eine Art die man ihm nicht ansieht. Wenn er das Gef&uuml;hl hat er gibt und gibt und bekommt nichts zur&uuml;ck &mdash; dann zieht er sich zur&uuml;ck. Nicht dramatisch. Einfach weg. Was ihn h&auml;lt: echte Anerkennung, echter Raum, echtes Sehen. Kein Theater. Nur echt.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="gold-line">
+
+  <div class="section">
+    <div class="section-num">Teil 04</div>
+    <div class="section-title">Was nach der Schule kommt</div>
+    <p>Das Buch sagt: <strong>Jede f&uuml;hrende Position &mdash; unabh&auml;ngig der Branche.</strong> Jetzt erkl&auml;r ich dir warum das so ist, damit es nicht klingt wie ein Motivationsplakat.</p>
+    <p>F&uuml;hrende Positionen nicht weil du Chef spielen willst. Sondern weil du in einem System das dir keine Entscheidungsfreiheit gibt innerhalb von zwei Wochen ausflippst. Du brauchst Raum. Du brauchst: &ldquo;Mach das auf deine Art.&rdquo; Dann lieferst du. Dann bringst du Dinge in Gang die andere nicht einmal als m&ouml;glich gedacht h&auml;tten. In einem starren System wirst du depressiv oder rebellisch &mdash; nicht weil mit dir was nicht stimmt, sondern weil ein Drache Flügel braucht.</p>
+    <p>In der Schule merkst du das vielleicht schon. Wenn der Lehrer sagt &ldquo;so und so wird das gemacht und nicht anders&rdquo; &mdash; irgendetwas in dir widersteht. Nicht weil du aufs&auml;ssig bist. Sondern weil du intuitiv siehst dass es auch anders ginge. Besser. Effizienter. Und du hast meistens recht.</p>
+    <div class="highlight">
+      <p>Deine nat&uuml;rliche Rolle: Der der anf&auml;ngt was andere dann weitef&uuml;hren. Der Gr&uuml;nder. Der Impulsgeber. Der erste Schritt. Das ist keine kleine Rolle &mdash; das ist die Rolle ohne die gar nichts passiert.</p>
+    </div>
+    <p><strong>Was dir Energie gibt:</strong> Neue Projekte starten. Probleme l&ouml;sen die noch keine L&ouml;sung haben. Menschen hinter einer Idee versammeln. Struktur in Chaos bringen &mdash; aber dein Chaos, nicht fremdes. Wenn in einem Team jemand sagt &ldquo;das schaffen wir nie&rdquo; &mdash; du bist derjenige der trotzdem anf&auml;ngt.</p>
+    <p><strong>Was dich leer macht:</strong> Dinge zu Ende f&uuml;hren die andere angefangen haben. Routineaufgaben ohne Spielraum. Wenn alles schon festgelegt ist und du nur noch ausf&uuml;hrst. Wenn in einem Team jemand sagt &ldquo;wir machen das wie immer&rdquo; &mdash; du stirbst innerlich ein bisschen.</p>
+    <p>Die speziellen Dr&auml;chen-&Uuml;bungen: in die Natur gehen, Erdboden bewusst wahrnehmen, Erdungs&uuml;bungen, afrikanischer Tanz, sich angenommen f&uuml;hlen. Klingt vielleicht komisch f&uuml;r 14. Aber dahinter steckt etwas Echtes: Deine Energie ist enorm. Wenn du sie nicht physisch rausl&auml;sst &mdash; wenn du sie nicht erdest &mdash; dreht sie sich irgendwann gegen dich als Nervosit&auml;t und innere Unruhe. Sport, Bewegung, raus. F&uuml;r dich ist das keine Empfehlung. Das ist Notwendigkeit.</p>
+  </div>
+
+  <hr class="gold-line">
+
+  <div class="section">
+    <div class="section-num">Teil 05</div>
+    <div class="section-title">Menschen wie du</div>
+    <p>Das Buch listet vier Menschen auf die dieselbe Energie tragen wie du. Ich erkl&auml;r dir was sie verbindet &mdash; und was das &uuml;ber dich sagt.</p>
+
+    <div class="promi-card">
+      <div class="promi-name">Mutter Teresa</div>
+      <p>Eine kleine Frau die beschlossen hat einfach anzufangen. Kein Plan, kein Budget, kein Genehmigungsformular. Sie sah Leid &mdash; und sie fing an es zu lindern. Sofort. Die Frage war nie &ldquo;wer macht das?&rdquo; &mdash; die Frage war &ldquo;wann fange ich an?&rdquo; Klingt das bekannt? Dieses Gef&uuml;hl dass man nicht warten kann bis jemand anderes handelt?</p>
+    </div>
+
+    <div class="promi-card">
+      <div class="promi-name">Nelson Mandela</div>
+      <p>27 Jahre Gef&auml;ngnis. Und danach &mdash; keine Verbitterung. Stattdessen: anfangen. Vers&ouml;hnen. Aufbauen. Mandela hatte die Urdrachen-Energie in ihrer reinsten Form: n&auml;hrend f&uuml;r ein ganzes Land, Impulsgeber f&uuml;r eine Bewegung, Starter des Neuen. Entweder ganz oder gar nicht &mdash; das war auch seine Devise. Er kannte keine mittelmässige L&ouml;sung und hat nie einen Raum mit weniger Energie verlassen als er ihn betreten hat.</p>
+    </div>
+
+    <div class="promi-card">
+      <div class="promi-name">Simone de Beauvoir</div>
+      <p>Sie hatte eine Erkenntnis die damals niemand ausgesprochen hatte &mdash; und sie hat sie nicht f&uuml;r sich behalten. Sie hat sie in die Welt gebracht. Impulskraft trifft auf praktische Ideen. Du kennst vielleicht dieses Gef&uuml;hl: etwas denken und wissen dass es raus muss. Nicht aus Eitelkeit. Einfach weil es wichtig ist. Weil es andere brauchen. Das ist Roten-Drachen-Elektrisch.</p>
+    </div>
+
+    <div class="promi-card">
+      <div class="promi-name">Hermann Gmeiner &mdash; Gr&uuml;nder SOS-Kinderd&ouml;rfer</div>
+      <p>Ein Mann der nach dem Krieg Kinder auf der Stra&szlig;e sah und beschlossen hat: das &auml;ndert sich jetzt. Ohne Konzern, ohne Regierung, ohne Erlaubnis. Er fing an. Baute das erste Haus. Dann das n&auml;chste. Heute gibt es SOS-Kinderd&ouml;rfer in 136 L&auml;ndern. Das ist Roten-Drachen-Energie die ihren Kanal gefunden hat. Was w&uuml;rde deine Energie aufbauen wenn sie ihren Kanal findet?</p>
+    </div>
+
+    <div class="highlight-gold">
+      <p>Was alle vier verbindet: Sie haben nicht gewartet bis jemand sie fragte. Sie haben nicht gewartet bis die Bedingungen perfekt waren. Sie haben angefangen. Genau wie du. Das ist eure gemeinsame Urkraft &mdash; und das ist keine kleine Sache.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="closing-quote">
+  <div class="closing-quote-text">
+    <span class="guillemet">&laquo;</span>&nbsp;Du bist nicht zu viel &mdash; du bist der Anfang von allem was noch nicht da ist.&nbsp;<span class="guillemet">&raquo;</span>
+  </div>
+</div>
+
+<div class="footer">
+  <svg width="48" height="48" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="32" cy="32" r="30" fill="none" stroke="#e63946" stroke-width="1.5"/>
+    <path d="M32 8 C20 18 20 28 32 34 C44 28 44 18 32 8Z" fill="none" stroke="#e63946" stroke-width="1.5"/>
+    <line x1="32" y1="10" x2="32" y2="54" stroke="#e63946" stroke-width="1" opacity="0.5"/>
+    <line x1="10" y1="32" x2="54" y2="32" stroke="#e63946" stroke-width="1" opacity="0.5"/>
+    <circle cx="32" cy="32" r="3" fill="#e63946"/>
+    <polygon points="32,14 34,20 32,18 30,20" fill="#e63946"/>
+  </svg>
+  <div class="footer-tagline">Erkenne wer du wirklich bist</div>
+  <div class="footer-brand">Herzkompass</div>
+  <div class="footer-sub">Maya-Analyse von Tim Bernhard</div>
+</div>
+
+</div>
+</body>
+</html>
