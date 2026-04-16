@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="de" style="background:#0d1117;background-color:#0d1117;">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Herzkompass · Jayson Schnabel · KIN 20</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --black:      #0d1117;
+    --dark:       #161b22;
+    --darker:     #0a0e13;
+    --red:        #e63946;
+    --red-dim:    rgba(230,57,70,0.15);
+    --red-glow:   rgba(230,57,70,0.08);
+    --gold:       #f4a942;
+    --gold-dim:   rgba(244,169,66,0.12);
+    --white:      #f0f6fc;
+    --white-dim:  rgba(240,246,252,0.6);
+    --white-faint:rgba(240,246,252,0.25);
+    --border:     rgba(240,246,252,0.08);
+  }
+  html {
+    background: #0d1117 !important;
+    background-color: #0d1117 !important;
+    margin: 0; padding: 0; min-height: 100%;
+  }
+  body {
+    background: #0d1117 !important;
+    background-color: #0d1117 !important;
+    min-height: 100vh;
+    margin: 0; padding: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--white);
+    line-height: 1.75;
+  }
+  * { box-sizing: border-box; }
+
+  .wrapper {
+    background: #0d1117;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 100px 40px 80px;
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .hero .logo { margin-bottom: 36px; display: inline-block; }
+  .badge {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 28px;
+  }
+  .hero-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 9vw, 6rem);
+    letter-spacing: 0.04em;
+    color: var(--white);
+    margin: 0 0 20px 0;
+    line-height: 0.95;
+  }
+  .hero-subtitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 300;
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    margin-bottom: 40px;
+  }
+  .red-line {
+    width: 60px;
+    height: 2px;
+    background: var(--red);
+    margin: 36px auto;
+    border: none;
+  }
+  .hero-intro {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--white);
+    line-height: 1.8;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero-intro p { margin: 0 0 18px 0; }
+  .hero-intro p:last-child { margin-bottom: 0; }
+
+  /* STAT-BAND */
+  .stat-band {
+    display: flex;
+    background: var(--dark);
+    max-width: 960px;
+    margin: 40px auto 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-cell {
+    flex: 1;
+    padding: 32px 20px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+  }
+  .stat-cell:last-child { border-right: none; }
+  .stat-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+  .stat-value {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.4rem;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  /* CONTENT */
+  .content {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 80px 40px 60px;
+  }
+  .section { margin-bottom: 72px; }
+  .section-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--red);
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    letter-spacing: 0.03em;
+    color: var(--white);
+    margin: 0 0 32px 0;
+    line-height: 1.05;
+  }
+  .content p {
+    font-size: 1.05rem;
+    color: var(--white);
+    margin: 0 0 20px 0;
+  }
+  .content p.intro-para {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.22rem;
+    color: var(--white);
+    line-height: 1.7;
+  }
+
+  /* HIGHLIGHT BOXEN */
+  .highlight {
+    border-left: 3px solid var(--red);
+    padding: 24px 32px;
+    margin: 40px 0;
+    background: var(--red-glow);
+  }
+  .highlight p {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--white);
+    margin: 0;
+    line-height: 1.7;
+  }
+  .highlight-gold {
+    border-left: 3px solid var(--gold);
+    padding: 24px 32px;
+    margin: 40px 0;
+    background: var(--gold-dim);
+  }
+  .highlight-gold p {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--white);
+    margin: 0;
+    line-height: 1.7;
+  }
+
+  /* TAGS */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 32px 0 0;
+  }
+  .tag {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+    border: 1px solid rgba(230,57,70,0.35);
+    padding: 7px 16px;
+    border-radius: 2px;
+    background: var(--red-glow);
+  }
+
+  /* BEZIEHUNGS-KARTEN */
+  .rel-card {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--red);
+    padding: 32px;
+    margin-bottom: 20px;
+  }
+  .rel-card-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 16px;
+  }
+  .rel-card p {
+    font-size: 1.02rem;
+    color: var(--white);
+    margin: 0 0 14px 0;
+    line-height: 1.75;
+  }
+  .rel-card p:last-child { margin-bottom: 0; }
+
+  /* PROMI KARTEN */
+  .promi-card {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--red);
+    padding: 32px;
+    margin-bottom: 20px;
+  }
+  .promi-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .promi-card p {
+    font-size: 1rem;
+    color: var(--white);
+    margin: 0 0 12px 0;
+  }
+  .promi-card p:last-child { margin-bottom: 0; }
+
+  /* TRENNLINIE ZWISCHEN TEILEN */
+  .gold-line {
+    border: none;
+    border-bottom: 1px solid rgba(230,57,70,0.3);
+    margin: 72px 0;
+  }
+
+  /* ABSCHLUSS-ZITAT */
+  .closing-quote {
+    background: var(--darker);
+    padding: 100px 40px;
+    text-align: center;
+  }
+  .closing-quote .inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .closing-quote p {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    color: var(--white);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .closing-quote .guill {
+    color: var(--red);
+    font-family: 'Instrument Serif', serif;
+    font-style: normal;
+    font-size: 1.2em;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--black);
+    padding: 80px 40px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+  .footer .logo { margin-bottom: 28px; display: inline-block; }
+  .footer-claim {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 300;
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--white-dim);
+    margin-bottom: 16px;
+  }
+  .footer-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.08em;
+    color: var(--red);
+    margin-bottom: 12px;
+  }
+  .footer-author {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
+    color: var(--white-faint);
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 70px 24px 60px; }
+    .content { padding: 60px 24px 40px; }
+    .stat-band { flex-wrap: wrap; }
+    .stat-cell {
+      flex: 1 1 50%;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .stat-cell:nth-child(2) { border-right: none; }
+    .stat-cell:nth-last-child(-n+2) { border-bottom: none; }
+    .rel-card, .promi-card { padding: 24px; }
+    .closing-quote { padding: 70px 24px; }
+    .footer { padding: 60px 24px; }
+  }
+</style>
+</head>
+<body style="background:#0d1117;background-color:#0d1117;min-height:100vh;">
+<div class="wrapper" style="background:#0d1117;min-height:100vh;width:100%;">
+
+  <!-- ========= HERO ========= -->
+  <section class="hero">
+    <div class="logo">
+      <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="30" fill="none" stroke="#e63946" stroke-width="1.5"/>
+        <path d="M32 8 C20 18 20 28 32 34 C44 28 44 18 32 8Z" fill="none" stroke="#e63946" stroke-width="1.5"/>
+        <line x1="32" y1="10" x2="32" y2="54" stroke="#e63946" stroke-width="1" opacity="0.5"/>
+        <line x1="10" y1="32" x2="54" y2="32" stroke="#e63946" stroke-width="1" opacity="0.5"/>
+        <circle cx="32" cy="32" r="3" fill="#e63946"/>
+        <polygon points="32,14 34,20 32,18 30,20" fill="#e63946"/>
+      </svg>
+    </div>
+    <div class="badge">Herzkompass &middot; Maya-Analyse &middot; KIN 20</div>
+    <h1 class="hero-name">JAYSON<br/>SCHNABEL</h1>
+    <div class="hero-subtitle">Gelbe Sonne &middot; Ton 7 Resonant &middot; 15 Jahre</div>
+    <hr class="red-line"/>
+    <div class="hero-intro">
+      <p>Hey. Bevor du weiterliest &mdash; kurz ich.</p>
+      <p>Ich bin kein Therapeut. Kein Guru. Kein Typ der wei&szlig; wie das Leben funktioniert.<br/>
+      Ich bin einfach jemand der dich liebt &mdash; und der dieses System gefunden hat<br/>
+      und dachte: verdammt nochmal, das ist er. Das ist so was von er.</p>
+      <p>Ob das stimmt? Entscheid du.<br/>
+      Aber ich wette, du liest hier Sachen und denkst: wie zur H&ouml;lle wei&szlig; das jemand.<br/>
+      Das ist kein Zauber. Das bist du.</p>
+    </div>
+  </section>
+
+  <!-- ========= STAT-BAND ========= -->
+  <div class="stat-band">
+    <div class="stat-cell">
+      <div class="stat-label">KIN</div>
+      <div class="stat-value">20</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Ton</div>
+      <div class="stat-value">7 &middot; Resonant</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Archetyp</div>
+      <div class="stat-value">Gelbe Sonne</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-label">Kernkraft</div>
+      <div class="stat-value">Strahlen ohne Anstrengung</div>
+    </div>
+  </div>
+
+  <!-- ========= CONTENT ========= -->
+  <main class="content">
+
+    <!-- ===== TEIL 01 ===== -->
+    <section class="section">
+      <div class="section-num">Teil 01</div>
+      <h2 class="section-title">Wer bist du, Jayson</h2>
+
+      <p class="intro-para">Jayson. Gelbe Sonne mit Ton 7. Das klingt nach R&ouml;ntgen-Befund oder Fantasy-Roman. Ist aber eigentlich ganz simpel und ziemlich hart gleichzeitig.</p>
+
+      <p>Du bist der Typ, der durchs Leben gleitet, w&auml;hrend alle anderen sich abrackern. Du kommst zu sp&auml;t, hast nicht gelernt, wei&szlig;t nicht genau wie &mdash; und trotzdem passt am Ende irgendwie alles. Die Streber neben dir werden wahnsinnig. Die Lehrer auch. Manchmal deine Mutter.</p>
+
+      <p>Das ist keine Faulheit. Das ist deine Betriebsart. Du bist ein <strong>Ton 7</strong> &mdash; und das hei&szlig;t: Du funktionierst nach anderen Gesetzen als der Rest. Die Alten Weisen haben immer von einem Weg gesprochen, &uuml;ber den die Menschen h&auml;tten gehen sollen &mdash; den Weg ohne K&auml;mpfen, ohne Krampf, ohne st&auml;ndig am Stecker zu ziehen. Niemand wusste wie man den findet. Du musst ihn nicht finden. Du bist darauf geboren.</p>
+
+      <div class="highlight">
+        <p>&laquo; Der Quellbezug zu meinem Sonnenursprung ist meine Leiter zu allen Dimensionen. Heute lasse ich mich von den H&ouml;heren Ebenen durchfluten. &raquo;</p>
+      </div>
+
+      <p>Das ist dein KIN-Mantra. &Uuml;bersetzt: Du musst nicht alles aus dir rauspressen. Das Beste in dir kommt, wenn du nicht dagegen k&auml;mpfst. Wenn du einfach &mdash; Luft machst. Das ist f&uuml;r einen 15-J&auml;hrigen schwer zu glauben, weil dir st&auml;ndig einer sagt &bdquo;streng dich an&ldquo;. Aber dein System arbeitet andersrum.</p>
+
+      <p>Dazu kommt der Archetyp: <strong>Gelbe Sonne</strong>. AHAU. Das ist kein Spielzeug-Label. Das ist die Vollendungsstufe im ganzen System. Die Sonne strahlt einfach &mdash; sie strengt sich nicht an zu strahlen. Sie tut es. Du hast ein Charisma, das dir v&ouml;llig unbewusst ist. Wenn du den Raum betrittst, dreht sich irgendwas. Du wei&szlig;t das manchmal. Meistens nicht. Genau das macht es so stark.</p>
+
+      <p>Du sitzt in der <strong>Wei&szlig;en Magier-Welle</strong>. Die verfeinert alles, was begonnen wurde. Und im <strong>Roten Zeitschloss</strong> &mdash; dem Programm des Gelben Samens. Das ist der Rahmen, in dem dein Leben gerade spielt. Alles, was in dir angelegt ist, soll erbl&uuml;hen. Du bist der Samen, der in die Sonne wachsen will. Klingt kitschig. Ist aber genau das.</p>
+
+      <p>Die tiefste Berufsbezeichnung f&uuml;r dich im Buch ist: <em>mystische S&auml;ule</em>. Bedeutet: Du bist der ruhende Punkt, an dem sich alles andere festh&auml;lt, ohne dass du wei&szlig;t, dass du das bist. Du bist der Freund, bei dem alle zur Ruhe kommen. Ohne dass du irgendwas tust. Das ist dein Default-Modus.</p>
+
+      <div class="tags">
+        <span class="tag">Strahlkraft</span>
+        <span class="tag">Loslassen</span>
+        <span class="tag">Charisma</span>
+        <span class="tag">Mystik</span>
+        <span class="tag">Leichtigkeit</span>
+        <span class="tag">Hingabe</span>
+        <span class="tag">Universelles Feuer</span>
+      </div>
+    </section>
+
+    <hr class="gold-line"/>
+
+    <!-- ===== TEIL 02 ===== -->
+    <section class="section">
+      <div class="section-num">Teil 02</div>
+      <h2 class="section-title">Wie andere dich sehen</h2>
+
+      <p><strong>Was andere sofort sp&uuml;ren:</strong><br/>
+      Menschen m&ouml;gen dich. Die meisten k&ouml;nnen nicht mal genau sagen warum. Du hast dieses Ding &mdash; diese Mischung aus Leichtigkeit und etwas Warmem, das rauskommt, wenn du nicht versuchst cool zu sein. Gelbe Sonnen tragen das Sonnenlicht physisch in sich. Manchmal kannst du m&uuml;de aussehen oder etwas abwesend &mdash; das ist kein Defekt, das ist der Ton 7 in dir, der halt auch mal abschaltet. Der Gleichgewichtssinn ist bei dir manchmal nicht der stabilste, du bist sportlich vielleicht nicht der Kapit&auml;n der Hochsprunggruppe &mdash; egal. Dein Ding ist nicht K&ouml;rper-Brachialkraft. Dein Ding ist Pr&auml;senz, wenn du im Raum bist.</p>
+
+      <p><strong>Was andere manchmal falsch verstehen:</strong><br/>
+      Im Unterricht passiert dir das regelm&auml;&szlig;ig. Du wirkst abwesend. Traumverloren. Der Lehrer denkt, du h&ouml;rst nicht zu. Du h&ouml;rst zu &mdash; nur anders. Dein Gehirn baut im Hintergrund, w&auml;hrend du vorne sitzt. Die Note, die du mit halber Vorbereitung schreibst, ist oft besser als die vom Streber daneben. Das nervt die anderen. Ist aber einfach wie du funktionierst.</p>
+
+      <p>Und: Du machst Versprechungen. Bei dir geht das oft schneller als du danach liefern kannst. Nicht weil du l&uuml;gen willst &mdash; sondern weil du in dem Moment, wo du es sagst, es wirklich meinst. Sp&auml;ter kommt die 7 &uuml;ber dich, du bist leger, etwas langsam, und das Versprechen liegt liegen. Die Leute lernen: an den Taten erkennt man den Jayson, nicht an den Worten. Das ist hart zu h&ouml;ren, aber genauso steht es bei den Alten. F&uuml;r dich ist das wichtig zu wissen &mdash; sonst wirst du zum Blender, ohne es zu wollen.</p>
+
+      <p>Dein bester Freund erlebt dich manchmal wie hinter einer Glasscheibe. Da, aber nicht ganz. Das sind die Momente, wo du in deiner Zwischenwelt bist. Das ist nicht Desinteresse. Das ist dein System, das gerade l&auml;dt.</p>
+
+      <p><strong>Was andere schätzen, ohne es zu sagen:</strong><br/>
+      Du bist der, bei dem es nie Drama gibt. Oder: kaum Drama. Die anderen drehen durch wegen jeder Kleinigkeit &mdash; du zuckst mit den Schultern und machst weiter. Das ist keine Kaltherzigkeit. Das ist deine angeborene Gelassenheit. Die suchen Erwachsene in Meditation, Yoga und teuren Retreats. Du hast sie einfach. F&uuml;r die Menschen um dich ist das manchmal unbegreiflich &mdash; und unfassbar erholsam.</p>
+
+      <div class="highlight">
+        <p>&laquo; Du musst dich nicht anstrengen, damit dich jemand wertsch&auml;tzt. Das passiert schon, w&auml;hrend du auf dem Handy scrollst. Und das ist nicht dein Problem &mdash; das ist dein Superpower. &raquo;</p>
+      </div>
+    </section>
+
+    <hr class="gold-line"/>
+
+    <!-- ===== TEIL 03 ===== -->
+    <section class="section">
+      <div class="section-num">Teil 03</div>
+      <h2 class="section-title">Du in Beziehungen</h2>
+
+      <p>Okay. Hier wird es interessant. Weil du zwei sehr verschiedene Jaysons in einem K&ouml;rper hast.</p>
+
+      <p>Es gibt den Jayson, der pure Liebe ausstrahlt. Der gro&szlig;z&uuml;gig ist bis zur Selbstaufgabe. Der jemandem die letzte Jacke schenkt. Der in einer Gruppe daf&uuml;r sorgt, dass alle gut sind &mdash; ohne dass jemand merkt, dass du das machst. Das ist die Lichtseite der Gelben Sonne. Das ist, was das Buch <em>bedingungslose Christusliebe</em> nennt. Klingt gro&szlig;, ist es auch. Du bist dazu gebaut.</p>
+
+      <p>Und es gibt den anderen Jayson. Den Tag darauf. Pl&ouml;tzlich dreht sich alles um dich. Du erwartest, dass die Freunde, die Freundin, deine Mutter, deine Geschwister um dich herum kreisen wie die Planeten um die Sonne. Wenn sie es nicht tun, wirst du entweder still &mdash; oder frech. Das ist der Schatten. Und es ist wichtig, dass du ihn kennst. Weil er sonst Beziehungen zerst&ouml;rt, bevor du verstanden hast, was passiert ist.</p>
+
+      <p>Das Ding ist: Beides in dir kommt aus derselben Quelle. Du willst in allem Perfektion &mdash; auch in Beziehungen. Perfekte Liebe. Perfekter Frieden. Perfekte Harmonie. Wenn das Leben dir das nicht liefert, machst du dich innerlich fertig. Und manchmal auch die anderen.</p>
+
+      <p>Was du wirklich brauchst: Menschen, die dich nicht als Sonne anbeten, sondern als Mensch nehmen. Die nicht dauernd von dir Strahlen erwarten. Die dir erlauben, auch mal m&uuml;de, leger, abwesend zu sein, ohne dass du dich schuldig f&uuml;hlst. Wer dich liebt, liebt dich auch in deinen Ton-7-Trance-Phasen. Wer nur dein Strahlen will, ist der falsche Mensch f&uuml;r dich.</p>
+
+      <!-- BEZIEHUNGS-KARTEN -->
+      <div class="rel-card">
+        <div class="rel-card-title">Das sollte dein bester Freund / deine beste Freundin wissen</div>
+        <p>Jayson kommt selten mit Krise angerannt. Das hei&szlig;t nicht, dass er keine hat. Er verarbeitet anders &mdash; langsam, unterschwellig, oft in der Stille. Wenn er mal abwesend wirkt, ist es nicht gegen dich. Das ist sein Betriebsmodus.</p>
+        <p>Er kann dir mehr geben als jeder andere Freund, den du je haben wirst &mdash; weil er dich wirklich spürt. Aber er wird dich auch mal vergessen. Nicht aus Bosheit. Weil er gerade irgendwo anders ist.</p>
+        <p>Ein Rat: Mach ihm keine Szenen, wenn er ein Versprechen nicht h&auml;lt. Reagiere nicht dramatisch. Sag's ihm einfach gerade. Er h&ouml;rt es dann, ernst. Drama macht ihn zu.</p>
+        <p>Und: Lass ihn mal Chef sein. Er ist eine Leitfigur, ob er will oder nicht. Wenn ihr was plant, lass ihn den Ton angeben. Dann bl&uuml;ht er auf.</p>
+      </div>
+
+      <div class="rel-card">
+        <div class="rel-card-title">Das sollte deine Crew wissen</div>
+        <p>Jayson wird in eurer Gruppe eine Rolle einnehmen, die er nicht bewusst w&auml;hlt: er ist der Mittelpunkt. Auch wenn er nicht laut ist. Auch wenn er nicht den Ton angibt. Die Gruppe dreht sich um ihn. Das wei&szlig; er oft selbst nicht.</p>
+        <p>Das kann nerven. Manche werden denken: der tut nix und kriegt trotzdem alle Aufmerksamkeit. Stimmt irgendwie. Das ist sein Charisma. Er hat es sich nicht ausgesucht &mdash; und er missbraucht es meistens nicht.</p>
+        <p>Was euch auf die Nerven geht: Dass er sich selten richtig reinh&auml;ngt. Dass ihr die Orga macht und er auftaucht. Genau das ist aber seine Betriebsart &mdash; und wenn ihr ehrlich seid, ist es oft genau die Leichtigkeit, die ihr braucht.</p>
+        <p>Aber: Passt auf ihn auf, wenn er still wird. Wenn er sich zur&uuml;ckzieht. Dann geht's gerade nicht gut. Er sagt es nicht. Ihr m&uuml;sst es sehen.</p>
+      </div>
+
+      <div class="rel-card">
+        <div class="rel-card-title">Das sollte deine Mutter wissen</div>
+        <p>Jayson funktioniert nicht wie ein Kind, das man durch Druck motiviert. Schule, Hausaufgaben, Lernen &mdash; klassischer Erziehungsansatz zieht bei ihm nicht. Je mehr Sie dr&uuml;cken, desto mehr geht er in Trance-Modus. Das ist nicht Trotz. Das ist sein System, das gegen Druck zumacht.</p>
+        <p>Er braucht Raum. Er braucht: &bdquo;Mach das auf deine Art, ich vertraue dir.&ldquo; Dann liefert er. Manchmal sp&auml;ter als Sie denken. Manchmal anders als Sie sich vorgestellt haben. Aber er liefert.</p>
+        <p>Das Schwerste: Er hat ein starkes inneres Wechselbad. Heute Selbstbewusstsein, morgen Minderwertigkeit. Das sehen Sie oft nicht, weil er es verbirgt. Fragen Sie nicht &bdquo;was ist los&ldquo;. Sitzen Sie einfach da. Er kommt schon.</p>
+        <p>Und: Er wird manchmal Versprechungen machen, die er nicht h&auml;lt. Das ist keine L&uuml;ge &mdash; das ist seine gr&ouml;&szlig;te Schwachstelle. Nicht bestrafen. Stattdessen: Wort und Tat zusammenbringen ist das Lebensthema. Helfen Sie ihm, klein anzufangen. Kleine Versprechen halten. Dann wachsen.</p>
+      </div>
+
+      <div class="rel-card">
+        <div class="rel-card-title">Das sollte deine Freundin / dein Freund wissen</div>
+        <p>Jayson in einer Beziehung ist ein Rausch. Wenn die Sonne strahlt, f&uuml;hlt sich alles gro&szlig; an. Er kann dir das Gef&uuml;hl geben, der wichtigste Mensch auf dem Planeten zu sein.</p>
+        <p>Dann gibt es den anderen Tag. Er zieht sich zur&uuml;ck, ist abwesend, wirkt als sei er woanders. Das ist nicht gegen dich. Das ist Ton 7. Er kann nicht 24/7 in der Beziehung sein. Er muss manchmal in sich verschwinden und wieder zur&uuml;ckkommen.</p>
+        <p>Gr&ouml;&szlig;tes Missverst&auml;ndnis: Du denkst, du hast was falsch gemacht. Nein. Er ist einfach gerade woanders. Gib ihm Luft. Er kommt zur&uuml;ck mit noch mehr Liebe als vorher.</p>
+        <p>Was er von dir braucht: Wahrheit. Keine Spiele. Er sp&uuml;rt Unehrlichkeit, auch wenn er nichts sagt. Er braucht jemanden, der ihn nicht als Trophäe betrachtet, sondern als Mensch mit zwei Seiten.</p>
+      </div>
+    </section>
+
+    <hr class="gold-line"/>
+
+    <!-- ===== TEIL 04 ===== -->
+    <section class="section">
+      <div class="section-num">Teil 04</div>
+      <h2 class="section-title">Was kommt nach der Schule</h2>
+
+      <p>Das Buch gibt dir sechs Berufsrichtungen mit auf den Weg: <strong>Verkauf, Pr&auml;sentation, Motivationstrainer, Konsulent, Unternehmer, Showbusiness/B&uuml;hne.</strong> Das klingt nach „Starjob&ldquo;. Ist es auch. Aber schauen wir, warum das f&uuml;r DICH stimmt &mdash; nicht als Klischee.</p>
+
+      <p><strong>Verkauf und Pr&auml;sentation</strong> &mdash; nicht weil du Leute labern willst. Sondern weil du mit deiner Sonnenkraft Menschen &uuml;berzeugen kannst, ohne dass sie sich &uuml;berzeugt f&uuml;hlen. Du erz&auml;hlst, und die anderen kaufen. Nicht das Produkt &mdash; dich. Gelbe Sonnen schaffen Win-Win-Situationen aus dem Hut.</p>
+
+      <p><strong>Motivationstrainer / Konsulent</strong> &mdash; klingt bei einem 15-J&auml;hrigen noch weit weg. Aber merk dir: Menschen h&ouml;ren dir zu. Du kannst mitrei&szlig;en und begeistern wie kein anderer Archetyp. Das ist deine besondere Gabe. Nicht jeder hat das. Du schon.</p>
+
+      <p><strong>Unternehmer</strong> &mdash; weil du in einem System, das dir keine Entscheidungsfreiheit l&auml;sst, innerhalb von zwei Wochen ausflippst. Du brauchst deine eigene B&uuml;hne. Deinen eigenen Kopf. Deine eigene Regie. Als Angestellter in einer Schublade wirst du unteroptimal.</p>
+
+      <p><strong>Showbusiness / B&uuml;hne</strong> &mdash; das ist der direkteste. Musik, Theater, Video, YouTube, alles was dich zeigt. Achtung: Das muss nicht klassisch sein. Du kannst auch hinter der Kamera sein und trotzdem die Sonne. Creator, Produzent, Regisseur, alles, was eine B&uuml;hne hat, passt.</p>
+
+      <p>Die <strong>Zeitschloss-Energie</strong> (Rotes Zeitschloss) sagt: Bei dir wird angelegt &mdash; jetzt, in der Jugend. Der Samen ist in dir. Das Programm l&auml;uft schon. Deine Aufgabe ist nicht, dich zu erfinden. Deine Aufgabe ist, herauszulassen, was eh schon da ist.</p>
+
+      <div class="highlight-gold">
+        <p>&laquo; In jedem Team bist du der, den alle beobachten. Nicht weil du wichtig tust. Sondern weil du bist. Gew&ouml;hn dich dran. Und missbrauch es nicht. &raquo;</p>
+      </div>
+
+      <p><strong>Was dir Energie gibt:</strong> Auftreten. Feiern. Abschlie&szlig;en. Wenn du ein Projekt beendest und die Anerkennung bekommst, bist du eingeschaltet wie ein Weihnachtsbaum. Das ist dein Treibstoff.</p>
+
+      <p><strong>Was dich leer macht:</strong> Endlos-Routinen. Feste Zeiten. B&uuml;rojob ohne Deko. Arbeiten, wo keiner dich sieht und wo nix zum Feiern &uuml;brig ist. Du verkr&uuml;mmst in solchen Strukturen. Bau dein Leben so, dass du das vermeidest.</p>
+
+      <p><strong>Ein praktischer Tipp</strong> aus dem Buch, das die Alten f&uuml;r Sonnen-Typen empfehlen: Plan regelm&auml;&szlig;ig Zusammenk&uuml;nfte mit deinen Freunden. Einmal als Gastgeber &mdash; du bedienst alle, du stehst zur&uuml;ck, du schenkst. Das &uuml;bt dein Ego zur&uuml;ckzunehmen. Einmal als Zentrum &mdash; lass dich feiern, bitte deine Freunde, dir zu sagen, was sie an dir sch&auml;tzen. Das &uuml;bt, dein Strahlen anzunehmen, ohne es zu missbrauchen. Beide Seiten sind dein Training.</p>
+
+      <p>Und ein letztes, wichtigstes: <em>Versprich nur Dinge, die du ehrlich umsetzen kannst und willst.</em> Dein Tun schafft festes Vertrauen. Deine Worte allein nicht. Das ist f&uuml;r dich wichtiger als f&uuml;r die meisten anderen Menschen, weil du sonst als Blender abgestempelt wirst, obwohl du keiner bist.</p>
+
+      <div class="tags">
+        <span class="tag">B&uuml;hne</span>
+        <span class="tag">Unternehmertum</span>
+        <span class="tag">Pr&auml;sentation</span>
+        <span class="tag">Leitfigur</span>
+        <span class="tag">Abschlie&szlig;en</span>
+      </div>
+    </section>
+
+    <hr class="gold-line"/>
+
+    <!-- ===== TEIL 05 ===== -->
+    <section class="section">
+      <div class="section-num">Teil 05</div>
+      <h2 class="section-title">Menschen wie du</h2>
+
+      <p>Gelbe Sonnen mit Ton 7 &mdash; das sind die Menschen, die du im Buch findest. Die Alten nennen sie <em>die Strahlenden</em>. Hier kommen f&uuml;nf, die du teilweise kennen wirst, teilweise googeln musst. Aber alle f&uuml;nf tragen etwas in sich, das auch in dir steckt.</p>
+
+      <div class="promi-card">
+        <div class="promi-name">Albert Einstein</div>
+        <p>Der Typ ist in der Schule durchgefallen. Mathelehrer dachten, er sei langsam. Er war nicht langsam &mdash; er war Ton 7. Sein Gehirn arbeitete im Hintergrund, w&auml;hrend alle dachten, er starrt L&ouml;cher in die Luft. Genau dann kam die Relativit&auml;tstheorie raus. Nicht durch K&auml;mpfen. Durch Zulassen.</p>
+        <p>Klingt bekannt?</p>
+      </div>
+
+      <div class="promi-card">
+        <div class="promi-name">Agatha Christie</div>
+        <p>Die Queen of Crime. Schrieb Romane, die seit hundert Jahren gelesen werden. Ihre Methode? Sie setzte sich nicht an den Schreibtisch und presste raus. Sie ging spazieren. Sie l&auml;gte sich in die Badewanne. Sie lie&szlig; die Geschichten zu ihr kommen. Das ist Ton 7 in Reinform. Ergebnisse ohne Anstrengung.</p>
+        <p>Wenn du jemals glaubst, du m&uuml;sstest dich kaputt arbeiten um was Gro&szlig;es zu schaffen: Lies ihre Biografie.</p>
+      </div>
+
+      <div class="promi-card">
+        <div class="promi-name">Richard Gere</div>
+        <p>Schauspieler, Hollywood, aber auch: Meditation, Buddhismus, Ruhe. Der Typ hat das komplette Wechselbad der Gelben Sonne durchgemacht &mdash; gefeiert, verrissen, wieder gefeiert. Sein Geheimnis ist, dass er gelernt hat, mit seiner Strahlkraft umzugehen ohne sich davon verschlucken zu lassen.</p>
+        <p>Genau das ist deine Aufgabe in den kommenden zehn Jahren.</p>
+      </div>
+
+      <div class="promi-card">
+        <div class="promi-name">Hella von Sinnen</div>
+        <p>Komikerin. Riesen Pr&auml;senz, ungebremst, drau&szlig;en bei sich. Wenn sie den Raum betritt, ist sie der Raum. Das ist die Gelbe Sonne, wenn sie sich erlaubt zu strahlen, ohne Apologie. Sie hat nicht versucht, kleiner zu werden, damit andere sich wohler f&uuml;hlen. Deswegen ist sie, was sie ist.</p>
+        <p>Merkzettel: Mach dich nicht kleiner. Nie.</p>
+      </div>
+
+      <div class="promi-card">
+        <div class="promi-name">Dieter Bohlen</div>
+        <p>Ja, der auch. Umstritten, provokant, Selbstdarsteller. Aber: Er hat tausende Hits produziert, ohne je einen Takt selber zu lernen. Er lebt komplett nach dem Prinzip „mach's einfach&ldquo;. Das Wissen wie es geht, war nie sein Thema. Das Tun war's. Kehrseite: der Blender-Modus, den die Gelbe Sonne im Schatten entwickelt. Er ist ein Warn-Beispiel UND ein Vorbild gleichzeitig.</p>
+        <p>Deine Aufgabe: Das Machen von ihm lernen. Das Blenden nicht.</p>
+      </div>
+
+      <p>Was verbindet alle f&uuml;nf? Sie haben alle ihre Gabe &mdash; die Strahlkraft, das Charisma, das Ankommen ohne Krampf &mdash; angenommen und gelebt. Sie haben sich nicht entschuldigt daf&uuml;r, dass sie anders funktionieren. Und sie haben gelernt, dass Worte nichts sind ohne Taten. Drei von f&uuml;nf haben sich irgendwann fast selbst zerst&ouml;rt mit dem Wechselbad. Alle f&uuml;nf haben es &uuml;berlebt &mdash; weil sie gelernt haben, mit beiden Seiten zu leben.</p>
+
+      <p>Du wirst das auch.</p>
+    </section>
+  </main>
+
+  <!-- ========= ABSCHLUSS-ZITAT ========= -->
+  <section class="closing-quote">
+    <div class="inner">
+      <p><span class="guill">&laquo;</span> Du musst nicht k&auml;mpfen um zu strahlen, Jayson. Du musst nur aufh&ouml;ren, den Stecker zu ziehen. <span class="guill">&raquo;</span></p>
+    </div>
+  </section>
+
+  <!-- ========= FOOTER ========= -->
+  <footer class="footer">
+    <div class="logo">
+      <svg width="48" height="48" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="30" fill="none" stroke="#e63946" stroke-width="1.5"/>
+        <path d="M32 8 C20 18 20 28 32 34 C44 28 44 18 32 8Z" fill="none" stroke="#e63946" stroke-width="1.5"/>
+        <line x1="32" y1="10" x2="32" y2="54" stroke="#e63946" stroke-width="1" opacity="0.5"/>
+        <line x1="10" y1="32" x2="54" y2="32" stroke="#e63946" stroke-width="1" opacity="0.5"/>
+        <circle cx="32" cy="32" r="3" fill="#e63946"/>
+        <polygon points="32,14 34,20 32,18 30,20" fill="#e63946"/>
+      </svg>
+    </div>
+    <div class="footer-claim">Erkenne wer du wirklich bist</div>
+    <div class="footer-brand">Herzkompass</div>
+    <div class="footer-author">Maya-Analyse von Tim Bernhard</div>
+  </footer>
+
+</div>
+</body>
+</html>
