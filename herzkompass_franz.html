@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="de" style="background:#1a3a2a;background-color:#1a3a2a;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herzkompass · Franz · KIN 91</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --waldnacht: #1a3a2a;
+  --waldnacht-light: #1f4532;
+  --waldnacht-deep: #122b1e;
+  --seelengold: #C9A96E;
+  --warmweiss: #f5f0e8;
+  --warmweiss-dim: rgba(245,240,232,0.75);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { background: #1a3a2a !important; background-color: #1a3a2a !important; margin: 0; padding: 0; min-height: 100%; }
+body {
+  background: #1a3a2a !important;
+  background-color: #1a3a2a !important;
+  min-height: 100vh;
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  color: var(--warmweiss);
+  line-height: 1.8;
+}
+.wrapper {
+  background: #1a3a2a;
+  background-color: #1a3a2a;
+  min-height: 100vh;
+  width: 100%;
+}
+.hero {
+  padding: 80px 24px 60px;
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.logo-hero { margin: 0 auto 24px; display: block; }
+.logo-label {
+  font-family: 'Jost', sans-serif;
+  font-weight: 200;
+  font-size: 0.75rem;
+  color: var(--seelengold);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 3.2rem;
+  color: var(--warmweiss);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.hero-subtitle {
+  font-family: 'Jost', sans-serif;
+  font-weight: 200;
+  font-size: 0.85rem;
+  color: var(--seelengold);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero-meta {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: var(--warmweiss-dim);
+  margin-bottom: 36px;
+}
+.goldline {
+  width: 80px;
+  height: 1px;
+  background: var(--seelengold);
+  margin: 36px auto;
+  border: none;
+}
+.hero-opening {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.25rem;
+  color: var(--warmweiss);
+  line-height: 1.7;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.tim-disclaimer {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: var(--warmweiss-dim);
+  max-width: 560px;
+  margin: 28px auto 0;
+  line-height: 1.8;
+  text-align: center;
+  font-style: italic;
+}
+.profile-band {
+  background: var(--waldnacht-light);
+  padding: 40px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+  border-top: 1px solid rgba(201,169,110,0.15);
+  border-bottom: 1px solid rgba(201,169,110,0.15);
+}
+.profile-col {
+  flex: 1 1 200px;
+  min-width: 180px;
+  text-align: center;
+  padding: 8px 24px;
+  border-right: 1px solid rgba(201,169,110,0.15);
+}
+.profile-col:last-child { border-right: none; }
+.profile-label {
+  font-family: 'Jost', sans-serif;
+  font-weight: 200;
+  font-size: 0.7rem;
+  color: var(--seelengold);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.profile-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 1.15rem;
+  color: var(--warmweiss);
+  line-height: 1.4;
+}
+main {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+.section { padding-bottom: 60px; margin-bottom: 60px; border-bottom: 1px solid rgba(201,169,110,0.12); }
+.section:last-child { border-bottom: none; }
+.section-number {
+  font-family: 'Jost', sans-serif;
+  font-weight: 200;
+  font-size: 0.75rem;
+  color: var(--seelengold);
+  letter-spacing: 0.35em;
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 2.2rem;
+  color: var(--warmweiss);
+  margin-bottom: 32px;
+  line-height: 1.2;
+}
+.section p {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: var(--warmweiss);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+.highlight-box {
+  border-left: 2px solid var(--seelengold);
+  padding: 20px 28px;
+  margin: 32px 0;
+  background: rgba(201,169,110,0.05);
+  border-radius: 0 4px 4px 0;
+}
+.highlight-box p {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--warmweiss);
+  line-height: 1.6;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 28px 0 12px;
+}
+.tag {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 0.75rem;
+  color: var(--seelengold);
+  border: 1px solid rgba(201,169,110,0.4);
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+.prominent-card {
+  background: var(--waldnacht-light);
+  border: 1px solid rgba(201,169,110,0.15);
+  border-radius: 6px;
+  padding: 28px 32px;
+  margin-bottom: 20px;
+}
+.prominent-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: var(--seelengold);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.prominent-card p {
+  margin-bottom: 10px;
+  font-size: 0.98rem;
+}
+.closing-quote {
+  background: var(--waldnacht-deep);
+  padding: 100px 24px;
+  text-align: center;
+}
+.closing-quote-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+}
+.quote-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  color: var(--seelengold);
+  line-height: 1;
+  display: block;
+  margin-bottom: 12px;
+}
+.closing-quote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.8rem;
+  color: var(--warmweiss);
+  line-height: 1.5;
+}
+.footer {
+  background: var(--waldnacht-deep);
+  padding: 60px 24px 50px;
+  text-align: center;
+  border-top: 1px solid rgba(201,169,110,0.15);
+}
+.footer-logo { margin: 0 auto 20px; display: block; }
+.footer-leitsatz {
+  font-family: 'Jost', sans-serif;
+  font-weight: 200;
+  font-size: 0.8rem;
+  color: var(--seelengold);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  color: var(--seelengold);
+  margin-bottom: 10px;
+}
+.footer-slogan {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: var(--warmweiss-dim);
+}
+@media (max-width: 640px) {
+  .hero-name { font-size: 2.4rem; }
+  .section-title { font-size: 1.7rem; }
+  .closing-quote p { font-size: 1.4rem; }
+  .profile-col { border-right: none; border-bottom: 1px solid rgba(201,169,110,0.15); padding: 16px; }
+  .profile-col:last-child { border-bottom: none; }
+}
+</style>
+</head>
+<body style="background:#1a3a2a;background-color:#1a3a2a;min-height:100vh;">
+<div class="wrapper" style="background:#1a3a2a;background-color:#1a3a2a;min-height:100vh;width:100%;">
+
+<header class="hero">
+  <svg class="logo-hero" width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="32" cy="32" r="30" fill="none" stroke="#C9A96E" stroke-width="1.5"/>
+    <path d="M32 8 C20 18 20 28 32 34 C44 28 44 18 32 8Z" fill="none" stroke="#C9A96E" stroke-width="1.5"/>
+    <line x1="32" y1="10" x2="32" y2="54" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+    <line x1="10" y1="32" x2="54" y2="32" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+    <circle cx="32" cy="32" r="3" fill="#C9A96E"/>
+    <polygon points="32,14 34,20 32,18 30,20" fill="#C9A96E"/>
+  </svg>
+  <div class="logo-label">Herzkompass · Maya-Analyse</div>
+  <h1 class="hero-name">Franz · KIN 91</h1>
+  <div class="hero-subtitle">Blauer Kosmischer Affe</div>
+  <div class="hero-meta">17. August 1970 · Sturmwelle · Weißes Zeitschloss</div>
+  <hr class="goldline">
+  <p class="hero-opening">Du hast mir die Möglichkeit gegeben, dich durch diese Analyse besser kennenzulernen – und ich bin dir dankbar für dein Vertrauen. Lass uns gemeinsam schauen, wer du wirklich bist.</p>
+  <p class="tim-disclaimer">Ich bin kein Therapeut, kein Wissenschaftler – ich bin Tim, und ich glaube daran, dass jeder Mensch einen Kompass in sich trägt. Mein Ziel ist einfach: dass du dich nach dieser Lektüre ein kleines bisschen besser kennst als vorher. Diese Analyse ist eine Einladung, kein Urteil. Was sich stimmig anfühlt – nimm es mit. Was nicht passt – muss nicht stimmen.</p>
+</header>
+
+<section class="profile-band">
+  <div class="profile-col">
+    <div class="profile-label">Ton</div>
+    <div class="profile-value">13 · Kosmisch<br>Vollendung</div>
+  </div>
+  <div class="profile-col">
+    <div class="profile-label">Archetyp</div>
+    <div class="profile-value">Blauer Affe<br>CHUEN</div>
+  </div>
+  <div class="profile-col">
+    <div class="profile-label">Impulse</div>
+    <div class="profile-value">Humor · Kreativität<br>Ernten</div>
+  </div>
+  <div class="profile-col">
+    <div class="profile-label">Licht</div>
+    <div class="profile-value">Künstlerseele<br>mit Weisheit</div>
+  </div>
+</section>
+
+<main>
+
+<section class="section">
+  <div class="section-number">TEIL 01</div>
+  <h2 class="section-title">Wer bin ich</h2>
+
+  <p>Franz, bevor ich über Töne und Archetypen spreche – lass mich mit dem Fundament beginnen. Du bist ein <strong>Blauer</strong>. Und das erklärt schon eine Menge, bevor auch nur ein einziges Detail dazukommt. Blaue sind die Menschen des Wassers – sie fühlen tiefer, nehmen feiner wahr, und tragen eine Kreativität in sich, die wie eine Quelle ständig sprudelt. Du bist dünnhäutiger als die meisten um dich herum, auch wenn du dich vielleicht gerne als robust präsentierst. Das ist keine Schwäche – das ist deine Wahrnehmungsebene. Ohne diese Feinfühligkeit wärst du nicht du.</p>
+
+  <p>Jetzt kommt die Besonderheit: Du bist nicht irgendein Blauer. Du bist ein <strong>Blauer Affe</strong> – oder wie es im Buch heißt: ein "Komiker". Aber lass dich vom Wort nicht täuschen. CHUEN, der Blaue Affe, ist keine Witzfigur. Er ist die Künstlerseele in ihrer reinsten Form. Jemand, der das Leben nicht so tierisch ernst nimmt wie die anderen – nicht weil er es nicht versteht, sondern weil er begriffen hat, dass Lachen die beste Medizin ist, die es gibt. Du bist der Mensch, bei dem Menschen manchmal Teenager-Gekicher in der U-Bahn bekommen, ohne zu wissen warum. Du bringst diese Energie mit.</p>
+
+  <p>Und dann ist da noch der <strong>Ton 13 · Kosmisch</strong>. Das ist die höchste Stufe der Welle – die Vollendung. Menschen mit Ton 13 sind die Ernter. Sie kommen dann, wenn die harte Arbeit gemacht ist, und führen das Ganze zur Krönung. Im Buch steht ein Satz über 13er, der wunderschön ist: "Fertig, liebe Leute!" Du bist der Mensch, der sagen kann "Jetzt ist es gut. Jetzt wird gefeiert." Du kannst das, was andere im Chaos übersehen: den Moment erkennen, in dem es reif ist. Und der Ton hat eine besondere Zusammensetzung – drei Punkte und zwei Balken. Das heißt: Du trägst viel innere Weisheit (die Punkte), die du dann in konkrete Umsetzung bringst (die Balken). Du bist kein blinder Macher. Du bist einer, der erst spürt und dann handelt.</p>
+
+  <div class="highlight-box">
+    <p>"Mit dem heutigen Tag erfasse ich bewusst, was ich in der abgelaufenen Welle transformieren konnte. Ich freue mich über das Wachstum meines Göttlichen Anteils in mir. Ich bin meinem Ziel einen mächtigen Schritt näher."</p>
+  </div>
+
+  <p>Das ist dein persönlicher Kompass-Satz. Er sagt dir etwas Wichtiges über dich: Du bist jemand, der Rückschau halten kann – nicht grübelnd, sondern dankbar. Du siehst, was schon gewachsen ist. Das ist eine Gabe, die viele nicht haben. Die meisten hetzen von Ziel zu Ziel, ohne je stehen zu bleiben. Du nicht. Dein ganzes System ist auf den Augenblick ausgerichtet, in dem man sagen kann: "Schau, was geworden ist."</p>
+
+  <p>Deine Welle ist die <strong>Sturmwelle</strong> – und ihr Leitsatz lautet: "Mit der Kraft der Magie werden Illusionswelten leicht überschreitbar." Die Sturmwelle ist nicht die sanfte. Sie ist die, die alles in Frage stellt, alles durchschüttelt, alles transformiert. Und du, Franz, bist der <strong>Bündelungsstrahl</strong> dieser Welle – das letzte KIN, in dem sich alles sammelt. Alles, was in dieser Welle durch den Sturm gegangen ist, kommt bei dir an, wird in deinen Händen zur Ernte. Du bist derjenige, der nach dem Sturm aus dem Chaos die Kunst macht. Und du stehst im <strong>Weißen Zeitschloss</strong> – das ist die übergeordnete Reifeschule der Verfeinerung. Das heißt: Alles, was du tust, hat die Aufgabe, feiner zu werden. Klarer. Präziser. Nicht mehr, sondern besser.</p>
+
+  <div class="tags">
+    <span class="tag">Künstlerseele</span>
+    <span class="tag">Feinfühlig</span>
+    <span class="tag">Humor-Begabt</span>
+    <span class="tag">Innere Weisheit</span>
+    <span class="tag">Ernter</span>
+    <span class="tag">Transformator</span>
+    <span class="tag">Spieler mit Tiefe</span>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-number">TEIL 02</div>
+  <h2 class="section-title">Wie sehen mich andere</h2>
+
+  <p>Die meisten Menschen spüren bei dir zuerst <strong>etwas Lässiges</strong>. Eine Leichtigkeit, die schwer zu beschreiben ist. Du wirkst, als hättest du etwas verstanden, was andere noch suchen. Im Buch steht über 13er wortwörtlich: "Sie scheinen totale coole Typen." Das ist es, was Leute bei dir sofort aufschnappen – ohne es benennen zu können. Es ist diese souveräne Lässigkeit, die aus innerer Weisheit kommt, nicht aus gespielter Gelassenheit. Und gleichzeitig spüren sie deine blaue Wasserenergie: dass du tiefer fühlst als du zeigst. Dass hinter dem Humor etwas Feinsinniges steht.</p>
+
+  <p>Was Menschen an dir schätzen – oft ohne es auszusprechen – ist deine Fähigkeit, <strong>Schwere leicht zu machen</strong>. Du bist der Mensch, bei dem eine angespannte Runde plötzlich anfängt zu lachen. Nicht weil du einen Witz erzählst. Sondern weil du eine Bemerkung fallen lässt, die alles entschärft. Deine Gesichtszüge haben etwas von dem, was das Buch "unschuldiges Kind" nennt – und das ist hier keine Schwäche, sondern eine Gabe. Menschen möchten dir ungern etwas abschlagen. Sie fühlen sich wohl in deiner Nähe. Das ist deine Signatur.</p>
+
+  <p>Aber – und das ist wichtig – Menschen <strong>missverstehen dich manchmal</strong>. Sie sehen deine Lässigkeit und denken, du nimmst nichts ernst. Das ist ein Irrtum. Du nimmst vieles sehr ernst – du zeigst es nur nicht so wie andere. 13er haben ein Thema im Buch, das ehrlich benannt wird: Manchmal scheinen sie "allwissend und auf höchste Qualität ausgerichtet", und manchmal wirken sie, als könnte sie nichts aus der Ruhe bringen. Dieses Changieren verwirrt Menschen. Sie wissen nicht: Ist er jetzt konzentriert oder entspannt? Die Wahrheit: Du bist beides. Gleichzeitig. Das ist die 13er-Qualität, die viele nicht verstehen.</p>
+
+  <p>Ein zweites Missverständnis: Als Blauer Affe reagierst du empfindlich, wenn man dich auslacht – während du selbst gerne mitlachst. Das Buch sagt es unverblümt: "Sie verfügen über viel Humor, außer bei sich selbst. Da verstehen sie häufig überhaupt keinen Spaß." Menschen, die dich lange kennen, haben das vielleicht schon erlebt – dass du auf eine Bemerkung, die andere locker wegstecken würden, plötzlich dünnhäutig reagierst. Das ist nicht Empfindlichkeit im negativen Sinn. Das ist die feinfühlige Künstlerseele, die zum Kern deines Profils gehört.</p>
+
+  <div class="highlight-box">
+    <p>Franz, du wirkst auf andere wie jemand, der das Leben im Griff hat und gleichzeitig mit ihm spielt – und das ist genau die Mischung, die Menschen so schwer bei dir einordnen können. Sie schwanken zwischen "Der hat Tiefe" und "Der nimmt nichts ernst". Beides ist wahr.</p>
+  </div>
+
+  <p>Und das Dritte, was Menschen bei dir wahrnehmen, ohne es zu benennen: deine <strong>Kreativität</strong>. Im Buch steht, dass Blaue Affen "kreatives Chaos als ständigen Begleiter" haben – und dass sie es genießen, "ein wenig verrückt zu sein." Andere spüren diese unorthodoxe Energie bei dir. Du bist nicht jemand, bei dem alles nach Schema F läuft. Du bist jemand, bei dem unerwartete Dinge entstehen. Das kann im Gespräch sein, im Beruf, bei einem Projekt. Dort, wo andere die Lösung im Lehrbuch suchen, hast du sie schon drei Ecken weiter gefunden.</p>
+</section>
+
+<section class="section">
+  <div class="section-number">TEIL 03</div>
+  <h2 class="section-title">Ich in Beziehungen</h2>
+
+  <p>Franz, in Beziehungen bist du einer, der viel schenkt. <strong>Humor, Leichtigkeit, kreative Funken</strong> – all das bringst du mit. Ein Abend mit dir ist selten langweilig. Du kannst Stimmungen drehen, das Schwere auflockern, den Partner oder die Partnerin zum Lachen bringen, wenn es grad dunkel wird. Das ist eine riesige Qualität – vielleicht sogar deine wichtigste. Wer einen Blauen Affen an seiner Seite hat, hat jemanden, der das Leben nicht zur Pflichtveranstaltung werden lässt.</p>
+
+  <p>Aber hier ist die andere Seite, und sie gehört zur Wahrheit: Das Buch beschreibt es sehr direkt. Blaue Affen können sich in einer "emotionalen Zwangsjacke" fühlen. Das Innere Kind in ihnen spielt das ganze Leben lang "die Hauptrolle". Das bedeutet: Es kann Momente geben, in denen du <strong>überraschend dünnhäutig</strong> reagierst. Wo du dich plötzlich klein fühlst, verletzt, gekränkt – obwohl von außen kaum etwas passiert ist. Die Wasserenergie der Blauen bringt diese Tiefe mit. Und als 13er kommt noch hinzu: Du reagierst dann manchmal mit sehr spitzer Zunge. Das Buch nennt es "Zynismus und Sarkasmus", die dann "nur so heraussprudeln". Nicht, weil du jemanden verletzen willst. Sondern weil es dein Schutzreflex ist, wenn deine feine Konstitution Gefahr wittert.</p>
+
+  <p>Was du in Beziehungen wirklich brauchst – und was andere wissen sollten – ist <strong>Raum für deine Künstlerseele</strong>. Du brauchst jemanden, der versteht, dass du nicht immer "funktionieren" musst. Jemanden, der mit dir lachen kann, aber auch die Stille aushält, wenn du dich zurückziehst. Die Sturmwelle in dir bedeutet auch: Du räumst manchmal innerlich auf – und in solchen Phasen bist du nicht einfach "verfügbar". Das hat nichts mit der anderen Person zu tun. Es ist dein innerer Zyklus.</p>
+
+  <p>Das Buch gibt einen sehr klaren Trennungs-Hinweis für Affen-Tage, den ich hier weitergeben muss: Wenn sich die "gekränkte Kinderseele" bei dir meldet – vermeide Grundsatzdiskussionen. Beobachte es. Wenn es bei dir selbst auftaucht: kurz durchatmen, bevor du reagierst. Das ist das Übungsfeld des Blauen Affen, und es ist ein Lebensthema, kein Zwei-Wochen-Projekt.</p>
+
+  <div class="highlight-box">
+    <p>An alle, die Franz lieben: Er ist einer der feinfühligsten Menschen, die ihr kennt – auch wenn er sich als Cooler präsentiert. Nehmt ihn nicht zu sehr auf die Schippe, wenn er gerade empfindlich ist. Lacht mit ihm, nicht über ihn. Dann schenkt er euch Jahre voller Leichtigkeit, die Gold wert sind.</p>
+  </div>
+
+  <p>Und noch etwas, was zu 13ern gehört und ehrlich gesagt werden darf: Das Buch warnt davor, dass 13er gerne "mit fremden Federn schmücken" oder "fremdsorgen lassen" können. Das ist kein Vorwurf – das ist der Schatten, den jeder 13er kennt. Die Aufgabe in Beziehungen: Gerechten Ausgleich zu finden. Zu sehen, wo der andere gibt, und zu schauen, dass du selbst auch gibst. Wenn du das bewusst hältst, wird aus der 13er-Erntefreude keine Einseitigkeit, sondern echte Partnerschaft.</p>
+</section>
+
+<section class="section">
+  <div class="section-number">TEIL 04</div>
+  <h2 class="section-title">Ich im Beruf</h2>
+
+  <p>Franz, der Beruf ist bei dir ein spannendes Kapitel. Du bist <strong>Blau</strong> – das heißt, deine natürliche Rolle in jedem Projekt ist die des Kreativen und Transformierenden. Du bist nicht der Starter (das ist Rot) und nicht der Feinabstimmer (das ist Weiß). Du kommst dann ins Spiel, wenn Dinge verwandelt werden müssen. Wenn aus einem Rohbau Kunst werden soll. Wenn aus einer Idee etwas Lebendiges entstehen muss. Und als <strong>13er</strong> bist du gleichzeitig der Vollender – du bringst es zum Abschluss, zur Ernte, zum "Jetzt ist es fertig."</p>
+
+  <p>Das ist eine seltene Kombination: Transformation <em>und</em> Vollendung in einer Person. Du kannst also etwas, das viele nicht können: Du kannst ein Projekt in einer kreativen Phase aufgreifen – wenn es noch ungeformt ist – und es bis zur präsentierbaren Ernte führen. Das Buch sagt es präzise: 13er können wirklich "hervorragend den fehlenden i-Punkt hinzufügen und Produkte präsentieren." Genau das ist dein Job. Nicht die Grundsteinlegung. Die Krönung.</p>
+
+  <p>Das Buch nennt sieben Berufsfelder, die dir besonders liegen – und jedes davon hat einen Grund:</p>
+
+  <p><strong>Gestaltende Künstler/in</strong> – nicht weil du einen Pinsel halten musst, sondern weil du den Blick hast für das, was aus Rohmaterial werden kann. Egal ob Farbe, Klang, Wort oder Idee.</p>
+
+  <p><strong>Schauspieler/in und Kabarett</strong> – weil du die Fähigkeit hast, in verschiedene Rollen zu schlüpfen. Das Buch schreibt, dass Blaue Affen "meisterlich" darin sind, "alle Register zu ziehen." Auf der Bühne wird daraus eine Kunstform, kein Problem.</p>
+
+  <p><strong>Kinder-Pädagogik</strong> – weil das Innere Kind in dir die Hauptrolle spielt. Du verstehst Kinder, weil du selbst nie ganz aufgehört hast, eines zu sein. Und das ist hier eine Stärke, keine Schwäche.</p>
+
+  <p><strong>Spiele-Entwickler/in</strong> – weil dein ganzes System auf "Spiel statt Ernst" eingestellt ist. Wer Spiele erfindet, muss genau diese Qualität haben: die Welt als Spielplatz sehen können.</p>
+
+  <p><strong>Inneres-Kind-Therapeut/in und Lachtherapeut/in</strong> – das ist die Königsdisziplin. Weil du den Schmerz des Inneren Kindes aus eigener Erfahrung kennst. Und weil du weißt, wie Lachen heilen kann. Menschen, die das selbst durchlebt haben, sind die besten Begleiter für andere.</p>
+
+  <p>Was dir <strong>Energie gibt</strong> ist alles, wo Kreativität frei fließen darf. Wo du nicht in Schemata gepresst wirst. Wo dein Humor Platz hat. Und wo am Ende etwas steht, das man präsentieren und feiern kann. Ein Projekt, das nie abgeschlossen wird, macht dich auf Dauer müde – denn als 13er brauchst du die Ernte. Was dir <strong>Energie raubt</strong>: monotone Routine ohne Abschluss, zu enge Hierarchien, Umfelder, in denen Humor als unseriös gilt.</p>
+
+  <p>Und weil dein Zeitschloss das <strong>Weiße</strong> ist – die Schule der Verfeinerung – kommt noch eine Ebene dazu: Du darfst dein kreatives Chaos bewusst verfeinern. Nicht banalisieren, nicht glätten – aber klarer machen. Das ist die Reifeaufgabe deines Lebens: Aus sprudelnder Fülle das herausschälen, was wirklich zählt.</p>
+
+  <div class="highlight-box">
+    <p>Franz, deine berufliche Rolle ist nicht, das Schwere zu tragen – sondern aus dem, was andere geschaffen haben, Kunst zu machen und sie zur Vollendung zu bringen. Du bist der, der aus Rohmaterial Ernte macht. Und der dabei nie vergisst, dass das Leben ein Spiel sein darf.</p>
+  </div>
+
+  <p>Ein praktischer Tipp aus dem Buch, den ich dir mitgeben möchte: Die "Affen-Übungen" – regelmäßig Kabarett besuchen, Lachtherapie, Rollenspiele, bewusst verschiedene "Hüte" des Lebens aufsetzen und wieder ablegen. Das ist keine Spielerei. Das ist dein energetisches Tanken. Ein Blauer Affe, der zu lange ernst bleibt, verliert sich selbst.</p>
+</section>
+
+<section class="section">
+  <div class="section-number">TEIL 05</div>
+  <h2 class="section-title">Menschen wie du</h2>
+
+  <p>Das Buch nennt fünf Prominente, die deine Signatur teilen. Jeder von ihnen ist ein Spiegel für einen Teil von dir:</p>
+
+  <div class="prominent-card">
+    <div class="prominent-name">Helena P. Blavatsky</div>
+    <p>Die Mystikerin und Mitbegründerin der Theosophie. Eine Frau, die tiefe spirituelle Weisheit mit einem unorthodoxen, oft provokativen Auftreten verband. Sie war unbequem, schillernd, nicht einzuordnen. Genau das, was 13er oft ausmacht: innere Weisheit gepaart mit einer Unangepasstheit, die Zeitgenossen verwirrt hat. Klingt das bekannt?</p>
+  </div>
+
+  <div class="prominent-card">
+    <div class="prominent-name">Elton John</div>
+    <p>Der Mann, der das Klavier spielt und gleichzeitig Federboas trägt. Tiefe Musikalität und theatralische Leichtigkeit in einer Person. Ein Künstler, der sein Inneres Kind nie abgelegt hat, ohne dabei die Tiefe zu verlieren. Das ist die Affen-Qualität: Spiel und Ernst gleichzeitig. Franz, spürst du die Verwandtschaft?</p>
+  </div>
+
+  <div class="prominent-card">
+    <div class="prominent-name">David Copperfield</div>
+    <p>Der Magier. Der Mann, der aus Alltag Wunder macht. Genau das ist der Wellenleitsatz deiner Sturmwelle: "Mit der Kraft der Magie werden Illusionswelten leicht überschreitbar." Copperfield lebt das buchstäblich. Er zeigt Menschen, dass Grenzen nicht da sind, wo sie sie vermuten.</p>
+  </div>
+
+  <div class="prominent-card">
+    <div class="prominent-name">Ben Stiller</div>
+    <p>Schauspieler, Komiker, aber einer mit Tiefe. Seine besten Filme sind die, in denen das Komische und das Melancholische nebeneinanderstehen. Ein Mensch, der Humor als Schutzschild und Werkzeug nutzt – und trotzdem die Tiefe nicht verliert. Das ist exakt die CHUEN-Qualität.</p>
+  </div>
+
+  <div class="prominent-card">
+    <div class="prominent-name">Michael Niavarani</div>
+    <p>Der österreichische Kabarettist, der das Publikum nicht nur zum Lachen bringt, sondern dabei oft über gesellschaftliche Wahrheiten stolpern lässt. Einer, der beweist: Kabarett ist nicht Unterhaltung im Leichten – es ist Philosophie im Lachenden. Und damit ist er nah bei dir.</p>
+  </div>
+
+  <p>Was diese fünf Menschen verbindet: Sie alle haben verstanden, dass <strong>Humor und Tiefe keine Gegensätze sind</strong>. Dass man das Leben nicht ernst nehmen muss, um es ernst zu meinen. Dass die Künstlerseele und der Philosoph in einem Körper wohnen können. Und dass man "ein wenig verrückt sein darf" – wie das Buch es formuliert – wenn man dabei seine innere Wahrheit nicht verliert. Das sagt etwas Wichtiges über dich, Franz: Du stehst in einer Reihe von Menschen, die das Leben nicht durch Ernsthaftigkeit geadelt haben, sondern durch Lachen. Das ist dein Erbe. Und deine Aufgabe.</p>
+</section>
+
+</main>
+
+<section class="closing-quote">
+  <div class="closing-quote-inner">
+    <span class="quote-mark">»</span>
+    <p>Franz, du bist der Mensch, der nach jedem Sturm das Lachen wiederfindet, die Ernte einfährt, und dabei nie vergisst, dass das Leben ein Spiel mit Tiefe ist.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <svg class="footer-logo" width="48" height="48" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="32" cy="32" r="30" fill="none" stroke="#C9A96E" stroke-width="1.5"/>
+    <path d="M32 8 C20 18 20 28 32 34 C44 28 44 18 32 8Z" fill="none" stroke="#C9A96E" stroke-width="1.5"/>
+    <line x1="32" y1="10" x2="32" y2="54" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+    <line x1="10" y1="32" x2="54" y2="32" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+    <circle cx="32" cy="32" r="3" fill="#C9A96E"/>
+    <polygon points="32,14 34,20 32,18 30,20" fill="#C9A96E"/>
+  </svg>
+  <div class="footer-leitsatz">Erkenne wer du wirklich bist</div>
+  <div class="footer-brand">Herzkompass</div>
+  <div class="footer-slogan">Dein innerer Kompass · Maya-Analyse von Tim Bernhard</div>
+</footer>
+
+</div>
+</body>
+</html>
