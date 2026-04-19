@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="de" style="background:#1a3a2a;background-color:#1a3a2a;">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Herzkompass · Britta · KIN 227</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --waldnacht:       #1a3a2a;
+  --waldnacht-light: #1f4532;
+  --waldnacht-deep:  #122b1e;
+  --seelengold:      #C9A96E;
+  --warmweiss:       #f5f0e8;
+  --warmweiss-dim:   rgba(245,240,232,0.75);
+}
+
+html { background: #1a3a2a !important; background-color: #1a3a2a !important;
+       margin: 0; padding: 0; min-height: 100%; }
+body { background: #1a3a2a !important; background-color: #1a3a2a !important;
+       min-height: 100vh; margin: 0; padding: 0;
+       font-family: 'Jost', sans-serif; font-weight: 300;
+       color: var(--warmweiss); line-height: 1.85;
+       -webkit-font-smoothing: antialiased; }
+
+.hero {
+  text-align: center;
+  padding: 80px 24px 60px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.hero-logo { margin-bottom: 32px; display: inline-block; }
+.logo-label {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 0.72rem; color: var(--seelengold);
+  letter-spacing: 0.35em; text-transform: uppercase;
+  margin-bottom: 40px;
+}
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400; font-size: 3.4rem; line-height: 1.1;
+  color: var(--warmweiss); margin: 0 0 8px;
+  letter-spacing: 0.02em;
+}
+.hero-kin {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300; font-size: 1.9rem;
+  color: var(--seelengold);
+  letter-spacing: 0.08em; margin-bottom: 28px;
+}
+.hero-subtitle {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 0.82rem; color: var(--seelengold);
+  letter-spacing: 0.3em; text-transform: uppercase;
+  margin-bottom: 22px;
+}
+.hero-meta {
+  font-family: 'Jost', sans-serif; font-weight: 300;
+  font-size: 0.9rem; color: var(--warmweiss-dim);
+  letter-spacing: 0.05em;
+  margin-bottom: 36px;
+}
+.gold-line {
+  width: 80px; height: 1px;
+  background: var(--seelengold);
+  margin: 36px auto;
+}
+.hero-opening {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 1.25rem;
+  color: var(--warmweiss); line-height: 1.7;
+  max-width: 620px; margin: 0 auto;
+}
+
+.tim-disclaimer {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: var(--warmweiss-dim);
+  max-width: 560px;
+  margin: 28px auto 0;
+  line-height: 1.8;
+  text-align: center;
+  font-style: italic;
+}
+
+.profile-band {
+  background: var(--waldnacht-light);
+  padding: 44px 24px;
+  margin-top: 24px;
+}
+.profile-inner {
+  max-width: 960px; margin: 0 auto;
+  display: flex; flex-wrap: wrap; justify-content: center;
+}
+.profile-col {
+  flex: 1; min-width: 200px;
+  padding: 8px 32px; text-align: center;
+  border-right: 1px solid rgba(201,169,110,0.15);
+}
+.profile-col:last-child { border-right: none; }
+.profile-label {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 0.7rem; color: var(--seelengold);
+  letter-spacing: 0.28em; text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.profile-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400; font-size: 1.15rem;
+  color: var(--warmweiss); line-height: 1.5;
+}
+
+.main-content {
+  max-width: 820px; margin: 0 auto;
+  padding: 80px 28px 60px;
+}
+
+.section {
+  margin-bottom: 72px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(201,169,110,0.12);
+}
+.section:last-of-type { border-bottom: none; }
+
+.section-number {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 0.72rem; color: var(--seelengold);
+  letter-spacing: 0.35em; text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500; font-size: 2.2rem;
+  color: var(--warmweiss); line-height: 1.2;
+  margin: 0 0 36px;
+  letter-spacing: 0.01em;
+}
+.section-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500; font-style: italic;
+  font-size: 1.4rem;
+  color: var(--seelengold);
+  margin: 40px 0 20px;
+}
+
+.section p {
+  font-family: 'Jost', sans-serif; font-weight: 300;
+  font-size: 1.02rem; line-height: 1.9;
+  color: var(--warmweiss);
+  margin: 0 0 20px;
+}
+
+.highlight-box {
+  border-left: 2px solid var(--seelengold);
+  padding: 20px 28px;
+  margin: 32px 0;
+  background: rgba(201,169,110,0.05);
+  border-radius: 0 4px 4px 0;
+}
+.highlight-box p {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--warmweiss);
+}
+
+.mantra-box {
+  border: 1px solid rgba(201,169,110,0.3);
+  border-radius: 4px;
+  padding: 28px 32px;
+  margin: 40px 0;
+  text-align: center;
+  background: rgba(201,169,110,0.03);
+}
+.mantra-label {
+  font-family: 'Jost', sans-serif;
+  font-weight: 200;
+  font-size: 0.68rem;
+  color: var(--seelengold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.mantra-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.12rem;
+  color: var(--warmweiss);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.einladung-box {
+  border: 1px solid rgba(201,169,110,0.3);
+  border-radius: 6px;
+  padding: 36px 40px;
+  margin: 48px 0 24px;
+  background: rgba(201,169,110,0.04);
+  position: relative;
+}
+.einladung-label {
+  font-family: 'Jost', sans-serif;
+  font-weight: 200;
+  font-size: 0.68rem;
+  color: var(--seelengold);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.einladung-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--warmweiss);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+.einladung-fragen {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--warmweiss);
+  line-height: 2;
+  padding-left: 24px;
+  margin: 20px 0;
+  border-left: 1px solid rgba(201,169,110,0.3);
+}
+.einladung-schluss {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--warmweiss);
+  line-height: 1.85;
+  margin-top: 20px;
+}
+
+.tags {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin-top: 32px;
+}
+.tag {
+  font-family: 'Jost', sans-serif; font-weight: 300;
+  font-size: 0.75rem;
+  color: var(--seelengold);
+  border: 1px solid rgba(201,169,110,0.4);
+  padding: 5px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+}
+
+.prominent-card {
+  background: var(--waldnacht-light);
+  border: 1px solid rgba(201,169,110,0.15);
+  border-radius: 6px;
+  padding: 28px 32px;
+  margin-bottom: 20px;
+}
+.prominent-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: var(--seelengold);
+  font-weight: 600;
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+.prominent-card p {
+  margin: 0;
+  font-size: 0.98rem;
+}
+
+.abschluss-zitat-wrap {
+  background: var(--waldnacht-deep);
+  padding: 100px 32px;
+  text-align: center;
+}
+.abschluss-zitat {
+  max-width: 720px; margin: 0 auto;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 2rem;
+  color: var(--warmweiss);
+  line-height: 1.4;
+}
+.abschluss-zitat .guillemet {
+  color: var(--seelengold);
+  font-size: 2.4rem;
+  font-style: normal;
+  display: inline-block;
+  line-height: 0;
+  vertical-align: -0.08em;
+}
+
+.footer {
+  background: var(--waldnacht-deep);
+  border-top: 1px solid rgba(201,169,110,0.12);
+  text-align: center;
+  padding: 60px 24px 56px;
+}
+.footer-logo { margin-bottom: 24px; }
+.footer-leitsatz {
+  font-family: 'Jost', sans-serif; font-weight: 200;
+  font-size: 0.78rem; color: var(--seelengold);
+  letter-spacing: 0.35em; text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem; color: var(--seelengold);
+  font-weight: 400;
+  margin-bottom: 10px;
+  letter-spacing: 0.04em;
+}
+.footer-slogan {
+  font-family: 'Jost', sans-serif; font-weight: 300;
+  font-size: 0.88rem; color: var(--warmweiss-dim);
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 640px) {
+  .hero { padding: 60px 20px 40px; }
+  .hero-name { font-size: 2.4rem; }
+  .hero-kin { font-size: 1.4rem; }
+  .main-content { padding: 60px 20px 40px; }
+  .section-title { font-size: 1.8rem; }
+  .abschluss-zitat { font-size: 1.5rem; }
+  .profile-col { border-right: none; padding: 14px 0;
+    border-bottom: 1px solid rgba(201,169,110,0.15); }
+  .profile-col:last-child { border-bottom: none; }
+  .einladung-box { padding: 28px 24px; }
+}
+</style>
+</head>
+<body style="background:#1a3a2a;background-color:#1a3a2a;min-height:100vh;">
+<div style="background:#1a3a2a;background-color:#1a3a2a;min-height:100vh;width:100%;">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-logo">
+    <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="30" fill="none" stroke="#C9A96E" stroke-width="1.5"/>
+      <path d="M32 8 C20 18 20 28 32 34 C44 28 44 18 32 8Z" fill="none" stroke="#C9A96E" stroke-width="1.5"/>
+      <line x1="32" y1="10" x2="32" y2="54" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+      <line x1="10" y1="32" x2="54" y2="32" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+      <circle cx="32" cy="32" r="3" fill="#C9A96E"/>
+      <polygon points="32,14 34,20 32,18 30,20" fill="#C9A96E"/>
+    </svg>
+  </div>
+  <div class="logo-label">Herzkompass · Maya-Analyse</div>
+  <h1 class="hero-name">Britta</h1>
+  <div class="hero-kin">KIN 227</div>
+  <div class="hero-subtitle">Blaue Rhythmische Hand</div>
+  <div class="hero-meta">9. Juni 1967 · Wind-Welle · Grünes Zeitschloss</div>
+  <div class="gold-line"></div>
+  <p class="hero-opening">Du hast mir die Möglichkeit gegeben, dich durch diese Analyse besser kennenzulernen — und ich bin dir dankbar für dein Vertrauen. Lass uns gemeinsam schauen, wer du wirklich bist.</p>
+  <p class="tim-disclaimer">Ich bin kein Therapeut, kein Wissenschaftler — ich bin Tim, und ich glaube daran, dass jeder Mensch einen Kompass in sich trägt. Mein Ziel ist einfach: dass du dich nach dieser Lektüre ein kleines bisschen besser kennst als vorher. Diese Analyse ist eine Einladung, kein Urteil. Was sich stimmig anfühlt — nimm es mit. Was nicht passt — muss nicht stimmen.</p>
+</section>
+
+<!-- PROFIL-BAND -->
+<section class="profile-band">
+  <div class="profile-inner">
+    <div class="profile-col">
+      <div class="profile-label">Ton</div>
+      <div class="profile-value">6 · Rhythmisch<br>Harmonisierend</div>
+    </div>
+    <div class="profile-col">
+      <div class="profile-label">Archetyp</div>
+      <div class="profile-value">MANIK<br>Blaue Hand</div>
+    </div>
+    <div class="profile-col">
+      <div class="profile-label">Impulse</div>
+      <div class="profile-value">Heilung · Balance<br>Vervollkommnung</div>
+    </div>
+    <div class="profile-col">
+      <div class="profile-label">Licht</div>
+      <div class="profile-value">Hand Gottes · Ausgleich<br>Vielseitigkeit · Sympathie</div>
+    </div>
+  </div>
+</section>
+
+<!-- HAUPTINHALT -->
+<main class="main-content">
+
+  <!-- TEIL 01 -->
+  <section class="section">
+    <div class="section-number">Teil 01</div>
+    <h2 class="section-title">Wer bin ich</h2>
+
+    <p>Du bist eine Blaue — und wenn man wissen will wer du wirklich bist, beginnt man nicht mit dem Verstand. Man beginnt mit dem Gefühl. Blau ist die Farbe des Wassers, der Tiefe, der inneren Wahrnehmung. Blaue spüren die Dinge, bevor andere sie benennen können. Sie nehmen Stimmungen wahr, wenn ein Raum noch leer aussieht. Sie wissen, dass etwas nicht stimmt, bevor jemand ausgesprochen hat, dass etwas nicht stimmt. Das ist keine Magie — das ist dein System.</p>
+
+    <p>Dazu kommt dein Ton 6 — der Balance-Ton schlechthin. In dir ist die Empfangs-Ebene und die Handlungs-Ebene exakt gleich stark. Ein Punkt, ein Balken. Innen und Außen im Gleichgewicht. Du nimmst wahr, <strong>und</strong> du handelst — nicht nacheinander, sondern gleichzeitig. Das macht dich zu einer Frau, die Räume verändert, ohne dass man später sagen könnte, wie du das gemacht hast. Du kommst in eine angespannte Situation herein, und zwanzig Minuten später ist die Luft klar.</p>
+
+    <p>Und dann dein Archetyp: die Blaue Hand. Die Handwerker. Die Ritter in der goldenen Rüstung. Die Hand Gottes. Das klingt groß — ist aber sehr konkret gemeint. Blaue Hände sind Menschen, bei denen Heilung durch das konkrete Tun passiert. Nicht durch schöne Worte. Nicht durch Theorien. Sondern durch das, was sie mit ihren Händen machen — an einem Menschen, an einem Ding, an einem Raum.</p>
+
+    <p>In einem Satz: Eine Frau mit feinster Wahrnehmung, die in Balance wirkt, und die heilt, indem sie tut.</p>
+
+    <div class="mantra-box">
+      <div class="mantra-label">Dein KIN-Mantra</div>
+      <p class="mantra-text">Ich lenke heute meine Aufmerksamkeit auf meine Heilungskräfte, auf meinen inneren Arzt. Unstimmigkeiten, die ich ausgleiche, vervollkommnen mein Leben.</p>
+    </div>
+
+    <p>Dein Ton 6 steht in der Welle kurz vor dem Höchstpunkt (7). Das ist die Stufe des Durchatmens, der Sammlung, bevor etwas Größeres kommt. Menschen mit Ton 6 haben diese besondere Gabe: Sie schaffen den Moment, in dem das Durcheinander sich setzen kann. Nicht durch Eingreifen — durch ihre bloße Anwesenheit. Du bist nicht die, die auf den Tisch haut. Du bist die, die den Tisch wieder deckt, nachdem einer draufgehauen hat.</p>
+
+    <p>Deine Welle — die Wind-Welle — steht unter der Leitenergie des Weißen Windes: der Energie feiner Botschaften, der Kommunikation aus dem Herzen, des Atems. Ihr Wellenleitsatz lautet: <em>»Gleichgewicht ermöglicht Wissen; Heilung schafft Gleichgewicht.«</em> Das ist kein Slogan — das ist deine Lebensformel. Und ein schöner Zufall, wenn es denn einer wäre: Deine Blaue Hand und der Weiße Wind gehören zur selben Familie im Maya-System — der Herzfamilie. Du bewegst dich also in einer Welle, die mit dir im Einklang ist. Kein Wunder, dass Menschen in deiner Nähe oft beginnen zu atmen — tief, wörtlich, spürbar.</p>
+
+    <p>Du stehst im grünen Zeitschloss — dem fünften und letzten. Das grüne Zeitschloss ist der Schluss-Stein, die Synchronisation, das Große Zusammenfließen. Während andere noch einzelne Puzzleteile sortieren, siehst du bereits das Bild. Deine Aufgabe in diesem Leben ist nicht, Neues anzufangen. Sie ist zu synthetisieren — das Getrennte wieder zusammenzubringen. Das ist ein reifes Kraftfeld. Nicht jede Seele bekommt diesen Platz.</p>
+
+    <div class="highlight-box">
+      <p>Du bist nicht hier, um etwas Neues zu starten. Du bist hier, um alles was du berührst, in Gleichgewicht zu bringen.</p>
+    </div>
+
+    <div class="tags">
+      <span class="tag">Friedensstifterin</span>
+      <span class="tag">Goldene Hände</span>
+      <span class="tag">Innerer Arzt</span>
+      <span class="tag">Herzfamilie</span>
+      <span class="tag">Tausendsassa</span>
+      <span class="tag">Harmoniebringerin</span>
+      <span class="tag">Stille Heilerin</span>
+    </div>
+  </section>
+
+  <!-- TEIL 02 -->
+  <section class="section">
+    <div class="section-number">Teil 02</div>
+    <h2 class="section-title">Wie sehen mich andere</h2>
+
+    <h3 class="section-subtitle">Was andere sofort spüren</h3>
+    <p>Menschen kommen in deine Nähe und werden ruhiger. Das ist der erste Effekt. Sie können oft nicht benennen warum — sie wissen nur, dass sich bei dir etwas löst. Das ist die 6er-Energie in Reinform: Du verwandelst einen Raum einfach durch dein Betreten. Dazu kommt die blaue Wasserenergie, die beruhigend wirkt wie eine Wasserfläche, auf die man schaut. Und die verlässliche, kumpelhafte Qualität der Blauen Hand — dieses unausgesprochene Signal: <em>Bei ihr bin ich in guten Händen.</em></p>
+
+    <p>Körperlich zeigt sich das Blaue oft in einer gewissen Feinheit. Blaue sind dünnhäutiger als sie zugeben — auch wenn sie sich gerne als robust geben. Deine Wahrnehmung geht tiefer als bei anderen. Dein Körper reagiert auf Dinge, die andere einfach wegdrücken: schlechte Stimmungen, verbrauchte Luft, zu viel Lärm, zu viele Menschen. Das ist kein Makel. Das ist ein Warnsystem, das du pflegen darfst wie einen guten Garten.</p>
+
+    <h3 class="section-subtitle">Was andere manchmal missverstehen</h3>
+    <p>Manchmal hält man dich für zurückhaltend oder unentschlossen. Das stimmt so nicht. Du bist jemand, der den Streit meidet — aber nicht aus Feigheit, sondern aus Erfahrung. Du weißt, wenn ich jetzt in diese Diskussion gehe, gewinnt am Ende keiner. Also gehst du nicht rein. Von außen sieht das aus wie <em>sie kämpft nicht</em>. In Wirklichkeit ist es eine sehr erwachsene Strategie, die viele Menschen erst mit sechzig lernen — du hast sie immer schon gehabt.</p>
+
+    <p>Der zweite Punkt: Weil du so hilfsbereit bist, wird manchmal übersehen, dass du selbst etwas brauchst. Du hilfst schnell, routiniert, effektiv. Niemand kommt auf die Idee, dich zu fragen, wie es dir selbst geht — weil du wirkst wie jemand, der immer weiß was er tut. Das ist ein echter blinder Fleck im Umfeld. Nicht deiner — ihrer.</p>
+
+    <p>Der dritte Punkt: Deine angefangenen Projekte. Das halbfertige Regal, die noch nicht gestrichene Wand, die unbeendete Idee. Manche halten das für mangelnde Disziplin. Ist es nicht. Deine Kreativität ist einfach schneller als deine Zeit. Du hättest zehn Leben gebraucht, um alles umzusetzen, was in dir an Ideen auftaucht. Das ist kein Defizit. Das ist Überfluss.</p>
+
+    <h3 class="section-subtitle">Was andere schätzen</h3>
+    <p>Wenn jemand wirklich in Not ist — nicht theatralisch, sondern echt — dann bist plötzlich du da. Ohne großes Aufheben. Ohne zu fragen, was du davon hast. Einfach da. Mit den Händen. Mit dem ruhigen Ton. Mit dieser merkwürdigen Eigenschaft, dass nach zehn Minuten alles wieder händelbar aussieht. Menschen sagen das selten laut — aber sie wissen, wer du in ihrem Leben bist. Du bist die, bei der man ankommen kann.</p>
+
+    <div class="highlight-box">
+      <p>Menschen vergessen manchmal, dich zu fragen wie es dir geht — weil du aussiehst wie jemand, der selbst nie Hilfe braucht.</p>
+    </div>
+  </section>
+
+  <!-- TEIL 03 -->
+  <section class="section">
+    <div class="section-number">Teil 03</div>
+    <h2 class="section-title">Ich in Beziehungen</h2>
+
+    <h3 class="section-subtitle">Was ich mitbringe</h3>
+    <p>In Beziehungen bringst du eine seltene Kombination mit. Du bist die Freundin, die Partnerin, die Schwester, bei der andere sich fallen lassen können. Weil du zuhörst. Weil du spürst. Weil du nichts vorschnell bewertest. Das ist dein Geschenk: Du machst den anderen entspannter — nicht durch viele Worte, sondern durch deine Präsenz. Du bist wie ein Zimmer, in das man eintreten kann, um Atem zu holen.</p>
+
+    <p>Aber — und das ist wichtig: Du bist nicht nur die Hörende. Unter der Freundlichkeit liegt eine innere Festigkeit. Du bist keine weichgespülte Mitfühlerin. Du hast Prinzipien. Und wenn es wirklich darauf ankommt, gehst du deinen eigenen Weg — auch wenn es andere enttäuscht. Diese Mischung aus echter Wärme und stiller Selbstbestimmung ist selten.</p>
+
+    <p>Dein blinder Fleck: Du weichst Konflikten aus. Nicht immer — aber häufiger, als gut für dich ist. Wenn du merkst, dass eine Auseinandersetzung auf dich zukommt, suchst du den Ausgang. Nicht laut. Leise. Manchmal bemerkt der andere gar nicht, dass du gerade aus der Situation verschwunden bist. Emotional verschwunden. Körperlich noch da. Das Problem: Der Konflikt ist dann nicht gelöst — er ist aufgespart. Und kommt später zurück, größer.</p>
+
+    <p>Was du wirklich brauchst: einen Menschen, der merkt, wenn du leise wirst. Der nicht gleich nachgibt, wenn du den Rückzug antrittst. Der dich einlädt — sanft, ohne Druck — zurückzukommen. Menschen, die sich von deiner Freundlichkeit täuschen lassen, werden dich irgendwann verlieren. Menschen, die deine Freundlichkeit ernst nehmen und trotzdem erkennen, dass darunter eine Frau mit Meinung steht, werden dich halten.</p>
+
+    <p>Das Zweite: Du brauchst Zeiten, in denen du nicht gebraucht wirst. In denen keiner etwas von dir will. Sonst wird deine Helfer-Energie zum Zwang. Dann wirst du entweder mürrisch — oder du ziehst dich ganz zurück. Und das kommt für dein Umfeld meistens überraschend.</p>
+
+    <div class="highlight-box">
+      <p>Ich bin nicht kompliziert. Ich bin nur leise. Bitte hör zwei Mal hin.</p>
+    </div>
+
+    <h3 class="section-subtitle">Wo es typischerweise klemmt</h3>
+
+    <p><strong>Situation 1.</strong> Du kommst aus einem Tag, der schwer war. Der Tag hat alles verlangt — Einsatz, Hilfe, Zuhören. Du setzt dich endlich, und jemand sagt: <em>Kannst du mir kurz…</em> Innen passiert sofort ein Ja. Du stehst auf. Aber etwas in dir ist verletzt — weil niemand gesehen hat, dass du selbst am Ende bist. Der andere merkt nichts davon. Denn du wirkst wie immer. Nur ist später der Abend kälter. Distanzierter. Der andere fragt: <em>Ist was?</em> Du sagst: <em>Nein, alles gut.</em> <br><br>Was außen passiert: Du hilfst wie immer und bist danach irgendwie zurückgezogen. Was innen passiert: Du hast dich übergangen gefühlt, aber nicht gewusst, wie du das aussprichst, ohne unfreundlich zu wirken.</p>
+
+    <p><strong>Situation 2.</strong> Es gibt einen Meinungsunterschied. Etwas, das dir wichtig ist. Dein Gegenüber wird lauter. Du wirst leiser. Die Luft wird dicker. Innerlich baust du dich ab, nicht auf — du suchst nach dem freundlichen Ausweg. Du sagst irgendetwas Versöhnliches, das den Konflikt beendet, aber die Sache nicht löst. Stunden später merkst du: Das Thema ist immer noch in dir. Es hat sich nur gesetzt. Wie ein Stein am Grund eines Flusses. <br><br>Was außen passiert: Du wirkst nachgiebig, fast beschwichtigend. Was innen passiert: Du hast einen Punkt, den du wichtig findest, aber der Preis eines Streits erscheint dir höher als der Preis, den Punkt nicht zu machen. Langfristig stimmt das aber nicht — die Summe der ungesagten Sätze wird irgendwann zu schwer.</p>
+
+    <p><strong>Situation 3.</strong> Dein Zuhause ist voll von angefangenen Projekten. Das angefangene Regal. Die noch nicht gestrichene Wand. Die halbfertige Idee, die auf dem Schreibtisch liegt. Jemand kommentiert das — vielleicht liebevoll, vielleicht ungeduldig. Du wirst sofort klein. Nicht weil du es nicht wüsstest. Sondern weil diese halbfertigen Dinge deine wunde Stelle sind. Du weißt selbst, dass sie Energie binden. Aber sie sind gleichzeitig der Beweis deiner Kreativität. Sie anzusprechen fühlt sich an, als würde jemand kritisieren, wer du bist. <br><br>Was außen passiert: Du wirkst empfindlich oder verstummst ganz. Was innen passiert: Der Kommentar trifft ein altes Thema, nicht die heutige Szene. Dein Gegenüber will dich nicht angreifen — aber du hörst einen Angriff.</p>
+
+    <p><strong>Situation 4.</strong> Jemand, der dir nahe steht, hat einen Konflikt mit einem Dritten. Beide bitten dich um ein Wort. Innen wirst du angespannt, weil du beide magst. Dein 6er-System will beide versöhnen. Aber manchmal geht das nicht — man muss sich für eine Seite entscheiden. Das ist für dich fast körperlich schmerzhaft. Du versuchst es lange zu vermeiden. Und wirst dadurch manchmal für beide Seiten weniger klar. <br><br>Was außen passiert: Du wirkst diplomatisch, vielleicht zögerlich. Was innen passiert: Du zerreißt dich zwischen zwei Loyalitäten und kannst schwer ertragen, dass du nicht allen gerecht werden kannst.</p>
+
+    <div class="einladung-box">
+      <div class="einladung-label">Eine Einladung · gemeinsam lesen</div>
+      <p class="einladung-text">Das was hier steht, gehört dir. Aber wenn du magst — setz dich mit dem Menschen, der dir wichtig ist, zusammen und lest es gemeinsam. Nicht damit er versteht warum du so bist. Sondern damit ihr beide etwas habt, worüber ihr sprechen könnt, ohne dass einer den anderen angreift.</p>
+      <div class="einladung-fragen">
+        — Kennst du diese Situationen aus unserem Alltag?<br>
+        — Wie nimmst du mich in diesen Momenten wahr, und wie kommt es bei dir an?<br>
+        — Sind das Dinge die tief in mir sitzen, oder können wir gemeinsam daran arbeiten?
+      </div>
+      <p class="einladung-schluss">Und das wichtigste: Wenn dein Mensch dir dann etwas sagt, das wehtut — dann ist das nicht Kritik an dir. Das ist jemand, der versucht dich besser zu verstehen. Das ist das Schönste was ein anderer Mensch überhaupt tun kann.</p>
+    </div>
+  </section>
+
+  <!-- TEIL 04 -->
+  <section class="section">
+    <div class="section-number">Teil 04</div>
+    <h2 class="section-title">Ich im Beruf</h2>
+
+    <h3 class="section-subtitle">Welche Umgebung wirklich zu mir passt</h3>
+    <p>Du brauchst eine Arbeit, bei der deine Hände gebraucht werden — wörtlich oder übertragen. Eine rein theoretische Arbeit, bei der du nur am Schreibtisch sitzt und Konzepte schreibst, würde dich auf Dauer auszehren. Du musst wirken können. Du musst sehen, dass sich etwas verändert — bei einem Menschen, an einem Ding, in einem Raum. Ohne dieses sichtbare Ergebnis bist du nicht am richtigen Platz.</p>
+
+    <p>Zweitens: Du brauchst eine Umgebung, die nicht dauerhaft konfliktbeladen ist. Harte Vertriebs-Jobs, toxische Hierarchien oder Teams, in denen ständig gerungen wird, würden an dir zehren. Du kannst einen Sturm durchstehen — aber du brauchst danach die Sonnenbucht. Umgebungen, in denen dauerhaft Unruhe herrscht, machen dich entweder körperlich krank oder du gehst still.</p>
+
+    <h3 class="section-subtitle">Welche Rolle ich natürlich einnehme</h3>
+    <p>Die heilende Handwerkerin. Die Person, die reinkommt, Hand anlegt, und danach ist es besser als vorher. Nicht die Sternrednerin. Nicht die Anführerin auf der Bühne. Die, die im Hintergrund die Dinge richtet und dabei mehr bewegt als fünf Meetings zusammen.</p>
+
+    <h3 class="section-subtitle">Die Berufe, die dir in die Wiege gelegt wurden</h3>
+    <p><strong>Heilberufe.</strong> Nicht weil du theoretisch gute Diagnostikerin wärst (das wärst du auch), sondern weil du durch deine Hände heilst. Massage, Physiotherapie, Heilpraktik, Osteopathie, Pflege — überall dort, wo du Hand anlegen und einen Menschen wieder in sein Gleichgewicht zurückbringen kannst. Deine Kombination aus feiner Wahrnehmung und handwerklicher Präzision ist selten. In einer anderen Zeit wärst du die Dorfheilerin gewesen — diejenige, zu der man geht, wenn das Kind Fieber hat.</p>
+
+    <p><strong>Sozialberufe.</strong> Nicht weil du Dienstanweisungen liebst — sondern weil du echten Kontakt brauchst. Menschen in schwierigen Lebenslagen spüren sofort: Bei ihr kann ich ehrlich sein. Du rettest, ohne groß zu retten — du hilfst den Menschen, sich selbst zu helfen. Das ist die hohe Kunst dieses Feldes.</p>
+
+    <p><strong>(Kunst-)Handwerk.</strong> Überall, wo du etwas mit den Händen erschaffen kannst und dabei gleichzeitig kreativ und präzise sein musst. Keramik. Holzarbeit. Schneiderei. Restaurierung. Dein Spezialfeld: etwas Kaputtes in etwas Schönes verwandeln. Nicht wegwerfen — heilen. Dein Zuhause wird wahrscheinlich voll sein von Dingen, bei denen du sagen kannst: <em>Das hab ich selbst gemacht.</em></p>
+
+    <p><strong>Künstlerische Arbeit.</strong> Wenn deine blaue Kreativität ihren Weg nach außen sucht. Alles, was berührt, ist dein Revier. Nicht lauter Ausdruck — feiner, tiefer, bewegender. Dein Stil wäre nicht die Schreirolle auf der Bühne, sondern das Lied, das Menschen zum Weinen bringt, ohne dass sie wissen warum.</p>
+
+    <h3 class="section-subtitle">Was mir Energie gibt — und was mich leert</h3>
+    <p>Energie gibt dir: Menschen, die nach deiner Hilfe wieder aufrecht gehen. Projekte, die du wirklich beendet hast. Räume, die du verwandelt hast. Ein stilles Gefühl am Abend: <em>Heute habe ich etwas Gutes gewirkt.</em> Das ist deine Währung.</p>
+
+    <p>Leer macht dich: Bürokratie ohne Menschenbezug. Meetings ohne Ergebnis. Tätigkeiten, bei denen du die Wirkung deiner Arbeit gar nicht mehr zu sehen bekommst. Arbeit im luftleeren Raum.</p>
+
+    <h3 class="section-subtitle">Der praktische Tipp für deinen Alltag</h3>
+    <p>Der größte Hemmschuh für Menschen mit deinem Profil sind die vielen unfertigen Projekte. Jedes angefangene und nicht beendete Projekt bindet Lebensenergie. Es ist wie ein kleiner Zweig, der noch am Baum hängt — er zieht weiter, ohne dass du es merkst. Die wichtigste Disziplin für dich: Abschließen. Oder loslassen. Oder delegieren. Kein Projekt sollte dauerhaft in der Schwebe hängen. Das ist keine Ordnungspedanterie. Das ist Selbstschutz.</p>
+
+    <div class="highlight-box">
+      <p>Wenn ich ein Projekt abschließe, wird Energie frei, die ich dringend brauche — für das nächste, das wirklich wichtig ist.</p>
+    </div>
+  </section>
+
+  <!-- TEIL 05 -->
+  <section class="section">
+    <div class="section-number">Teil 05</div>
+    <h2 class="section-title">Menschen wie ich</h2>
+
+    <p>Vier Menschen teilen dein Profil. Was sie verbindet, sagt etwas über dich.</p>
+
+    <div class="prominent-card">
+      <div class="prominent-name">Fidel Castro</div>
+      <p>Der Umstürzler <em>und</em> der Landarzt in einem. Menschen vergessen oft: Bevor Castro zum Revolutionär wurde, war er Rechtsanwalt — und seine Revolution war nicht vor allem eine militärische, sondern eine organisatorische. Er hat mit seinen Händen etwas gebaut (ein Gesundheitssystem, ein Bildungssystem), das Jahrzehnte hielt. Die Mischung aus praktischem Macher-Instinkt und dem starken Bedürfnis, ein System in Balance zu halten — das ist pure Blaue Rhythmische Hand. Klingt das bekannt?</p>
+    </div>
+
+    <div class="prominent-card">
+      <div class="prominent-name">Herbert von Karajan</div>
+      <p>Der Dirigent, der mit seinen Händen ganze Orchester in Gleichgewicht brachte. Das Bild ist fast zu schön, um wahr zu sein: ein Mann, dessen Lebenswerk darin bestand, mit seinen Händen Balance zu schaffen — aus hundert einzelnen Musikern einen einzigen Klang zu formen. Das ist die Rhythmische Hand in Reinform. Die Bewegung, die heilt, was getrennt klingt. Klingt das bekannt?</p>
+    </div>
+
+    <div class="prominent-card">
+      <div class="prominent-name">Falco</div>
+      <p>Der sensible Künstler hinter der provokativen Maske. Was die meisten nicht wissen: Falco war tief empathisch, dünnhäutig, musikalisch hochbegabt. Er nahm die Schwingungen seiner Zeit auf wie eine Antenne — und setzte sie mit seinen Händen (am Klavier, im Studio) in etwas um, das Millionen berührt hat. Auch seine Schattenseiten — Rückzug, Suchtverhalten — passen ins Bild einer blauen Energie, die nicht genug Raum zum Atmen gefunden hat. Klingt das bekannt?</p>
+    </div>
+
+    <div class="prominent-card">
+      <div class="prominent-name">Johann Lafer</div>
+      <p>Der Koch. Der andere Berühmte mit den goldenen Händen. Lafer macht genau das, was die Blaue Hand am besten kann: aus einfachen Zutaten etwas schaffen, das Menschen glücklich macht. Mit präzisen Handgriffen. Mit Feingefühl. Mit diesem besonderen Respekt für das Material. Er ist kein lauter Star — er ist der Handwerker, der sein Fach liebt und es jeden Tag aufs Neue zelebriert. Klingt das bekannt?</p>
+    </div>
+
+    <p style="margin-top: 36px;">Was verbindet diese vier? Alle arbeiten mit ihren Händen — ob am Menschen, am Taktstock, am Mikrofon oder am Herd. Alle haben die Gabe, etwas, das auseinanderfallen könnte, wieder in Einklang zu bringen. Und alle tragen diese stille Ernsthaftigkeit, dass ihre Arbeit Sinn haben muss, sonst lohnt sie nicht.</p>
+
+    <p>Das ist auch dein Muster. Deine Hände sind nicht nur Werkzeuge. Sie sind dein Ausdruck. Deine Botschaft. Deine Art, diese Welt ein bisschen besser zu machen als du sie vorgefunden hast.</p>
+  </section>
+
+</main>
+
+<!-- ABSCHLUSS-ZITAT -->
+<section class="abschluss-zitat-wrap">
+  <p class="abschluss-zitat">
+    <span class="guillemet">»</span>Du heilst nicht, weil du es dir vornimmst. Du heilst, weil du bist.<span class="guillemet">«</span>
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">
+    <svg width="48" height="48" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="30" fill="none" stroke="#C9A96E" stroke-width="1.5"/>
+      <path d="M32 8 C20 18 20 28 32 34 C44 28 44 18 32 8Z" fill="none" stroke="#C9A96E" stroke-width="1.5"/>
+      <line x1="32" y1="10" x2="32" y2="54" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+      <line x1="10" y1="32" x2="54" y2="32" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+      <circle cx="32" cy="32" r="3" fill="#C9A96E"/>
+      <polygon points="32,14 34,20 32,18 30,20" fill="#C9A96E"/>
+    </svg>
+  </div>
+  <div class="footer-leitsatz">Erkenne wer du wirklich bist</div>
+  <div class="footer-brand">Herzkompass</div>
+  <div class="footer-slogan">Dein innerer Kompass · Maya-Analyse von Tim Bernhard</div>
+</footer>
+
+</div>
+</body>
+</html>
