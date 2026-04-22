@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="de" style="background:#1a3a2a;background-color:#1a3a2a;">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Herzkompass · Clarissa · KIN 57</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --waldnacht:       #1a3a2a;
+    --waldnacht-light: #1f4532;
+    --waldnacht-deep:  #122b1e;
+    --seelengold:      #C9A96E;
+    --warmweiss:       #f5f0e8;
+    --warmweiss-dim:   rgba(245,240,232,0.75);
+  }
+  * { box-sizing: border-box; }
+  html {
+    background: #1a3a2a !important;
+    background-color: #1a3a2a !important;
+    margin: 0; padding: 0;
+    min-height: 100%;
+  }
+  body {
+    background: #1a3a2a !important;
+    background-color: #1a3a2a !important;
+    min-height: 100vh;
+    margin: 0; padding: 0;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    color: var(--warmweiss);
+    line-height: 1.8;
+  }
+  .page-wrap {
+    background: #1a3a2a;
+    background-color: #1a3a2a;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  /* ── HERO ─────────────────────────────────── */
+  .hero {
+    text-align: center;
+    padding: 80px 24px 60px;
+  }
+  .hero-logo { margin-bottom: 24px; }
+  .logo-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.75rem;
+    color: var(--seelengold);
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 3.2rem;
+    color: var(--warmweiss);
+    margin: 0 0 8px;
+    letter-spacing: 0.02em;
+  }
+  .hero-kin {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--seelengold);
+    margin: 0 0 20px;
+  }
+  .hero-subtitle {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.85rem;
+    color: var(--seelengold);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .hero-meta {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: var(--warmweiss-dim);
+    margin-bottom: 36px;
+    line-height: 1.8;
+  }
+  .gold-line {
+    width: 80px;
+    height: 1px;
+    background: var(--seelengold);
+    margin: 0 auto 36px;
+    border: none;
+  }
+  .opening {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--warmweiss);
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.85;
+  }
+  .tim-disclaimer {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.85rem;
+    color: var(--warmweiss-dim);
+    max-width: 560px;
+    margin: 28px auto 0;
+    line-height: 1.8;
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* ── PROFIL-BAND ──────────────────────────── */
+  .profil-band {
+    background: var(--waldnacht-light);
+    padding: 32px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .profil-col {
+    padding: 12px 32px;
+    text-align: center;
+    border-right: 1px solid rgba(201,169,110,0.15);
+    min-width: 160px;
+  }
+  .profil-col:last-child { border-right: none; }
+  .profil-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.7rem;
+    color: var(--seelengold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .profil-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--warmweiss);
+    line-height: 1.5;
+  }
+
+  /* ── HAUPTINHALT ──────────────────────────── */
+  .content {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 60px 32px;
+  }
+  .section {
+    padding-bottom: 56px;
+    margin-bottom: 56px;
+    border-bottom: 1px solid rgba(201,169,110,0.12);
+  }
+  .section:last-child {
+    border-bottom: none;
+  }
+  .section-number {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.7rem;
+    color: var(--seelengold);
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 2.2rem;
+    color: var(--warmweiss);
+    margin: 0 0 36px;
+    line-height: 1.2;
+  }
+  .content p {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    color: var(--warmweiss);
+    margin: 0 0 20px;
+    line-height: 1.85;
+  }
+  .content p strong {
+    font-weight: 400;
+    color: var(--seelengold);
+  }
+  .content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--warmweiss);
+    margin: 44px 0 20px;
+    letter-spacing: 0.01em;
+  }
+  .schicht-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.68rem;
+    color: var(--seelengold);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    margin-top: 44px;
+  }
+
+  /* ── HIGHLIGHT BOX ────────────────────────── */
+  .highlight-box {
+    border-left: 2px solid var(--seelengold);
+    padding: 20px 28px;
+    margin: 32px 0;
+    background: rgba(201,169,110,0.05);
+    border-radius: 0 4px 4px 0;
+  }
+  .highlight-box p {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--warmweiss);
+    line-height: 1.75;
+  }
+
+  /* ── MANTRA BOX ───────────────────────────── */
+  .mantra-box {
+    border: 1px solid rgba(201,169,110,0.3);
+    border-radius: 4px;
+    padding: 32px 36px;
+    margin: 36px 0;
+    text-align: center;
+    background: rgba(201,169,110,0.03);
+  }
+  .mantra-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.68rem;
+    color: var(--seelengold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .mantra-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--warmweiss);
+    line-height: 1.9;
+    margin: 0;
+  }
+
+  /* ── EINLADUNG BOX ────────────────────────── */
+  .einladung-box {
+    border: 1px solid rgba(201,169,110,0.3);
+    border-radius: 6px;
+    padding: 36px 40px;
+    margin: 48px 0 24px;
+    background: rgba(201,169,110,0.04);
+    position: relative;
+  }
+  .einladung-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.68rem;
+    color: var(--seelengold);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .einladung-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--warmweiss);
+    line-height: 1.85;
+    margin-bottom: 20px;
+  }
+  .einladung-fragen {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--warmweiss);
+    line-height: 2;
+    padding-left: 24px;
+    margin: 20px 0;
+    border-left: 1px solid rgba(201,169,110,0.3);
+  }
+  .einladung-schluss {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--warmweiss);
+    line-height: 1.85;
+    margin-top: 20px;
+  }
+
+  /* ── SITUATIONS-BLÖCKE ────────────────────── */
+  .situation-outer {
+    font-family: 'Jost', sans-serif;
+    font-style: italic;
+    color: var(--warmweiss-dim);
+    font-size: 0.95rem;
+    margin: 8px 0 4px;
+  }
+  .situation-inner {
+    font-family: 'Jost', sans-serif;
+    font-style: italic;
+    color: var(--warmweiss-dim);
+    font-size: 0.95rem;
+    margin: 4px 0 20px;
+  }
+
+  /* ── TAGS ─────────────────────────────────── */
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 32px 0 8px;
+  }
+  .tag {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.75rem;
+    color: var(--seelengold);
+    border: 1px solid rgba(201,169,110,0.4);
+    padding: 5px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── PROMINENTEN-KARTEN ───────────────────── */
+  .prominent-card {
+    background: var(--waldnacht-light);
+    border: 1px solid rgba(201,169,110,0.15);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+  }
+  .prominent-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    color: var(--seelengold);
+    font-weight: 600;
+    margin: 0 0 12px;
+  }
+  .prominent-card p {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.8;
+  }
+
+  /* ── ABSCHLUSS-ZITAT ──────────────────────── */
+  .abschluss {
+    background: var(--waldnacht-deep);
+    padding: 80px 32px;
+    text-align: center;
+  }
+  .abschluss-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--warmweiss);
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+  .abschluss-text .guillemet {
+    color: var(--seelengold);
+    font-size: 1.8rem;
+    font-style: normal;
+  }
+
+  /* ── FOOTER ───────────────────────────────── */
+  .footer {
+    background: var(--waldnacht-deep);
+    padding: 60px 24px 80px;
+    text-align: center;
+    border-top: 1px solid rgba(201,169,110,0.15);
+  }
+  .footer-logo { margin-bottom: 20px; }
+  .footer-leitsatz {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.78rem;
+    color: var(--seelengold);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    color: var(--seelengold);
+    margin-bottom: 10px;
+  }
+  .footer-slogan {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.85rem;
+    color: var(--warmweiss-dim);
+    font-style: italic;
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 60px 20px 40px; }
+    .hero-name { font-size: 2.4rem; }
+    .section-title { font-size: 1.7rem; }
+    .content { padding: 40px 20px; }
+    .profil-col { border-right: none; padding: 14px; }
+    .einladung-box { padding: 28px 22px; }
+    .abschluss-text { font-size: 1.3rem; }
+  }
+</style>
+</head>
+
+<body style="background:#1a3a2a;background-color:#1a3a2a;min-height:100vh;">
+<div class="page-wrap" style="background:#1a3a2a;background-color:#1a3a2a;min-height:100vh;width:100%;">
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="hero">
+    <div class="hero-logo">
+      <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="30" fill="none" stroke="#C9A96E" stroke-width="1.5"/>
+        <path d="M32 8 C20 18 20 28 32 34 C44 28 44 18 32 8Z" fill="none" stroke="#C9A96E" stroke-width="1.5"/>
+        <line x1="32" y1="10" x2="32" y2="54" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+        <line x1="10" y1="32" x2="54" y2="32" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+        <circle cx="32" cy="32" r="3" fill="#C9A96E"/>
+        <polygon points="32,14 34,20 32,18 30,20" fill="#C9A96E"/>
+      </svg>
+    </div>
+    <div class="logo-label">Herzkompass · Maya-Analyse</div>
+
+    <h1 class="hero-name">Clarissa</h1>
+    <div class="hero-kin">KIN 57 · Rote Oberton Erde</div>
+    <div class="hero-subtitle">Die Produktive · Ton der Verdichtung</div>
+    <div class="hero-meta">
+      25. Mai 1968 &nbsp;·&nbsp; Welle des Roten Himmelswanderers &nbsp;·&nbsp; Weißes Schloss des Übergangs
+    </div>
+
+    <hr class="gold-line" />
+
+    <p class="opening">
+      Du hast mir die Möglichkeit gegeben, dich durch diese Analyse besser kennenzulernen — und ich bin dir dankbar für dein Vertrauen. Lass uns gemeinsam schauen, wer du wirklich bist.
+    </p>
+
+    <p class="tim-disclaimer">
+      Ich bin kein Therapeut, kein Wissenschaftler — ich bin Tim, und ich glaube daran, dass jeder Mensch einen Kompass in sich trägt. Mein Ziel ist einfach: dass du dich nach dieser Lektüre ein kleines bisschen besser kennst als vorher. Diese Analyse ist eine Einladung, kein Urteil. Was sich stimmig anfühlt — nimm es mit. Was nicht passt — muss nicht stimmen.
+    </p>
+  </section>
+
+  <!-- ══════════ PROFIL-BAND ══════════ -->
+  <section class="profil-band">
+    <div class="profil-col">
+      <div class="profil-label">Ton</div>
+      <div class="profil-value">Oberton · 5<br><span style="font-size:0.85rem;color:var(--warmweiss-dim);">Verdichtung</span></div>
+    </div>
+    <div class="profil-col">
+      <div class="profil-label">Archetyp</div>
+      <div class="profil-value">Rote Erde<br><span style="font-size:0.85rem;color:var(--warmweiss-dim);">Die Produktive</span></div>
+    </div>
+    <div class="profil-col">
+      <div class="profil-label">Impulse</div>
+      <div class="profil-value">Umsetzung<br>Synchronizität<br>Erdung</div>
+    </div>
+    <div class="profil-col">
+      <div class="profil-label">Licht</div>
+      <div class="profil-value">Tatkraft<br>Urvertrauen<br>Klarheit</div>
+    </div>
+  </section>
+
+  <!-- ══════════ HAUPTINHALT ══════════ -->
+  <main class="content">
+
+    <!-- ───── TEIL 01 ───── -->
+    <section class="section">
+      <div class="section-number">Teil 01</div>
+      <h2 class="section-title">Wer bin ich</h2>
+
+      <p>Clarissa, lass uns gemeinsam schauen wer du bist — woher du kommst, wo du jetzt stehst, und wohin dein Weg weist. Keine Sorge, ich nehme dich an die Hand.</p>
+
+      <p>In dir trifft die geerdete Produktivität auf den Druckkochtopf, der Dinge zum Sieden bringt. Du bist eine, die tut — und eine, die aussprechen kann, was andere schweigen. Beides zusammen ist deine Signatur.</p>
+
+      <p>Fangen wir an der Wurzel an. Deine Herkunft liegt in der <strong>Drachen-Familie</strong> — das ist im Maya-Kalender eine der großen Herkunfts-Familien, die deinem Wesen einen inneren Nährboden geben. Die Drachen-Familie ist die Familie der Ursprünge, der Geburten, des ersten Auftauchens einer Sache. In dir wohnt etwas, das Dinge zur Welt bringt — buchstäblich und übertragen. Dieser Boden ist dein Grundvertrauen. Wo andere erst nachdenken müssen, ob überhaupt etwas Neues entstehen kann, hast du die stille Gewissheit: Wenn ich es anfasse, entsteht etwas daraus.</p>
+
+      <p>Auf diesem Boden wächst deine Farbe — und die ist Rot. Rote sind die Starter und Macher im Maya-Bild. Sie bringen Dinge in Gang, wo andere noch diskutieren. Aber du bist nicht irgendeine Rote. Du bist von der erdenden Sorte — die Rote Erde, deren Kernkraft die <strong>Synchronizität</strong> ist. Das heißt: Du arbeitest nicht gegen die Welt, du arbeitest mit ihr. Türen öffnen sich für dich im richtigen Moment. Nicht, weil du zufällig Glück hast — sondern weil dein Spürsinn die feinen Signale liest, die andere übersehen. Du merkst, wann ein Gespräch stattfinden muss, wann ein Anruf kommt, wann eine Entscheidung reif ist. Für dich ist das normal. Für andere ist es kleine Magie.</p>
+
+      <p>Ich nenne dich deshalb gerne <em>die Produktive</em>. Eine, die aus wenigen Zutaten ein Viergangmenü zaubert. Eine, die nicht groß redet, sondern macht. Und die dabei überraschend wenig erschöpft wirkt — weil sie nicht gegen den Strom zieht, sondern mit ihm.</p>
+
+      <p>Dazu kommt dein <strong>Ton</strong> — das ist die rhythmische Qualität in der 13er-Ordnung des Tzolk'in, so etwas wie die Geschwindigkeit und Temperatur, mit der deine Erd-Energie pulsiert. Du hast den <em>Oberton</em>, die Fünf, die <em>Verdichtung</em>. Strukturell heißt das: In dir arbeitet ein eingebauter Druckkessel. Wo andere noch abwägen, sammeln oder ordnen, beginnst du bereits Druck aufzubauen. Jetzt soll etwas passieren. Jetzt soll etwas gebracht werden. Das ist dein Vielfräher — der Druckkochtopf, der Hitze erzeugt, damit Dinge endlich zum Sieden kommen.</p>
+
+      <p>Strukturell interessant: Dein Ton hat null Punkte und einen Balken — das ist der erste Balken der ganzen 13er-Welle. Du bist nicht in der Empfangs-Phase. Du bist in der ersten echten Umsetzung. Du nimmst nicht mehr auf, du gibst ab. Das erklärt auch, warum du in manchen Momenten so einseitig wirken kannst: In deiner Grund-Energie bist du nicht primär fürs Aufnehmen zuständig, sondern fürs Rauslassen. Andere sind für das Zuhören gemacht — du bist für das Ansprechen gemacht.</p>
+
+      <p>Eingebettet ist das in deine <strong>Welle</strong> — eine Welle ist eine 13-Tage-Einheit mit einem eigenen inneren Rhythmus, und deine heißt Rote Himmelswanderer-Welle. Der Himmelswanderer gibt dir die Hintergrund-Melodie: <em>die Kraft des Raumes</em>. Aufbruch, Weite, das Betreten neuer Räume. Der Leitsatz deiner Welle lautet:</p>
+
+      <div class="highlight-box">
+        <p>Die Ganzheit bestimmt den Weg; Entfaltung setzt sich konkret in Gang.</p>
+      </div>
+
+      <p>Das passt zu dir wie ein Handschuh. Du bist nicht die, die minutiös plant und dann ausführt. Du spürst die Richtung — und dann setzt sich die Bewegung von selbst in Gang. Deine Welle sagt: Vertrau dem Ganzen. Dein Ton sagt: Jetzt. Zusammen heißt das: Du bewegst dich durch große Räume, und wenn du ankommst, bringst du Hitze mit.</p>
+
+      <p>In diesem Gefüge hast du einen konkreten Platz — deine <strong>Harmonie</strong>. Die Harmonie ist deine Rolle im Resonanz-System des Tzolk'in, so etwas wie die Position, die du im Zusammenspiel natürlicherweise einnimmst. Deine ist Harmonie 15, das <em>Galaktische Grundmuster</em>, mit dem Leitsatz: <em>selbst-regulierend das Universelle Feuer der Ganzheit</em>. Übersetzt: Du bist eine, die das große Feuer in Maß hält. Die nicht erst auf Anweisung handelt, sondern aus einer inneren Regulierung heraus weiß, wann Hitze gebraucht wird und wann nicht. Das ist eine verantwortungsvolle Position — und du trägst sie meistens, ohne darüber nachzudenken.</p>
+
+      <p>Um dich herum stehen zwei Kräfte, die ich dir extra markieren möchte, weil sie auf deinem Geburtsblatt ausgewiesen sind. Die eine stützt dich. Die andere reibt. Beide brauchst du.</p>
+
+      <p>Deine stützende Kraft ist der <strong>Weiße Wind</strong>. Der Wind ist der Atem, die Sprache, die geistige Beweglichkeit. Während du die Schwere der Erde trägst — das Konkrete, das Praktische — ist der Wind das, was dich luftig macht. Er erinnert dich daran, dass auch das Schwere Atem braucht. Wenn du in Lethargie kippst (das ist tatsächlich eine deiner Schatten-Seiten), ist es oft die Bewegung, das Sprechen, das Luftholen, was dich zurückholt.</p>
+
+      <p>Deine herausfordernde Kraft ist die <strong>Blaue Hand</strong>. Die Hand ist Heilung durch Vollendung. Sie fordert dich heraus, nicht nur zu produzieren — sondern auch abzuschließen, loszulassen, was fertig ist. Deine Neigung zum Durchziehen, zum »ich mach das auch noch fertig«, stößt an der Blauen Hand. Sie sagt: Manche Dinge sind abgeschlossen. Zieh nicht weiter. Erkenne, dass es genug ist.</p>
+
+      <p>Dein gesamtes Leben läuft gerade im <strong>Weißen Schloss des Übergangs</strong> — einem der fünf großen Reifungs-Abschnitte im Maya-Kalender. Es ist der Raum, in dem der innere Krieger verfeinert wird. Das klingt dramatisch, meint aber etwas Schönes: Du bist in einer Lebensphase, die nicht mehr nur anpackt, sondern auch schleift, prüft, auswählt. Der Krieger in dir — die Durchsetzungs-Kraft, die Angstlosigkeit — wird hier nicht lauter, sondern klarer. Es geht um höchste Souveränität des eigenen Selbst. Nicht mehr alles gleichzeitig wollen. Sondern wissen, was wesentlich ist.</p>
+
+      <p>In diesem ganzen Bild steht in der Mitte eine Kurzformel, die dein Wesen verdichtet — ich nenne das ein <strong>Mantra</strong>. Deins klingt so:</p>
+
+      <div class="mantra-box">
+        <div class="mantra-label">Dein KIN-Mantra</div>
+        <p class="mantra-text">
+          Ich bekräftige um zu entfalten<br>
+          Gleichzeitigkeit bestimmend<br>
+          Ich präge das Grundmuster der Navigation<br>
+          Mit dem Oberton — Ton der Strahlung<br>
+          Ich bin geführt durch die Kraft der Lebenskraft
+        </p>
+      </div>
+
+      <p>Das sind keine schönen Worte für einen Rahmen an der Wand — das ist deine Arbeit im Alltag, in fünf Zeilen.</p>
+
+      <div class="highlight-box">
+        <p>Du bist nicht die, die wartet bis der Weg klar ist. Du bist die, die anfängt zu gehen — und dabei merkt, dass sich die Türen öffnen, bevor du sie anfassen musst.</p>
+      </div>
+
+      <p>Und weil dein Weg nicht bei dir endet, zeige ich dir noch den Satz, der ganz unten auf deinem Geburtsblatt steht. Er ist das Abschluss-Bild deiner Signatur: <em>KIN 57 bringt galaktische Energie auf den Uranus.</em> Uranus ist das Plötzliche, der Durchbruch, das, was eine alte Ordnung aufbricht, damit Neues Platz hat. Dein Auftrag ist nicht das stille Weiterverwalten. Es ist das kontrollierte Aufbrechen — die Hitze deiner Fünf, eingebettet in die Synchronizität deiner Erde, angewandt genau dort, wo etwas aus seiner Starre befreit werden muss. Du bringst das Feuer dorthin, wo die Ordnung zu eng geworden ist.</p>
+
+      <div class="tag-row">
+        <span class="tag">Produktiv</span>
+        <span class="tag">Synchronizitäts-Spürsinn</span>
+        <span class="tag">Druckkessel</span>
+        <span class="tag">Geerdet</span>
+        <span class="tag">Aufbrecherin</span>
+        <span class="tag">Verlässlich</span>
+        <span class="tag">Mut zum Aussprechen</span>
+      </div>
+    </section>
+
+    <!-- ───── TEIL 02 ───── -->
+    <section class="section">
+      <div class="section-number">Teil 02</div>
+      <h2 class="section-title">Wie sehen mich andere</h2>
+
+      <p>Wenn du einen Raum betrittst, spüren Menschen zwei Dinge gleichzeitig. Erstens: Hier ist jemand, bei dem etwas vorangeht. Zweitens: Hier ist jemand, der nicht um den heißen Brei herumredet. Deine Anwesenheit ist greifbar — nicht laut, aber unübersehbar. Die rote Farb-Energie, die in dir arbeitet, ist für andere wie ein Magnet für Anpacken. In deinem Umfeld passieren Dinge, an denen man sonst wochenlang rumeiert. Das registrieren andere, ohne es benennen zu können.</p>
+
+      <p>Sie spüren auch deine Erdung — und das ist etwas, was sie selten in Worte fassen. Du wirkst nicht gestresst. Nicht gehetzt. Selbst wenn du drei Sachen gleichzeitig machst, hat das eine Ruhe, die andere beneidenswert finden. Viele denken beim Anblick deines Alltags: Wie macht sie das nur? Die Antwort ist simpel und doch schwer zu übertragen: Du arbeitest nicht gegen den Moment. Du arbeitest mit ihm.</p>
+
+      <p>Aber es gibt auch die Seite, an der du missverstanden wirst. Wenn du nachbohrst, wenn du ein Thema auf den Tisch legst, wenn du ein Unbequemes ansprichst — kann das bei Menschen ankommen wie Härte. Wie Konfrontation um der Konfrontation willen. Dabei kommt dein Druck nicht aus Unruhe. Er kommt aus dem Spüren, dass da noch etwas vermieden wird, was raus muss. Nur — für das Gegenüber fühlt sich das erstmal nicht nach Fürsorge an, auch wenn es oft genau das ist. Du machst die Arbeit, die sonst niemand machen wollte. Dass andere dich in dem Moment nicht dafür lieben, ist ein Preis, den du oft zahlst, ohne ihn zu rechnen.</p>
+
+      <p>Dazu kommt eine zweite Form des Missverständnisses, die mit dem Gegenpol auf deinem Geburtsblatt zusammenhängt — der Blauen Hand. Menschen, die selbst im Modus des Abschließens sind, die etwas loslassen wollen, die fertig sind mit einer Phase, lesen deine Produktivität manchmal als Druck. Sie erleben dich, als würdest du nicht zulassen, dass Dinge enden dürfen. Dabei ist es eher, dass du den Impuls »fertig« innerlich schwer annehmen kannst. Du würdest noch weiterziehen. Andere wollen loslassen — und genau an dieser Stelle reibst du ungewollt.</p>
+
+      <p>Was Menschen an dir schätzen, sagen sie oft nicht laut. Du bist die, auf die sie sich verlassen, wenn es wirklich drauf ankommt. Die, die da ist, wenn andere schon aufgegeben haben. Und — das ist vielleicht das Wichtigste — du bist die, die sie im Rückblick als Wendepunkt erkennen. Nach einem Gespräch mit dir hat sich oft etwas verschoben, was jahrelang festgefahren war. Sie hätten das allein nicht geschafft. Du hast es mit einer einzigen Frage, einer einzigen Beobachtung, einer einzigen klaren Ansage ausgelöst.</p>
+
+      <div class="highlight-box">
+        <p>Dein Druck ist kein Machtspiel. Er ist das Werkzeug, mit dem du Festgefahrenes in Bewegung setzt — auch wenn das Werkzeug manchmal kratzt.</p>
+      </div>
+    </section>
+
+    <!-- ───── TEIL 03 ───── -->
+    <section class="section">
+      <div class="section-number">Teil 03</div>
+      <h2 class="section-title">Ich in Beziehungen</h2>
+
+      <h3>Was ich mitbringe</h3>
+
+      <p>Du bringst in Beziehungen eine Verlässlichkeit mit, die heute selten geworden ist. Wenn du etwas sagst, gilt es. Wenn du da bist, bist du wirklich da — nicht halb anwesend, halb am Handy, halb woanders. Menschen spüren bei dir: Die ist echt. Das ist ein Geschenk, das kein Geld kaufen kann.</p>
+
+      <p>Dazu kommt: Du sorgst, ohne dass es großer Worte bedarf. Du merkst, wenn jemand den Kaffee vergessen hat. Du hast immer was zu essen da. Du organisierst das Drumherum, bevor andere es überhaupt als Bedarf erkennen. In Familien bist du die stille Säule — und in Freundeskreisen die, bei der alle landen, wenn das Leben kompliziert wird.</p>
+
+      <p>Wo du dich manchmal verlierst, ist in deiner Neigung, lieber zu <em>tun</em> als zu <em>sprechen</em>. Du produzierst Beziehung — du sorgst, organisierst, machst das Leben für deinen Menschen praktisch leichter. Und du erwartest stillschweigend, dass das gesehen wird. Wird es oft aber nicht. Nicht weil dein Mensch undankbar ist — sondern weil Menschen Worte brauchen. Gesten reichen nicht immer. Was unausgesprochen bleibt, landet oft nicht.</p>
+
+      <p>Was du brauchst, um wirklich aufzublühen, ist jemand, der deine Produktivität nicht für selbstverständlich nimmt. Der explizit sagt: »Das sehe ich. Das weiß ich zu schätzen.« Ohne das läufst du irgendwann leer — nicht, weil du zu wenig tust, sondern weil deine Arbeit nicht gesehen wird. Du brauchst außerdem jemanden, der dich erinnert, dass Leben mehr ist als Erledigen. Der dich ans Wochenende zieht, wenn du am liebsten weiterarbeiten würdest. Der dir zum richtigen Zeitpunkt sagt: »Genug für heute.«</p>
+
+      <p>Zwei Typen von Menschen wirken in deinen Beziehungen besonders stark auf dich. Der eine tut dir gut: Menschen mit <em>Weißer-Wind-Qualität</em> — die Leichten, die Beweglichen, die Sprachbegabten. Sie bringen dir, was dir im Alltag manchmal fehlt: Luft, Humor, das Aussprechen. Sie machen dich weicher, ohne dich schwach zu machen. Der andere Typ fordert dich: Menschen mit <em>Blauer-Hand-Qualität</em>. Die Heiler, die Abschließer, die Bewussten. Sie reiben an dir, weil du lieber weitermachen willst und sie konsequent sagen »es reicht«. Und genau deshalb sind sie die wichtigste Korrektur in deinem Leben — die, an denen du wächst.</p>
+
+      <div class="highlight-box">
+        <p>Du gibst so selbstverständlich, dass andere leicht vergessen, wie viel das ist. Du darfst es einfordern, gesehen zu werden. Das ist keine Schwäche. Das ist Fairness.</p>
+      </div>
+
+      <h3>Wo es typischerweise klemmt</h3>
+
+      <p><strong>Situation 1.</strong> Dein Mensch schlägt etwas Spontanes vor — einen Ausflug, eine Idee, einen Plan. Du reagierst erst zögerlich, stellst Fragen, prüfst. Er liest das als Bremse, fast als »sie will nicht«.</p>
+      <p class="situation-outer"><em>Was außen passiert:</em> Du wirkst blockierend, fast ablehnend. Seine Begeisterung stößt auf Kühle.</p>
+      <p class="situation-inner"><em>Was innen passiert:</em> Du bist gar nicht im Ablehnungs-Modus. Du bist im Prüf-Modus. Du spürst an seinem Vorschlag etwas, was noch nicht stimmig ist, und willst das klären, bevor du wirklich Ja sagen kannst. Das ist keine Zurückweisung — das ist deine Art, echt Ja zu sagen.</p>
+
+      <p><strong>Situation 2.</strong> Es gibt einen Konflikt, der seit Wochen schwelt. Niemand spricht ihn an. Du bist die, die ihn schließlich auf den Tisch legt — direkt, oft überraschend scharf. Dein Gegenüber ist überrumpelt, verletzt, zieht sich zurück.</p>
+      <p class="situation-outer"><em>Was außen passiert:</em> Du wirkst aggressiv. Der andere erlebt deinen Anlauf als Angriff — gerade weil er kommt, ohne dass er sich innerlich vorbereiten konnte.</p>
+      <p class="situation-inner"><em>Was innen passiert:</em> Für dich war die Konfrontation überfällig. Dein Druckkessel hat sich wochenlang aufgebaut, während du noch abgewartet hast. Als du dann sprichst, ist der Druck hoch — und das ist es, was den anderen trifft. Nicht die Sache. Die Ladung.</p>
+
+      <p><strong>Situation 3.</strong> Dein Mensch ist gerade in einer Phase, die Ruhe bräuchte — er ist erschöpft, krank, am Rand. Du merkst trotzdem, was alles zu erledigen wäre, und fängst an zu arbeiten. Er liest das als: »Du kannst nicht mal stillsitzen, wenn es mir schlecht geht.«</p>
+      <p class="situation-outer"><em>Was außen passiert:</em> Deine Produktivität wirkt rücksichtslos. Dein Tun in einem Moment seiner Schwäche fühlt sich an wie Distanz.</p>
+      <p class="situation-inner"><em>Was innen passiert:</em> Du hast dich gar nicht distanziert. Für dich ist Tun deine Art zu sorgen — du versorgst ihn, indem du das Drumherum abnimmst. Stillsitzen würde sich für dich anfühlen, als würdest du nichts tun, während er leidet. Aber in dem Moment braucht er nicht deine Fürsorge durch Tun — er braucht dich beim Sitzen. Das zu spüren ist für dich die schwerste Übung.</p>
+
+      <!-- Einladung-Box: FIXER TEXT -->
+      <div class="einladung-box">
+        <div class="einladung-label">Eine Einladung · gemeinsam lesen</div>
+        <p class="einladung-text">Das was hier steht, gehört dir. Aber wenn du magst — setz dich mit dem Menschen, der dir wichtig ist, zusammen und lest es gemeinsam. Nicht damit er versteht warum du so bist. Sondern damit ihr beide etwas habt, worüber ihr sprechen könnt, ohne dass einer den anderen angreift.</p>
+        <div class="einladung-fragen">
+          — Kennst du diese Situationen aus unserem Alltag?<br>
+          — Wie nimmst du mich in diesen Momenten wahr, und wie kommt es bei dir an?<br>
+          — Sind das Dinge die tief in mir sitzen, oder können wir gemeinsam daran arbeiten?
+        </div>
+        <p class="einladung-schluss">Und das wichtigste: Wenn dein Mensch dir dann etwas sagt, das wehtut — dann ist das nicht Kritik an dir. Das ist jemand, der versucht dich besser zu verstehen. Das ist das Schönste was ein anderer Mensch überhaupt tun kann.</p>
+      </div>
+    </section>
+
+    <!-- ───── TEIL 04 ───── -->
+    <section class="section">
+      <div class="section-number">Teil 04</div>
+      <h2 class="section-title">Ich im Beruf</h2>
+
+      <p>Dein natürlicher Modus im Beruf ist <em>machen</em>, nicht <em>verwalten</em>. Als Rote hast du die Startenergie — du willst, dass etwas vorangeht. Als Erde hast du den Spürsinn für den richtigen Moment. Als Oberton hast du die Verdichtung — das Nachhaken, das auf-den-Punkt-Bringen, das Thema-Setzen. Zusammen ergibt das eine Person, die in fast jedem Team als treibende Kraft wahrgenommen wird, ohne dass sie sich dazu erklären muss.</p>
+
+      <p>Deine beste Umgebung hat drei Merkmale: Sie verlangt echte Verantwortung, sie gibt dir Eigenständigkeit, und sie ist nicht übermäßig bürokratisch. Zu enge Strukturen machen dich leer. Alibi-Arbeit ohne Wirkung erschöpft dich schneller als echte Anstrengung. Du brauchst den Kontakt zum Ergebnis. Du musst sehen können, was durch dich entstanden ist.</p>
+
+      <p>Innerhalb der Rollenvielfalt nimmst du natürlicherweise eine dieser drei Positionen ein: die <em>Durchführerin</em> (die, die aus Konzepten Handlung macht), die <em>Klärerin</em> (die, die Konflikte ausspricht, bevor sie das Team lähmen), oder die <em>Verlässliche</em> (die stille Säule, auf die sich andere stützen, ohne es zu merken). Meist trägst du alle drei Rollen gleichzeitig. Das erklärt, warum du oft mehr Arbeit machst als in deiner Stellenbeschreibung steht — und trotzdem nicht über die Arbeit klagst.</p>
+
+      <p>Für dich passen Richtungen, die <strong>praktische Wirkung mit Zuverlässigkeit</strong> verbinden, und Richtungen, in denen die Fähigkeit, <em>das Unausgesprochene anzusprechen</em>, ein Gewinn ist. Ein paar Beispiele:</p>
+
+      <p><strong>Unternehmerin</strong> — weil du Synchronizität liest und Dinge zum richtigen Moment bewegst, ohne im Kampf-Modus zu enden. <strong>Geschäftsführung, Projekt-Management, Bau- oder Produktionsleitung</strong> — weil du verlässlich lieferst, ohne dich dabei zu verbrennen. <strong>Rechtswesen</strong> — weil du aussprichst, was andere verschweigen, und das mit Struktur verknüpfst. <strong>Trainerin und Coach für berufliche Praxis</strong> — weil du konkrete Umsetzung lehren kannst, nicht abgehobene Theorie. <strong>Pädagogische Berufe</strong> — weil du für Kinder und Jugendliche verlässliches Gegenüber bist, an dem sie sich reiben und halten können. <strong>Polizei- und Ordnungsberufe</strong> — weil Konfrontation für dich kein Problem ist, sondern Werkzeug. <strong>Finanzen, Controlling, Versicherung, Logistik</strong> — weil du mit Zahlen und Prozessen geerdet umgehst, ohne dich in ihnen zu verlieren. Und schließlich: als <strong>Leistungssportlerin</strong>, falls das Thema für dich je eine Rolle gespielt hat — weil Durchhaltevermögen und der Moment-für-Moment-Fokus in deiner DNA liegen.</p>
+
+      <p>Wichtig ist weniger die exakte Berufsbezeichnung als vielmehr die <em>Farbe</em> deiner Arbeit: Gibt es ein greifbares Ergebnis? Muss jemand Klartext sprechen? Braucht die Aufgabe einen zuverlässigen Mittelpunkt? Immer wenn ja — bist du an der richtigen Stelle.</p>
+
+      <p>Deine Rolle im Zusammenspiel ist besonders: Du regulierst dich selbst. Du brauchst nicht viel Führung — aber du brauchst Anerkennung. Du arbeitest gut im Team, wenn du gehört wirst. Du arbeitest allein besonders gut, wenn dein Auftrag klar ist. Und du arbeitest schlecht in Umgebungen, in denen dein Druck als Störung statt als Impuls gesehen wird. Kluge Chefs und kluge Auftraggeber lernen schnell: Deine unbequemen Fragen sind Gold — sie decken das auf, was andere weiter schiebt.</p>
+
+      <p>Du bist gerade in einer beruflichen Phase, die nicht mehr auf Expansion setzt, sondern auf Verfeinerung. Auf die Frage: <em>Was davon will ich eigentlich wirklich tun, und was trage ich nur noch aus Gewohnheit?</em> Das ist kein Abbruch. Das ist Schliff. Und in dieser Phase fragt die Blaue Hand in dir: Was ist fertig? Was darf losgelassen werden, damit Platz entsteht für das Eigentliche?</p>
+
+      <p>Ein praktischer Tipp, der bei dir besonders gut wirkt: <em>Barfuß gehen</em>. Klingt banal. Ist es nicht. Wenn du den Kontakt zum Boden verlierst — wenn der Kopf zu voll wird, wenn der Druck zu hoch wird, wenn du merkst, dass die Lethargie an die Tür klopft —, dann ist der direkte Haut-zu-Erde-Kontakt oft schneller wirksam als jedes Gespräch. Zwanzig Minuten im Garten oder Park, ohne Schuhe. Das löst, was durch Denken nicht zu lösen wäre.</p>
+
+      <div class="highlight-box">
+        <p>Deine berufliche Wahrheit ist nicht Perfektion, sondern Wirkung. Du willst nicht, dass alles schön aussieht. Du willst, dass es fertig ist — und funktioniert.</p>
+      </div>
+    </section>
+
+    <!-- ───── TEIL 05 ───── -->
+    <section class="section">
+      <div class="section-number">Teil 05</div>
+      <h2 class="section-title">Menschen wie ich</h2>
+
+      <p>Vier sehr unterschiedliche Menschen teilen dein Profil. Was sie verbindet, sagt etwas über dich.</p>
+
+      <div class="prominent-card">
+        <h3 class="prominent-name">John D. Rockefeller</h3>
+        <p>Der Prototyp des produktiven Unternehmers — aber kein Hektiker. Rockefeller las Märkte wie andere Gesichter. Er wusste, wann zugreifen und wann warten. Synchronizität als Geschäfts-Haltung, gepaart mit einer inneren Ruhe, während draußen Imperien entstanden. Klingt das bekannt? Das Gefühl, dass die Dinge sich arrangieren, wenn du zur richtigen Zeit am richtigen Ort bist — ohne dass du kämpfen musst?</p>
+      </div>
+
+      <div class="prominent-card">
+        <h3 class="prominent-name">Winston Churchill</h3>
+        <p>Erde-Kraft in dunkelsten Zeiten. Während andere resignierten, hielt Churchill England stand — nicht aus Gefühl, sondern aus Pflichtsinn gepaart mit Druckaufbau. Sein »Wir werden niemals aufgeben« ist reine Oberton-Energie: Jetzt. Genau jetzt wird durchgehalten. Dazu eine Erdung, die auch im Bombenhagel nicht wankt. Dein Durchhaltevermögen und dein Mut zur unbequemen Wahrheit — das ist diese Art DNA.</p>
+      </div>
+
+      <div class="prominent-card">
+        <h3 class="prominent-name">Bryan Adams</h3>
+        <p>Der Rockmusiker mit konstanter Karriere über Jahrzehnte. Keine Skandale, keine Aussetzer, keine großen Brüche — einfach konstant gute Arbeit über vierzig Jahre. Unscheinbar, und genau deshalb oft unterschätzt. Er zeigt, dass echte Erde-Kraft nicht im einmaligen Knall liegt, sondern in der Konsistenz. Du lieferst auch so: nicht spektakulär, aber über die Zeit hinweg verlässlich. Das ist eine stille Form von Größe.</p>
+      </div>
+
+      <div class="prominent-card">
+        <h3 class="prominent-name">Uri Geller</h3>
+        <p>Eine schillernde, umstrittene Figur — und genau das zeigt die Erde-Energie in einer ungewöhnlichen Variante. Geller verband Intuition mit Geschäftssinn. Er spürte, was Menschen wollten, und lieferte es. An ihm zeigen sich Licht und Schatten nah beieinander: Wenn das Lesen von Signalen ohne Ethik läuft, wird es Manipulation. Bei ihm ist die Grenze oft verwischt. Bei dir ist sie klarer — aber das Kern-Talent, Signale zu lesen, habt ihr gemeinsam.</p>
+      </div>
+
+      <p>Was die vier verbindet: Sie alle haben <em>greifbare Wirkung</em> in die Welt gebracht — nicht durch Reden, sondern durch Tun. Und sie kamen aus einer Grund-Haltung, die ihr teilt: <em>Das Leben trägt mich, wenn ich es anfasse.</em> Das ist die Drachen-Genesis in euch allen — ihr bringt Neues in die Welt, weil ihr dem Entstehen vertraut. Manchmal auf die laute Art. Manchmal auf die stille. Aber immer mit dem Finger am Puls der Synchronizität.</p>
+    </section>
+
+  </main>
+
+  <!-- ══════════ ABSCHLUSS-ZITAT ══════════ -->
+  <section class="abschluss">
+    <p class="abschluss-text">
+      <span class="guillemet">»</span>Du bist Erde, die Feuer trägt — und aus dieser Mischung kommt, was sonst niemand bringt.<span class="guillemet">«</span>
+    </p>
+  </section>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="footer">
+    <div class="footer-logo">
+      <svg width="48" height="48" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="30" fill="none" stroke="#C9A96E" stroke-width="1.5"/>
+        <path d="M32 8 C20 18 20 28 32 34 C44 28 44 18 32 8Z" fill="none" stroke="#C9A96E" stroke-width="1.5"/>
+        <line x1="32" y1="10" x2="32" y2="54" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+        <line x1="10" y1="32" x2="54" y2="32" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+        <circle cx="32" cy="32" r="3" fill="#C9A96E"/>
+        <polygon points="32,14 34,20 32,18 30,20" fill="#C9A96E"/>
+      </svg>
+    </div>
+    <div class="footer-leitsatz">Erkenne wer du wirklich bist</div>
+    <div class="footer-brand">Herzkompass</div>
+    <div class="footer-slogan">Dein innerer Kompass · Maya-Analyse von Tim Bernhard</div>
+  </footer>
+
+</div>
+</body>
+</html>
