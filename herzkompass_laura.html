@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="de" style="background:#1a3a2a;background-color:#1a3a2a;">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Herzkompass · Laura · KIN 54 · Weißer Lunarer Magier</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --waldnacht:       #1a3a2a;
+    --waldnacht-light: #1f4532;
+    --waldnacht-deep:  #122b1e;
+    --seelengold:      #C9A96E;
+    --warmweiss:       #f5f0e8;
+    --warmweiss-dim:   rgba(245,240,232,0.75);
+  }
+
+  * { box-sizing: border-box; }
+
+  html {
+    background: #1a3a2a !important;
+    background-color: #1a3a2a !important;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
+
+  body {
+    background: #1a3a2a !important;
+    background-color: #1a3a2a !important;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    color: var(--warmweiss);
+    line-height: 1.8;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 80px 24px 56px;
+    text-align: center;
+    background: var(--waldnacht);
+  }
+
+  .hero-logo { margin: 0 auto 18px; display: block; }
+
+  .logo-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.72rem;
+    color: var(--seelengold);
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 3.2rem;
+    color: var(--warmweiss);
+    margin: 0 0 6px;
+    line-height: 1.1;
+  }
+
+  .hero-kin {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--seelengold);
+    margin: 0 0 18px;
+  }
+
+  .hero-subtitle {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.8rem;
+    color: var(--seelengold);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .hero-meta {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.85rem;
+    color: var(--warmweiss-dim);
+    letter-spacing: 0.05em;
+    margin-bottom: 34px;
+  }
+
+  .hero-line {
+    width: 80px;
+    height: 1px;
+    background: var(--seelengold);
+    margin: 0 auto 34px;
+    border: 0;
+  }
+
+  .hero-eroeffnung {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: var(--warmweiss);
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .tim-disclaimer {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.85rem;
+    color: var(--warmweiss-dim);
+    max-width: 560px;
+    margin: 28px auto 0;
+    line-height: 1.8;
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* PROFIL-BAND */
+  .profil-band {
+    background: var(--waldnacht-light);
+    padding: 42px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .profil-spalte {
+    flex: 1;
+    min-width: 180px;
+    padding: 0 32px;
+    text-align: center;
+    border-right: 1px solid rgba(201,169,110,0.15);
+  }
+
+  .profil-spalte:last-child { border-right: none; }
+
+  .profil-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.68rem;
+    color: var(--seelengold);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .profil-wert {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 1.18rem;
+    color: var(--warmweiss);
+    line-height: 1.4;
+  }
+
+  /* HAUPTINHALT */
+  .main {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 72px 24px;
+  }
+
+  .teil {
+    padding-bottom: 64px;
+    margin-bottom: 64px;
+    border-bottom: 1px solid rgba(201,169,110,0.12);
+  }
+
+  .teil:last-of-type { border-bottom: none; margin-bottom: 0; }
+
+  .section-number {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.7rem;
+    color: var(--seelengold);
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 2.3rem;
+    color: var(--warmweiss);
+    margin: 0 0 36px;
+    line-height: 1.2;
+  }
+
+  .teil p {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    color: var(--warmweiss);
+    margin: 0 0 22px;
+    line-height: 1.85;
+  }
+
+  .teil h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--seelengold);
+    margin: 48px 0 20px;
+    line-height: 1.3;
+  }
+
+  .teil strong {
+    font-weight: 400;
+    color: var(--warmweiss);
+  }
+
+  .teil em {
+    font-style: italic;
+    color: var(--warmweiss-dim);
+  }
+
+  /* HIGHLIGHT-BOX */
+  .highlight-box {
+    border-left: 2px solid var(--seelengold);
+    padding: 20px 28px;
+    margin: 32px 0;
+    background: rgba(201,169,110,0.05);
+    border-radius: 0 4px 4px 0;
+  }
+  .highlight-box p {
+    margin: 0;
+    font-style: italic;
+    color: var(--warmweiss);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    line-height: 1.65;
+  }
+
+  /* MANTRA-BOX */
+  .mantra-box {
+    border: 1px solid rgba(201,169,110,0.3);
+    border-radius: 4px;
+    padding: 32px 32px;
+    margin: 36px 0;
+    text-align: center;
+    background: rgba(201,169,110,0.03);
+  }
+  .mantra-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.68rem;
+    color: var(--seelengold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .mantra-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--warmweiss);
+    line-height: 1.85;
+    margin: 0;
+    white-space: pre-line;
+  }
+
+  /* EINLADUNG-BOX */
+  .einladung-box {
+    border: 1px solid rgba(201,169,110,0.3);
+    border-radius: 6px;
+    padding: 36px 40px;
+    margin: 48px 0 24px;
+    background: rgba(201,169,110,0.04);
+    position: relative;
+  }
+  .einladung-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.68rem;
+    color: var(--seelengold);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .einladung-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--warmweiss);
+    line-height: 1.85;
+    margin-bottom: 20px;
+  }
+  .einladung-fragen {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--warmweiss);
+    line-height: 2;
+    padding-left: 24px;
+    margin: 20px 0;
+    border-left: 1px solid rgba(201,169,110,0.3);
+  }
+  .einladung-schluss {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--warmweiss);
+    line-height: 1.85;
+    margin-top: 20px;
+  }
+
+  /* TAG-REIHE */
+  .tag-reihe {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 32px 0 8px;
+  }
+  .tag {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.75rem;
+    color: var(--seelengold);
+    border: 1px solid rgba(201,169,110,0.4);
+    padding: 5px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+  }
+
+  /* PROMINENTEN-KARTEN */
+  .prominent-card {
+    background: var(--waldnacht-light);
+    border: 1px solid rgba(201,169,110,0.15);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+  }
+  .prominent-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--seelengold);
+    font-weight: 600;
+    margin: 0 0 12px;
+  }
+  .prominent-card p {
+    margin: 0 0 10px;
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+  .prominent-card p:last-child { margin-bottom: 0; }
+  .prominent-card em {
+    color: var(--warmweiss-dim);
+    font-style: italic;
+  }
+
+  .situation-block {
+    margin: 28px 0;
+  }
+  .situation-block p {
+    margin-bottom: 14px;
+  }
+  .situation-inner {
+    padding-left: 20px;
+    border-left: 1px solid rgba(201,169,110,0.22);
+    margin: 12px 0 22px;
+  }
+  .situation-inner p {
+    margin-bottom: 8px;
+    font-size: 0.96rem;
+  }
+
+  .mantra-bruecke {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    text-align: center;
+    color: var(--warmweiss-dim);
+    font-size: 1.05rem;
+    margin: -12px 0 36px;
+  }
+
+  .planeten-abschluss {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--warmweiss);
+    line-height: 1.75;
+    padding: 28px 0 8px;
+    text-align: center;
+    border-top: 1px solid rgba(201,169,110,0.12);
+    margin-top: 36px;
+  }
+
+  /* ABSCHLUSS-ZITAT */
+  .abschluss {
+    background: var(--waldnacht-deep);
+    padding: 96px 24px;
+    text-align: center;
+  }
+  .abschluss-haltung {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--warmweiss-dim);
+    max-width: 580px;
+    margin: 0 auto 36px;
+    line-height: 1.8;
+  }
+  .abschluss-zitat {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.9rem;
+    color: var(--warmweiss);
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+  .abschluss-zitat .guillemet {
+    color: var(--seelengold);
+    font-size: 2.4rem;
+    font-weight: 300;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--waldnacht-deep);
+    padding: 64px 24px 56px;
+    text-align: center;
+    border-top: 1px solid rgba(201,169,110,0.1);
+  }
+  .footer-leitsatz {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.75rem;
+    color: var(--seelengold);
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin-top: 18px;
+    margin-bottom: 16px;
+  }
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    color: var(--seelengold);
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+  .footer-slogan {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.82rem;
+    color: var(--warmweiss-dim);
+    letter-spacing: 0.08em;
+  }
+
+  @media (max-width: 640px) {
+    .hero-name { font-size: 2.3rem; }
+    .section-title { font-size: 1.8rem; }
+    .abschluss-zitat { font-size: 1.4rem; }
+    .profil-spalte {
+      border-right: none;
+      border-bottom: 1px solid rgba(201,169,110,0.15);
+      padding: 20px 0;
+    }
+    .profil-spalte:last-child { border-bottom: none; }
+    .einladung-box { padding: 28px 22px; }
+  }
+</style>
+</head>
+<body style="background:#1a3a2a;background-color:#1a3a2a;min-height:100vh;">
+<div style="background:#1a3a2a;background-color:#1a3a2a;min-height:100vh;width:100%;">
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <svg class="hero-logo" width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="32" cy="32" r="30" fill="none" stroke="#C9A96E" stroke-width="1.5"/>
+    <path d="M32 8 C20 18 20 28 32 34 C44 28 44 18 32 8Z" fill="none" stroke="#C9A96E" stroke-width="1.5"/>
+    <line x1="32" y1="10" x2="32" y2="54" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+    <line x1="10" y1="32" x2="54" y2="32" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+    <circle cx="32" cy="32" r="3" fill="#C9A96E"/>
+    <polygon points="32,14 34,20 32,18 30,20" fill="#C9A96E"/>
+  </svg>
+  <div class="logo-label">Herzkompass · Maya-Analyse</div>
+
+  <h1 class="hero-name">Laura</h1>
+  <div class="hero-kin">KIN 54</div>
+  <div class="hero-subtitle">Weißer Lunarer Magier</div>
+  <div class="hero-meta">21. Juni 1990 · Welle des Roten Himmelswanderers · Weißes Zeitschloss des Übergangs</div>
+
+  <hr class="hero-line" />
+
+  <p class="hero-eroeffnung">Du hast mir die Möglichkeit gegeben, dich durch diese Analyse besser kennenzulernen — und ich bin dir dankbar für dein Vertrauen. Lass uns gemeinsam schauen, wer du wirklich bist.</p>
+
+  <p class="tim-disclaimer">Ich bin kein Therapeut, kein Wissenschaftler — ich bin Tim, und ich glaube daran, dass jeder Mensch einen Kompass in sich trägt. Mein Ziel ist einfach: dass du dich nach dieser Lektüre ein kleines bisschen besser kennst als vorher. Diese Analyse ist eine Einladung, kein Urteil. Was sich stimmig anfühlt — nimm es mit. Was nicht passt — muss nicht stimmen.</p>
+</section>
+
+<!-- ═══════════════ PROFIL-BAND ═══════════════ -->
+<section class="profil-band">
+  <div class="profil-spalte">
+    <div class="profil-label">Ton</div>
+    <div class="profil-wert">Lunar · 2</div>
+  </div>
+  <div class="profil-spalte">
+    <div class="profil-label">Archetyp</div>
+    <div class="profil-wert">Weißer Magier</div>
+  </div>
+  <div class="profil-spalte">
+    <div class="profil-label">Impulse</div>
+    <div class="profil-wert">Differenzieren · Schöpferisch</div>
+  </div>
+  <div class="profil-spalte">
+    <div class="profil-label">Licht</div>
+    <div class="profil-wert">Seherin · Gestaltend</div>
+  </div>
+</section>
+
+<!-- ═══════════════ HAUPTINHALT ═══════════════ -->
+<main class="main">
+
+<!-- TEIL 01 -->
+<section class="teil">
+  <div class="section-number">Teil 01</div>
+  <h2 class="section-title">Wer bin ich</h2>
+
+  <p>Laura, lass uns gemeinsam schauen wer du bist — woher du kommst, wo du jetzt stehst, und wohin dein Weg weist. Keine Sorge, ich nehme dich an die Hand.</p>
+
+  <p>In dir wohnt jemand, der zwei Seiten einer Sache gleichzeitig sieht. Und in dir wohnt jemand, der weiß, dass Gedanken schöpfen. Eine Seh-Frau mit Schöpfungs-Kraft — das ist der Kern.</p>
+
+  <p>Deine Wurzel liegt in der <strong>Drachen-Genesis</strong> — das ist eine der drei großen Entwicklungs-Ebenen im Tzolk'in, dem Maya-Kalender mit 260 Tagen. Die Drachen-Ebene ist das Ursprüngliche, das Nährende, das Körperlich-Tragende. Die Wurzel, bevor etwas zu blühen beginnt. Das ist dein innerer Nährboden: Du kommst nicht aus der Luft. Du kommst aus dem Boden. Auch wenn deine Aufgabe später einmal sehr fein und mental wird — zu deiner Grundausstattung gehört ein tiefes Urvertrauen, etwas Erdiges, etwas Körperliches, das dich trägt.</p>
+
+  <p>Auf diesem Nährboden steht deine Farbe: <strong>Weiß</strong>. Und Weiß erklärt viel. Weiße Menschen haben diesen Blick für das, was noch nicht ganz stimmt. Nicht weil sie nörgeln. Sondern weil ihr ganzes Wesen darauf ausgelegt ist, den Feinschliff zu liefern, den andere nicht einmal sehen würden. Weiße reinigen, verfeinern, klären. Sie machen aus einem Rohbau ein Zuhause. Sie finden die Nadel im Heuhaufen — auch dann noch, wenn alle anderen schon aufgegeben haben. Das ist keine kleine Gabe. Das ist eine spezifische Art, in der Welt zu sein.</p>
+
+  <p>Auf dieser weißen Grundlage liegt dein Archetyp: der <strong>Weiße Magier</strong>. Das klingt groß, fast märchenhaft — und bedeutet im Alltag etwas sehr Konkretes. Der Magier ist nicht der Hexer mit Zauberstab. Der Magier ist derjenige, der weiß, dass <em>Präsenz wirkt</em>. Dass Gedanken formen. Dass Haltung Realität gestaltet. Du gehörst zu den Menschen, die einen Raum verändern, wenn sie ihn betreten — ohne ein Wort zu sagen. Du hast mentale Präzision. Du durchschaust Dynamiken zwischen Menschen oft, bevor die Menschen sie selbst benennen können. Und du hast einen natürlichen Bezug zu etwas, das über das rein Materielle hinausgeht. Das heißt nicht, dass du esoterisch bist. Es heißt, dass du weißt: Es gibt mehr, als man mit den Händen greifen kann.</p>
+
+  <p>Jetzt kommt die Schicht, die deinem Wesen seine ganz eigene Farbe gibt: dein <strong>Ton</strong>. Der Ton ist die rhythmische Qualität in der Dreizehn-Ordnung der Maya — er zeigt, in welchem Moment einer Bewegung du stehst. Dein Ton ist die <strong>Zwei, Lunar</strong>. Zwei Punkte. Das heißt: reiner Empfang, aber verdoppelt. Du nimmst zwei Seiten einer Sache wahr — gleichzeitig. Du bist keine Schwarz-Weiß-Denkerin, du bist eine <em>Seh-Frau</em>. Wo andere schon längst ein Urteil gefällt haben, siehst du noch die Argumente der Gegenseite. Wo andere Kompromisse schließen, erkennst du, dass es in Wahrheit zwei unvereinbare Wahrheiten gibt — und dass beide wahr sind.</p>
+
+  <p>Das ist deine größte Gabe. Und gleichzeitig deine größte Herausforderung. Weil dieselbe Fähigkeit, die dich zur Ratgeberin für andere macht, dich selbst manchmal in der Entscheidungs-Hölle stehen lässt. Niemand sieht Nuancen so klar wie du — und genau deshalb fällt dir das Entscheiden in eigener Sache so schwer. Das ist kein Fehler in dir. Das ist die andere Seite derselben Medaille, deren zwei Seiten du so präzise erkennen kannst.</p>
+
+  <p>Jetzt die nächste Schicht: deine <strong>Welle</strong>. Eine Welle ist eine 13-Tage-Einheit im Tzolk'in, die einen eigenen inneren Rhythmus trägt — wie ein musikalisches Thema, das dein ganzes Wesen einfärbt. Du bist in der <strong>Welle des Roten Himmelswanderers</strong>. Und diese Welle trägt einen Leitsatz, der exakt wiedergibt, was du als Mensch bist: <em>»Ich erweitere heute die Plattform meiner Herzenskräfte. Sie sind der Rahmen meines Schöpferpotentials. Sie alleine überstehen alle Zeiten.«</em> Der Himmelswanderer bringt Raum, Mut und Bewegung. Er macht weit. Er macht Platz. Und da er deine Welle anführt, ist diese Weite der Hintergrund-Ton, vor dem alles andere in dir schwingt: Egal was du tust — du tust es in einem Raum, der sich ausdehnen will. Du bist nicht zum Engwerden gebaut.</p>
+
+  <p>Deine <strong>Harmonie</strong> — eine der Resonanz-Strukturen im Tzolk'in, die dir deinen Platz im größeren Zusammenspiel zuweist — ist die Vierzehn: der <em>selbst-bestehende Ausgang</em>, der <em>die Intelligenz der Form</em> ausdrückt. Das ist ein sehr konkreter Satz: Du bist jemand, der aus sich selbst heraus steht. Du brauchst nicht zehn Leute um dich, um zu wissen wo du hingehörst. Und du hast einen untrüglichen Sinn für <em>Form</em> — dafür, wann etwas seine richtige Gestalt gefunden hat und wann noch nicht. Das macht dich in Prozessen unersetzlich, auch wenn du es vielleicht selbst nicht so siehst.</p>
+
+  <p>Um dich herum arbeiten zwei Kräfte. Das ist eine Struktur, die dein Geburtsblatt ganz deutlich zeigt. Die erste ist deine <strong>stützende Kraft</strong>, der <em>Rote Himmelswanderer</em> — derselbe, der auch deine Welle anführt. Das bedeutet: Deine stützende Kraft ist doppelt da. Wann immer du in Schieflage gerätst, wenn die Entscheidungs-Spiralen zu eng werden, wenn das Sehen zu viel wird — dann hilft dir alles, was Raum schafft. Ein Spaziergang, eine Reise, ein neues Zimmer, eine weite Landschaft, ein Gespräch mit jemandem, der selbst viel Raum in sich trägt. Bewegung löst bei dir mehr, als Nachdenken es je könnte.</p>
+
+  <p>Die zweite Kraft ist deine <strong>herausfordernde</strong>: der <em>Gelbe Mensch</em>. Das ist die Figur im Maya-System, die den freien Willen trägt, die klare rationale Entscheidung, das bewusste »Ja« oder »Nein«. Und das ist — wie du vielleicht schon lächelst — genau das, was dir selbst am schwersten fällt. Menschen, die unbeirrt entscheiden, ohne zehn Perspektiven vorher abzuwägen, werden in deinem Leben eine besondere Rolle spielen. Manchmal wirst du sie anstrengend finden. Manchmal wirst du sie beneiden. Und manchmal wirst du merken: Genau an denen wächst du am meisten. Die Reibung ist kein Zeichen, dass ihr nicht zusammenpasst. Die Reibung ist dein Wachstums-Motor.</p>
+
+  <p>Das Feld, in dem all das geschieht, ist dein <strong>Zeitschloss</strong> — einer der fünf großen 52-Tage-Abschnitte im Tzolk'in, jeder trägt eine Grundaufgabe. Du lebst im <em>Weißen nördlichen Schloss des Übergangs</em>, auch »Raum des Todes« genannt. Das klingt drastisch, meint aber nichts Dunkles. Es meint: der Raum, in dem <em>verfeinert</em> wird. Wo das Grobe weichen darf. Wo Dinge durchlässiger werden. Wo ein Krieger nicht mehr mit dem Schwert kämpft, sondern mit Bewusstheit. Dein Zeitschloss ist das Schloss der Klärung — und das passt exakt zu deinem Wesen. Du bist nicht für den lauten Anfang geboren. Du bist für das <em>feine Danach</em> geboren.</p>
+
+  <div class="mantra-box">
+    <div class="mantra-label">Dein KIN-Mantra</div>
+    <p class="mantra-text">Ich polarisiere um zu verzaubern
+Aufnahmefähigkeit stabilisierend
+Ich präge den Ausgang der Zeitlosigkeit
+Mit dem Lunaren Ton der Herausforderung
+Ich bin geführt durch die Kraft des Todes</p>
+  </div>
+
+  <p class="mantra-bruecke">Das ist kein schöner Spruch für die Wand — das ist dein Alltag in fünf Zeilen.</p>
+
+  <div class="highlight-box">
+    <p>Du bist nicht zwiegespalten. Du siehst zweifach. Das ist ein Unterschied, und er ist alles.</p>
+  </div>
+
+  <p class="planeten-abschluss">Und am Ende deines Geburtsblatts steht ein einziger Satz, der deine Reise auf den Punkt bringt: <em>»KIN 54 bringt galaktische Energie auf den Maldek.«</em> Maldek ist in der alten Maya-Vorstellung der Planet, der einmal war — der zwischen Mars und Jupiter zerbrach und nur noch als Gürtel aus Trümmern existiert. Deine Aufgabe ist nicht, irgendwo zu leuchten. Deine Aufgabe ist, etwas Sammelndes, Heilendes dorthin zu tragen, wo ein Ganzes zerbrochen ist. Das ist der vielleicht leiseste, aber auch einer der tiefsten Aufträge im ganzen Maya-System. Du sollst nicht strahlen. Du sollst zusammenführen, was zerstreut wurde.</p>
+
+  <div class="tag-reihe">
+    <span class="tag">Doppelblick</span>
+    <span class="tag">Schöpfungs-Kraft</span>
+    <span class="tag">Drachen-Wurzel</span>
+    <span class="tag">Plattform-Bauerin</span>
+    <span class="tag">Spannungsfeld-Seherin</span>
+    <span class="tag">Sanfte Autorität</span>
+    <span class="tag">Zeitlose Gegenwart</span>
+  </div>
+</section>
+
+<!-- TEIL 02 -->
+<section class="teil">
+  <div class="section-number">Teil 02</div>
+  <h2 class="section-title">Wie sehen mich andere</h2>
+
+  <p>Wenn Menschen dir begegnen, spüren sie etwas, bevor sie es benennen können. Es ist keine Lautstärke. Es ist eine bestimmte Art von <em>Präsenz</em>. Du bist da — wirklich da, nicht halb woanders — und das ist seltener, als man denkt. Dein Blick hat Tiefe, dein Zuhören ist nicht oberflächlich. Menschen, die mit dir sprechen, haben oft das Gefühl, dass sie zum ersten Mal wirklich gehört werden. Und das verändert sie. Manche finden das anziehend, andere beunruhigend — aber gleichgültig lässt es niemanden.</p>
+
+  <p>Dazu kommt etwas Unfassbares, das schwer zu beschreiben ist: eine Art <em>Zeit-Entkoppelung</em>. In deiner Gegenwart läuft die Zeit ein bisschen anders. Menschen, die eigentlich nur zehn Minuten bleiben wollten, bleiben zwei Stunden. Gespräche mit dir fühlen sich länger an, als sie waren. Das ist kein Trick. Das ist die Qualität deines Wesens: Du bist so sehr im Moment, dass der Moment sich dehnt. Vielleicht hast du diese Rückmeldung schon bekommen — oder du hast dich manchmal gewundert, warum Menschen in deiner Nähe plötzlich viel mehr erzählen als geplant.</p>
+
+  <p>Und dann gibt es etwas, das andere an dir missverstehen können — und das verdient Erklärung, weil es Beziehungen schwerer macht, als es müsste. Wenn du jemandem zuhörst und er eine Meinung äußert, kommst du mit zwei, drei, vier Gegenperspektiven zurück. Das meinst du nicht als Widerspruch. Du meinst es als <em>Klärung</em>: Schauen wir doch mal alle Seiten an. Für dich ist das Liebe. Für den anderen kann es sich anfühlen, als würdest du seine Position zerlegen. Das ist eines der häufigsten Missverständnisse zwischen dir und Menschen mit klareren, geradlinigeren Strukturen — vor allem mit Menschen, die wie ein Gelber Mensch funktionieren: klar, entschieden, nicht abwägend. Sie wollen ein Ja oder ein Nein. Du lieferst eine Landkarte. Beides ist wertvoll. Aber wenn du weißt, dass das die Lücke ist, kannst du sie leichter überbrücken: frag dich von Zeit zu Zeit, ob dein Gegenüber gerade Perspektiven braucht — oder eine Einschätzung. Wenn du die Einschätzung direkt lieferst, überraschst du Menschen positiv.</p>
+
+  <p>Ein zweites Missverständnis: Weil du mental so präzise bist, weil du Fassaden schnell durchschaust, kann das in manchen Momenten <em>schneidend</em> wirken. Das ist nicht deine Absicht. Das ist ein Nebeneffekt davon, dass du die Wahrheit sehr leicht siehst. Manche Menschen tragen Masken, weil sie ohne diese Masken nicht auskommen. Wenn du die Maske siehst und sie direkt ansprichst — auch liebevoll — kann das treffen. Deine Lern-Aufgabe ist nicht, weniger zu sehen. Sie ist, zu entscheiden <em>wann</em> du das Gesehene aussprichst und wann du es für dich behältst. Eine Gabe wird zur Weisheit, wenn sie gut getimt ist.</p>
+
+  <p>Das Dritte, worüber andere manchmal stolpern, ist dein Rückzug. Du kannst körperlich anwesend sein und innerlich weit weg. Dein Wesen geht gerne in Räume, die andere nicht sehen — mental, spirituell, in ein Denken, das niemand mithält. Für Partner, Freunde, Familie fühlt sich das dann an, als wärst du emotional abwesend. Bist du nicht. Du bist nur woanders. Wenn jemand, der dich liebt, dich sanft zurückruft — »hey, du bist gerade nicht hier« — ist das kein Vorwurf. Das ist eine Einladung. Und es hilft, wenn du sie annehmen kannst, ohne dich verteidigen zu müssen.</p>
+
+  <p>Was Menschen wirklich an dir schätzen — auch wenn sie es selten aussprechen — ist deine <em>Echtheit</em>. Du trägst keine Masken. Du versuchst nicht, jemand zu sein, der du nicht bist. Und genau deshalb bist du für andere ein Raum, in dem sie auch ihre Masken ablegen können. Das ist kein Kleines. Das ist in einer Welt voller Fassaden ein Geschenk. Du gibst Menschen die Erlaubnis, wahr zu sein.</p>
+
+  <div class="highlight-box">
+    <p>Du wirkst nicht laut. Du wirkst lange. Menschen erinnern sich an dich noch, wenn sie die Lauten längst vergessen haben.</p>
+  </div>
+</section>
+
+<!-- TEIL 03 -->
+<section class="teil">
+  <div class="section-number">Teil 03</div>
+  <h2 class="section-title">Ich in Beziehungen</h2>
+
+  <h3>Was ich mitbringe</h3>
+
+  <p>In eine Beziehung bringst du etwas, das selten ist: <strong>echtes Sehen</strong>. Nicht das höfliche Sehen, das wir alle üben, wenn wir mit jemandem am Tisch sitzen. Sondern das Sehen, das Menschen spürt, bevor sie reden. Du merkst, wann dein Partner traurig ist, auch wenn er lacht. Du merkst, wann ein Freund etwas nicht sagt. Du nimmst das Unausgesprochene wahr — und das macht Beziehungen mit dir für die andere Seite tief. Bei dir muss man nicht so tun, als ob.</p>
+
+  <p>Du bringst außerdem <em>Treue mit</em>. Nicht im Sinne von Pflicht, sondern im Sinne von Haltung: Wenn du jemanden ausgewählt hast, dann ist dieser Mensch bei dir bewusst angekommen. Du wählst mit deinem Inneren, nicht nur mit dem Kopf. Und was du wählst, hältst du.</p>
+
+  <p>Dein blinder Fleck — der Ort, an dem auch du manchmal stolperst — ist genau die Kehrseite deiner Gabe. Weil du so viel siehst, siehst du auch, was in einer Beziehung <em>nicht</em> stimmt. Immer. Ständig. Und manchmal kannst du nicht anders, als das auszusprechen. Dann findet dein Partner sich in einem Gespräch wieder, das er gar nicht führen wollte, bei einem Thema, von dem er gar nicht wusste, dass es eins ist. Das ist anstrengend — für ihn, aber auch für dich. Eine Beziehung braucht Raum für Nicht-Analyse. Für einfach Sein. Du darfst lernen, manche Dinge zu <em>sehen und stehen zu lassen</em>, ohne sie sofort zu verhandeln.</p>
+
+  <p>Was du brauchst, um in Beziehungen wirklich aufzublühen: <strong>jemanden, der deine Seh-Kraft nicht fürchtet</strong>. Jemanden, der sich nicht klein fühlt, wenn du etwas sagst. Jemanden, der selbst Substanz hat und dir klar antworten kann — auch mal ein »Nein, das sehe ich anders«. Menschen mit weichen Konturen werden in deiner Nähe oft überwältigt. Du brauchst jemanden mit klaren Konturen. Jemanden, der bleibt, auch wenn du tief schaust. Und: du brauchst einen Menschen, der Raum liebt — nicht einen, der dich ständig nah haben will. Deine Welle ist eine Weite-Welle. Beziehungen, die dich einengen, töten etwas in dir.</p>
+
+  <p>Zwei Kräfte aus deinem Geburtsblatt sind dabei besonders wichtig. Die stützende Kraft, der <em>Rote Himmelswanderer</em>, zeigt sich in Menschen, die Bewegung, Weite, Mut in sich tragen. Wenn du solche Menschen in deinem Leben hast — egal ob Partner, Freundin, Bruder — halte an ihnen fest. Sie bringen dich aus den Spiralen heraus, wenn du dich darin verhakst. Die herausfordernde Kraft, der <em>Gelbe Mensch</em>, zeigt sich in Menschen, die klar entscheiden. Sie werden dich gelegentlich an deine Grenzen bringen, dich irritieren, dich vielleicht sogar wütend machen. Lass sie trotzdem nicht gehen. Die Reibung mit ihnen ist keine Warnung — sie ist die produktivste Beziehung, die du haben kannst.</p>
+
+  <div class="highlight-box">
+    <p>Was Partner und Freunde wissen sollten: Sie muss nicht zwischen zwei Seiten entscheiden. Sie sieht zwei Seiten — und das ist ihr Wesen, nicht ihr Zögern.</p>
+  </div>
+
+  <h3>Wo es typischerweise klemmt</h3>
+
+  <p>Hier sind drei Situationen, die aus deiner Struktur entstehen. Keine davon macht dich zu einem schwierigen Menschen. Jede einzelne wird leichter, wenn beide Seiten verstehen, was da eigentlich passiert.</p>
+
+  <div class="situation-block">
+    <p><strong>Situation 1.</strong> Dein Partner schlägt dir spontan etwas vor — ein Wochenend-Ausflug, eine Einladung, ein plötzliches »Lass uns heute Abend essen gehen«. Du reagierst zögerlich. Vielleicht fängst du an, Bedenken aufzuzählen.</p>
+    <div class="situation-inner">
+      <p><em>Was außen passiert:</em> Er liest dein Zögern oft als Ablehnung seiner Idee, manchmal als Ablehnung von ihm selbst. Er zieht sich zurück, wird kurz angefasst, lässt den Vorschlag fallen.</p>
+      <p><em>Was innen passiert:</em> Du bist gar nicht im Ablehnungs-Modus. Du bist im <em>Prüf-Modus</em>. Dein Inneres hört noch etwas, das noch nicht stimmig ist — einen Termin, eine Stimmung, einen Aspekt — und will das klären, <em>bevor</em> du Ja sagen kannst. Dein Ja ist dir heilig. Du sagst nicht schnell Ja, weil du dein Ja ernst meinst.</p>
+    </div>
+  </div>
+
+  <div class="situation-block">
+    <p><strong>Situation 2.</strong> Es gibt einen Konflikt zwischen deinem Partner und einem Dritten — seinem Kollegen, ihrer Schwester, irgendjemand. Er erzählt dir davon. Du hörst zu, und dann sagst du: »Ich verstehe, aber ich kann auch verstehen, warum sie so reagiert hat.«</p>
+    <div class="situation-inner">
+      <p><em>Was außen passiert:</em> Er fühlt sich nicht auf seiner Seite. Er hatte Loyalität erwartet, und du hast ihm Objektivität gegeben. Das tut weh, auch wenn er es nicht sagt.</p>
+      <p><em>Was innen passiert:</em> Du <em>bist</em> auf seiner Seite — und gleichzeitig kannst du nicht ausblenden, was du siehst. Beide Wahrheiten sind für dich real. Du glaubst, wenn du nur eine Seite nimmst, lügst du. Und lügen ist in deinem Wesen nicht vorgesehen. Deine Lern-Aufgabe hier ist nicht, weniger zu sehen — sondern Menschen erstmal zu zeigen, dass sie gesehen werden, bevor du die andere Perspektive einträgst. Zwei Schritte, nicht beides auf einmal.</p>
+    </div>
+  </div>
+
+  <div class="situation-block">
+    <p><strong>Situation 3.</strong> Jemand in deinem Umfeld sagt etwas, das so nicht stimmt — eine kleine Notlüge, eine Selbstbeschwichtigung, ein »mir geht's gut«, wenn es ihm nicht gut geht. Du durchschaust es sofort. Du sprichst es an.</p>
+    <div class="situation-inner">
+      <p><em>Was außen passiert:</em> Der andere fühlt sich ertappt. Manchmal wird er defensiv, manchmal verletzt. Die Masken, die Menschen tragen, tragen sie oft aus guten Gründen — und wenn sie dir auffallen, fühlt sich das für den Gegenüber wie ein Eingriff an.</p>
+      <p><em>Was innen passiert:</em> In dir ist das keine Attacke. In dir ist das eine Einladung zur Wahrheit. Du glaubst, mit der Wahrheit zu leben, ist leichter. Aber nicht alle sind dort. Manche brauchen ihre Masken noch eine Weile. Wenn du dein Sehen nicht unterdrücken musst, aber dein Aussprechen dosieren lernst — wird dein Umfeld dich lieben.</p>
+    </div>
+  </div>
+
+  <div class="einladung-box">
+    <div class="einladung-label">Eine Einladung · gemeinsam lesen</div>
+    <p class="einladung-text">Das was hier steht, gehört dir. Aber wenn du magst — setz dich mit dem Menschen, der dir wichtig ist, zusammen und lest es gemeinsam. Nicht damit er versteht warum du so bist. Sondern damit ihr beide etwas habt, worüber ihr sprechen könnt, ohne dass einer den anderen angreift.</p>
+    <div class="einladung-fragen">
+      — Kennst du diese Situationen aus unserem Alltag?<br>
+      — Wie nimmst du mich in diesen Momenten wahr, und wie kommt es bei dir an?<br>
+      — Sind das Dinge die tief in mir sitzen, oder können wir gemeinsam daran arbeiten?
+    </div>
+    <p class="einladung-schluss">Und das wichtigste: Wenn dein Mensch dir dann etwas sagt, das wehtut — dann ist das nicht Kritik an dir. Das ist jemand, der versucht dich besser zu verstehen. Das ist das Schönste was ein anderer Mensch überhaupt tun kann.</p>
+  </div>
+</section>
+
+<!-- TEIL 04 -->
+<section class="teil">
+  <div class="section-number">Teil 04</div>
+  <h2 class="section-title">Ich im Beruf</h2>
+
+  <p>Wenn du dich fragst, welche Arbeit wirklich zu dir passt, ist die Antwort einfacher als du denkst — und gleichzeitig anspruchsvoller. Du bist nicht für Fließband-Arbeit gemacht. Nicht für reine Verwaltung. Nicht für Rollen, in denen du eine Meinung unterdrücken musst, weil sie unpassend ist. Deine Kraft entfaltet sich dort, wo <em>bewusste Wirkung</em> gefragt ist. Wo jemand gebraucht wird, der den Raum mit Präsenz füllt. Wo jemand zuhört, durchschaut, verfeinert.</p>
+
+  <p>Für dich passen mehrere Richtungen — manche direkt, manche als erweitertes Feld.</p>
+
+  <p><strong>Outdoor-Trainer, Reiseleitung, Pilotin</strong> — überall dort, wo Bewegung und Raum gefragt sind. Das liegt nicht nur an dir persönlich, sondern an der Welle des Himmelswanderers, die dich trägt: Weite tut dir gut. Berufe, die dich an einen Schreibtisch ketten, rauben dir Energie.</p>
+
+  <p><strong>Erfinderin, Produktentwicklung, Vertreterin</strong> — alles, wo etwas <em>neu gedacht</em> werden will. Du siehst, was andere nicht sehen. Du erkennst den Fehler in Zeile 847, während alle anderen bei Zeile 50 schon aufgegeben haben. Und du siehst nicht nur den Fehler — du siehst auch, wie die Sache <em>eigentlich</em> gemeint war. Das ist eine seltene Kombination.</p>
+
+  <p><strong>Coaching, Therapie, Beratung</strong> — vor allem in den tieferen Varianten. Systemische Aufstellung. Hypnose-Therapie. Psychodrama. Strategie-Coaching. Visions-Beratung. Überall dort, wo nicht Symptome gelindert, sondern Dynamiken verändert werden. Du hast einen natürlichen Zugang zu dem, was zwischen den Zeilen läuft — und du kannst Menschen behutsam dorthin führen, wo sie sich selbst nicht mehr hinwagen. Das ist, was dein Wesen eigentlich tut. Ob du es als Beruf ausübst oder im Privaten — es ist da.</p>
+
+  <p>Deine <em>Harmonie 14</em> — der <em>selbst-bestehende Ausgang</em> — sagt über deine berufliche Rolle etwas Wichtiges aus: Du bist kein Team-Player im klassischen Sinn. Das heißt nicht, dass du nicht mit anderen arbeiten kannst. Es heißt, dass du <em>aus dir selbst heraus</em> funktionierst. Du brauchst keine Chefin, die dir jeden Tag sagt, was zu tun ist. Du brauchst keine ständige Rückmeldung. In Strukturen, die dir zu viel Hierarchie auferlegen, gehst du ein. In Strukturen, die dir Autonomie lassen — Solo-Praxis, freie Mitarbeit, eigene Projekte, selbständige Beratung — blühst du auf. Die Vorstellung, dass du mal dein eigenes Ding machst, ist keine Spinnerei. Sie ist strukturell in dir angelegt.</p>
+
+  <p>Dein Zeitschloss — das <em>Weiße Schloss des Übergangs</em>, in dem <em>verfeinert</em> wird — sagt über deine berufliche Phase noch etwas: Du bist nicht die, die ein Geschäft aus dem Nichts aufbaut. Du bist die, die kommt, wenn etwas schon steht, und es auf die nächste Ebene bringt. Du siehst, was noch nicht rund ist. Du bringst Feinschliff. Du machst aus einem Konzept eine Wirkung. Das ist eine andere Art zu gründen — eine, die unterschätzt wird, weil sie leise ist. Aber ohne Menschen wie dich würden die meisten Unternehmen nach dem ersten Jahr an Unreife ersticken.</p>
+
+  <p>Und zum Umgang mit deinem Antipoden im Beruf: Auftraggeber und Kolleginnen mit klarer Gelber-Mensch-Energie — also Menschen, die schnell entscheiden, die <em>Entweder-oder</em> in der DNA tragen — werden deine wichtigsten beruflichen Sparringspartner sein. Sie werden dich zu Entscheidungen zwingen, die du allein vielleicht aufgeschoben hättest. Sie werden ungeduldig sein mit deinen Perspektiv-Landkarten. Und genau da liegt ihr Wert: Sie bringen dich aus dem Sehen ins <em>Tun</em>. Suche sie nicht. Aber wenn sie auftauchen, laufe nicht weg.</p>
+
+  <div class="highlight-box">
+    <p>Du bist nicht die, die baut. Du bist die, die das Gebaute in seine richtige Form bringt. Ohne dich blieben viele Dinge halbfertig.</p>
+  </div>
+
+  <p>Ein praktischer Tipp für dich, der aus deiner Magier-Qualität kommt: Nimm dir jeden Morgen fünf Minuten, bevor irgendjemand von dir etwas will, und entscheide bewusst — nicht was du <em>tun</em>, sondern was du <em>denken</em> willst. Welche Haltung du heute einnimmst. Welchen Ton du tragen willst. Weil du zu den Menschen gehörst, bei denen Gedanken schöpfen, ist diese Minute am Morgen mehr wert als drei Stunden Planung. Es ist die einzige Übung, die deine Magier-Kraft nicht verzettelt, sondern fokussiert.</p>
+</section>
+
+<!-- TEIL 05 -->
+<section class="teil">
+  <div class="section-number">Teil 05</div>
+  <h2 class="section-title">Menschen wie ich</h2>
+
+  <p>Vier Menschen teilen dein Profil. Was sie verbindet, sagt etwas über dich.</p>
+
+  <div class="prominent-card">
+    <h3>Barack Obama</h3>
+    <p>Ein Präsident, der in einer der polarisiertesten Zeiten regierte, die Amerika kannte — und der gleichzeitig als einer der ruhigsten im Ton in Erinnerung bleibt. Obama konnte mit einer einzigen Pause in der Rede einen ganzen Saal halten. Er verstand, dass Präsenz wirkt. Und er verstand, dass es in vielen Situationen nicht <em>eine</em> Wahrheit gibt, sondern zwei, die beide gehört werden müssen, bevor etwas Drittes entstehen kann.</p>
+    <p><em>Klingt das bekannt?</em></p>
+  </div>
+
+  <div class="prominent-card">
+    <h3>Quentin Tarantino</h3>
+    <p>Ein Regisseur, der keine Filme abbildet, sondern Realitäten <em>konstruiert</em>, die es vorher nicht gab. Seine Werke sind Schöpfungs-Akte im wörtlichen Sinn — eine Vergangenheit, die nicht stattfand, ein Geschehen, das die echte Geschichte verbessert. Tarantino lebt, was ein Magier ist: die Vorstellung, dass Gedanken und Worte Welten bauen. Dass man eine Realität <em>machen</em> kann, wenn man sie klar genug sieht.</p>
+    <p><em>Klingt das bekannt?</em></p>
+  </div>
+
+  <div class="prominent-card">
+    <h3>Orson Welles</h3>
+    <p>Der Mann, der 1938 eine Radio-Sendung machte, die Amerika in Panik versetzte — »Krieg der Welten« — weil er es verstand, Realität mit Worten zu formen. Später drehte er »Citizen Kane«, bis heute eines der meistdiskutierten Filmwerke. Welles war der Archetyp des mentalen Gestalters: jemand, der durchschaut hat, wie Wahrnehmung funktioniert, und der diese Einsicht für künstlerische Schöpfung nutzte. Er hat die Medien seiner Zeit nicht benutzt — er hat sie <em>neu erfunden</em>.</p>
+    <p><em>Klingt das bekannt?</em></p>
+  </div>
+
+  <div class="prominent-card">
+    <h3>Louis Armstrong</h3>
+    <p>Ein Musiker, der den Jazz nicht nur spielte, sondern zu einer kulturellen Kraft machte. Armstrong konnte in einem einzigen Ton mehr ausdrücken als andere in einem ganzen Stück. Seine Präsenz war magnetisch — die Leute sind nicht wegen der Noten gekommen, sie sind wegen <em>ihm</em> gekommen. Und das Besondere: Er war nie laut. Er war einfach <em>wahr</em>.</p>
+    <p><em>Klingt das bekannt?</em></p>
+  </div>
+
+  <p>Schau dir diese vier an. Obama mit seiner Ruhe. Tarantino mit seinem Schöpfen. Welles mit seinem Gestalten. Armstrong mit seiner Wahrhaftigkeit. Keiner von ihnen war einer der Lautesten seiner Zeit. Aber jeder von ihnen hat etwas in die Welt gebracht, das vorher nicht da war. Jeder war ein <em>Zauberer in seinem Medium</em>. Das ist die gemeinsame Qualität von Menschen mit deinem Profil: Ihr macht aus Anwesenheit etwas. Ihr schöpft, während ihr da seid. Und weil die Drachen-Genesis euch ihre Wurzel mitgegeben hat, bleibt das, was ihr macht, auch lange nach euch bestehen. Ihr seid keine Eintagsfliegen. Ihr seid Spuren-Hinterlasserinnen.</p>
+</section>
+
+</main>
+
+<!-- ═══════════════ ABSCHLUSS-ZITAT ═══════════════ -->
+<section class="abschluss">
+  <p class="abschluss-haltung">Alles was hier steht, ist ein Rahmen — kein Urteil. Wie du dich darin bewegst, bleibt deine Wahl.</p>
+  <p class="abschluss-zitat"><span class="guillemet">»</span>Du bist die, die zwei Seiten sieht und daraus etwas Drittes schöpft — leise, präsent, und jenseits der Zeit.<span class="guillemet">«</span></p>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+  <svg width="48" height="48" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="32" cy="32" r="30" fill="none" stroke="#C9A96E" stroke-width="1.5"/>
+    <path d="M32 8 C20 18 20 28 32 34 C44 28 44 18 32 8Z" fill="none" stroke="#C9A96E" stroke-width="1.5"/>
+    <line x1="32" y1="10" x2="32" y2="54" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+    <line x1="10" y1="32" x2="54" y2="32" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+    <circle cx="32" cy="32" r="3" fill="#C9A96E"/>
+    <polygon points="32,14 34,20 32,18 30,20" fill="#C9A96E"/>
+  </svg>
+  <div class="footer-leitsatz">Erkenne wer du wirklich bist</div>
+  <div class="footer-brand">Herzkompass</div>
+  <div class="footer-slogan">Dein innerer Kompass · Maya-Analyse von Tim Bernhard</div>
+</footer>
+
+</div>
+</body>
+</html>
