@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Freizeitkompass Hallertau 2026</title>
+<style>
+:root {
+  --bg:#f4efe6;
+  --surface:#fffdf9;
+  --text:#202328;
+  --muted:#68707a;
+  --line:#ddd5c8;
+  --orange:#e36f3d;
+  --orange-soft:#fff0e7;
+  --green:#4f7d62;
+  --green-soft:#eaf4ed;
+  --violet:#7351a3;
+  --violet-soft:#f1eafa;
+  --blue:#39758b;
+  --blue-soft:#e8f3f7;
+  --gold:#d0a12f;
+  --red:#b84a4a;
+  --shadow:0 12px 30px rgba(47,38,27,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:
+radial-gradient(circle at top right,rgba(227,111,61,.12),transparent 26rem),
+linear-gradient(180deg,#f8f2e9 0,#f4efe6 45%,#efe9df 100%);color:var(--text)}
+button,input,select{font:inherit}
+header{max-width:1200px;margin:auto;padding:30px 20px 18px}
+.hero{background:linear-gradient(135deg,#25262b 0,#34323b 58%,#7351a3 140%);color:white;border-radius:28px;padding:30px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.08);right:-70px;top:-95px}
+.hero-grid{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;position:relative;z-index:1}
+h1{font-size:clamp(2.2rem,6vw,4.8rem);line-height:.92;margin:0}
+.subtitle{max-width:700px;color:#e7e4ea;line-height:1.5;margin:16px 0 0}
+.version{background:rgba(255,255,255,.14);padding:9px 13px;border-radius:999px;white-space:nowrap}
+main{max-width:1200px;margin:auto;padding:0 20px 50px}
+.panel{background:rgba(255,253,249,.90);border:1px solid rgba(221,213,200,.95);border-radius:22px;padding:18px;margin-top:18px;box-shadow:0 5px 18px rgba(47,38,27,.05)}
+.panel h2{margin:0 0 13px}
+.chips{display:flex;gap:9px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:white;padding:10px 15px;border-radius:999px;cursor:pointer;transition:.18s}
+.chip:hover{transform:translateY(-1px);border-color:#aaa095}
+.chip.active{background:var(--text);color:white;border-color:var(--text)}
+.filters-grid{display:grid;grid-template-columns:2fr repeat(5,1fr);gap:10px}
+.filters input,.filters select{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:white}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:20px 0 12px}
+.count{font-weight:700}
+.reset{border:0;background:none;text-decoration:underline;cursor:pointer}
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.legend span{font-size:.8rem;padding:6px 9px;border-radius:999px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:18px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
+.card:before{content:"";position:absolute;left:0;top:0;right:0;height:6px}
+.card[data-area="Kalender"]:before{background:linear-gradient(90deg,var(--orange),#f0a44d)}
+.card[data-area="Ausflugsziele"]:before{background:linear-gradient(90deg,var(--green),#75a87e)}
+.card[data-area="Dance & Festivals"]:before{background:linear-gradient(90deg,var(--violet),#a76bc8)}
+.title-row{display:flex;justify-content:space-between;gap:10px}
+.eyebrow{font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.card h3{font-size:1.38rem;margin:4px 0 0}
+.fav{border:0;background:transparent;font-size:1.55rem;cursor:pointer;color:#aa9d8c}
+.fav.active{color:var(--gold)}
+.meta{color:var(--muted);font-size:.92rem;display:flex;gap:7px;flex-wrap:wrap}
+.tagrow{display:flex;gap:6px;flex-wrap:wrap}
+.tag{background:#f2eee7;padding:6px 9px;border-radius:999px;font-size:.8rem}
+.status{font-weight:700}
+.status[data-status="bestätigt"]{background:#e7f3ea;color:#2f6a45}
+.status[data-status="teilweise bestätigt"]{background:#fff1d8;color:#8a5b11}
+.status[data-status="noch prüfen"]{background:#f7e6e6;color:#923f3f}
+.status[data-status="vorbei"]{background:#eceff2;color:#5e6872}
+.status[data-status="ganzjährig"]{background:#e5f1f5;color:#2c6679}
+.status[data-status="saisonal"]{background:#eee9f7;color:#694a91}
+.evidence{font-size:.76rem;font-weight:700;padding:5px 8px;border-radius:9px}
+.evidence-A{background:#e7f3ea;color:#2f6a45}
+.evidence-B{background:#fff1d8;color:#8a5b11}
+.evidence-C{background:#f7e6e6;color:#923f3f}
+.summary{margin:0;line-height:1.48}
+details{border-top:1px solid var(--line);padding-top:10px}
+summary{cursor:pointer;font-weight:700}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.detail-item{background:#f7f3ed;border-radius:12px;padding:9px;font-size:.88rem}
+.linkrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.link,.nolink{display:inline-block;padding:9px 12px;border-radius:10px;text-decoration:none}
+.link{background:var(--text);color:#fff}
+.nolink{background:#f7e6e0;color:#8c4b34}
+.empty{grid-column:1/-1;background:white;border:1px solid var(--line);border-radius:20px;padding:32px;text-align:center}
+footer{max-width:1200px;margin:auto;padding:0 20px 40px;color:var(--muted);font-size:.9rem}
+@media(max-width:1000px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .filters-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:650px){
+  .hero-grid{flex-direction:column}
+  .grid{grid-template-columns:1fr}
+  .filters-grid{grid-template-columns:1fr}
+  .detail-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<header>
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <h1>Freizeitkompass<br>Hallertau</h1>
+        <p class="subtitle">Veranstaltungen, Ausflugsziele und Dance-Events – schnell filterbar, offline nutzbar und auf die vier wichtigsten Nutzungssituationen zugeschnitten.</p>
+      </div>
+      <div class="version">Version 0.4 · Datenblock 1A</div>
+    </div>
+  </section>
+</header>
+
+<main>
+  <section class="panel">
+    <h2>Was passt heute zu uns?</h2>
+    <div class="chips" id="audienceChips">
+      <button class="chip active" data-audience="">Alle</button>
+      <button class="chip" data-audience="Familie">Familie</button>
+      <button class="chip" data-audience="Paare">Paare</button>
+      <button class="chip" data-audience="Allein mit Kind">Allein mit Kind</button>
+      <button class="chip" data-audience="Mit Hund">Mit Hund</button>
+    </div>
+  </section>
+
+  <section class="panel filters">
+    <div class="filters-grid">
+      <input id="search" type="search" placeholder="Suche nach Name, Ort oder Kategorie">
+      <select id="area">
+        <option value="">Alle Bereiche</option>
+        <option>Kalender</option>
+        <option>Ausflugsziele</option>
+        <option>Dance & Festivals</option>
+      </select>
+      <select id="radius">
+        <option value="">Jeder Radius</option>
+        <option value="15">bis 15 km</option>
+        <option value="30">bis 30 km</option>
+        <option value="50">bis 50 km</option>
+        <option value="80">bis 80 km</option>
+        <option value="over80">über 80 km</option>
+      </select>
+      <select id="weather">
+        <option value="">Jedes Wetter</option>
+        <option value="Regen">Bei Regen</option>
+        <option value="trocken">Bei trockenem Wetter</option>
+      </select>
+      <select id="status">
+        <option value="">Jeder Status</option>
+        <option value="bestätigt">Bestätigt</option>
+        <option value="teilweise bestätigt">Teilweise bestätigt</option>
+        <option value="noch prüfen">Noch prüfen</option>
+        <option value="vorbei">Vorbei</option>
+        <option value="ganzjährig">Ganzjährig</option>
+        <option value="saisonal">Saisonal</option>
+      </select>
+      <select id="sort">
+        <option value="distance">Sortierung: Entfernung</option>
+        <option value="date">Sortierung: Datum</option>
+        <option value="recommendation">Sortierung: Empfehlung</option>
+      </select>
+    </div>
+    <div class="chips" style="margin-top:12px">
+      <button class="chip" id="favoritesOnly">Nur Favoriten</button>
+    </div>
+  </section>
+
+  <div class="toolbar">
+    <div class="count" id="count"></div>
+    <button class="reset" id="reset">Filter zurücksetzen</button>
+  </div>
+
+  <div class="legend">
+    <span style="background:#e7f3ea;color:#2f6a45">Bestätigt</span>
+    <span style="background:#fff1d8;color:#8a5b11">Teilweise bestätigt</span>
+    <span style="background:#f7e6e6;color:#923f3f">Noch prüfen</span>
+    <span style="background:#e5f1f5;color:#2c6679">Ganzjährig</span>
+  </div>
+
+  <section class="grid" id="grid"></section>
+</main>
+
+<footer>
+  Stand: 10.07.2026. Entfernungen und Fahrzeiten sind grobe Werte ab Rohrbach an der Ilm. Status und Prüfdatum zeigen, wie belastbar die Angaben aktuell sind.
+</footer>
+
+<script>
+const DATA = [{"id":"event-wolnzach-volksfest","name":"Hallertauer Volksfest Wolnzach","type":"Veranstaltung","area":"Kalender","category":"Volksfest","date_start":"2026-08-07","date_end":"2026-08-17","date_label":"7.–17. August 2026","place":"Wolnzach","distance":6,"drive":10,"audiences":["Familie","Paare"],"dog":"ungeeignet","indoor":"Outdoor","price":"mittel","free":false,"weather":"trocken","recommendation":"Top-Tipp","summary":"Der naheliegendste große Volksfest-Anker im direkten Umfeld.","details":"Der 2026-Termin ist aus der bisherigen Gesamtrecherche übernommen, war in der Verifikationsrecherche aber nicht über eine aktuelle offizielle Einzelseite abgesichert. Vor dem Besuch bitte den offiziellen Veranstaltungskalender prüfen.","status":"teilweise bestätigt","evidence":"B","checked":"10.07.2026","age":"keine allgemeine Altersgrenze bekannt","access":"nicht geklärt","arrival":"kurze Anfahrt ab Rohrbach","link":""},{"id":"reihe-pfaffenhofener-kultursommer","name":"Pfaffenhofener Kultursommer","type":"Veranstaltungsreihe","area":"Kalender","category":"Kultur","date_start":"2026-06-12","date_end":"2026-08-02","date_label":"12. Juni–2. August 2026","place":"Pfaffenhofen a.d. Ilm","distance":10,"drive":15,"audiences":["Familie","Paare","Allein mit Kind"],"dog":"bedingt geeignet","indoor":"Gemischt","price":"günstig","free":true,"weather":"gemischt","recommendation":"Top-Tipp","summary":"Viele einzelne Kultur- und Open-Air-Termine im direkten Nahbereich.","details":"Die Laufzeit 2026 und das Programmgerüst sind offiziell bestätigt. Hunde- und Barriere-Regeln müssen je Einzelveranstaltung geprüft werden.","status":"bestätigt","evidence":"A","checked":"10.07.2026","age":"abhängig von der Einzelveranstaltung","access":"je Einzelveranstaltung","arrival":"Pfaffenhofen, je Termin unterschiedlich","link":"https://pfaffenhofen.de/artikel/kultursommer/","source_link":"https://www.pafunddu.de/pfaffenhofen/c-kultur-kunst-und-buehne"},{"id":"event-open-park-pfahofa","name":"Open Park PFA’HOFA","type":"Veranstaltung","area":"Kalender","category":"Festival","date_start":"2026-07-11","date_end":"2026-07-12","date_label":"11.–12. Juli 2026","place":"Ilmbad, Pfaffenhofen","distance":10,"drive":15,"audiences":["Familie","Paare","Allein mit Kind"],"dog":"nicht geklärt","indoor":"Outdoor","price":"günstig","free":false,"weather":"trocken","recommendation":"Gut passend","summary":"Zwei Bühnen, Musik, Essen und lockere Picknick-Atmosphäre im Freibad.","details":"Offiziell bestätigt: jeweils ab 14 Uhr im Ilmbad, Eintritt über den regulären Freibadpreis. Alters-, Hunde- und Barriere-Regeln sind noch nicht vollständig dokumentiert.","status":"bestätigt","evidence":"A","checked":"10.07.2026","age":"nicht abschließend geklärt","access":"nicht abschließend geklärt","arrival":"Ilmbad Pfaffenhofen","link":"https://www.open-park.de/","source_link":"https://pfaffenhofen.de/paf-und-du/veranstaltungen/open-park-pfahofa-2026-kulturfestival/"},{"id":"event-mainburg-altstadtfest","name":"Mainburger Altstadtfest","type":"Veranstaltung","area":"Kalender","category":"Stadtfest","date_start":"2026-07-24","date_end":"2026-07-26","date_label":"24.–26. Juli 2026","place":"Mainburg","distance":20,"drive":25,"audiences":["Familie","Paare","Allein mit Kind"],"dog":"bedingt geeignet","indoor":"Outdoor","price":"günstig","free":true,"weather":"trocken","recommendation":"Top-Tipp","summary":"Sommerliches Flanieren, Essen und Stadtleben ohne Großfestival-Stress.","details":"Der Termin 2026 stammt aus der bisherigen Gesamtrecherche. Die Verifikationsrecherche fand nur eine ältere offizielle Seite. Deshalb vor dem Besuch zwingend erneut prüfen.","status":"teilweise bestätigt","evidence":"B","checked":"10.07.2026","age":"keine allgemeine Altersgrenze bekannt","access":"nicht geklärt","arrival":"Innenstadt Mainburg","link":""},{"id":"event-barthelmarkt","name":"Barthelmarkt Oberstimm","type":"Veranstaltung","area":"Kalender","category":"Volksfest","date_start":"2026-08-28","date_end":"2026-08-31","date_label":"28.–31. August 2026","place":"Oberstimm","distance":30,"drive":35,"audiences":["Familie","Paare","Allein mit Kind"],"dog":"ungeeignet","indoor":"Outdoor","price":"mittel","free":false,"weather":"trocken","recommendation":"Gut passend","summary":"Großer Traditionsmarkt mit Festzelten und starkem regionalem Charakter.","details":"Die offizielle Regel lautet: Freitag bis Montag am Wochenende mit dem letzten Sonntag im August. Parken kostet laut FAQ 4 Euro pro Tag. Hunderegeln und Barrierefreiheit sind noch offen.","status":"teilweise bestätigt","evidence":"B","checked":"10.07.2026","age":"keine allgemeine Altersgrenze bekannt","access":"nicht geklärt","arrival":"Parkflächen laut FAQ vorhanden","link":""},{"id":"event-uferlos","name":"Uferlos Festival","type":"Veranstaltung","area":"Kalender","category":"Kulturfestival","date_start":"2026-05-08","date_end":"2026-05-17","date_label":"8.–17. Mai 2026","place":"Luitpoldanlage, Freising","distance":35,"drive":40,"audiences":["Familie","Paare","Allein mit Kind"],"dog":"ungeeignet","indoor":"Gemischt","price":"kostenlos","free":true,"weather":"gemischt","recommendation":"Top-Tipp","summary":"Musik, Kunst, Markt, Gastronomie und Kinderprogramm bei freiem Eintritt.","details":"Offiziell bestätigt. Keine Tiere außer Assistenzhunden. Jugendschutz- und Anreiseinformationen sind veröffentlicht. Das Gelände ist nur teilweise barrierearm.","status":"vorbei","evidence":"A","checked":"10.07.2026","age":"Jugendschutzregeln beachten","access":"teilweise barrierearm","arrival":"S-Bahn, Bus, Fahrrad und zu Fuß empfohlen","link":""},{"id":"event-tollwood-sommer","name":"Tollwood Sommerfestival","type":"Veranstaltung","area":"Dance & Festivals","category":"Kulturfestival","date_start":"2026-06-19","date_end":"2026-07-19","date_label":"19. Juni–19. Juli 2026","place":"Olympiapark Süd, München","distance":65,"drive":60,"audiences":["Familie","Paare","Allein mit Kind","Mit Hund"],"dog":"geeignet","indoor":"Gemischt","price":"günstig","free":true,"weather":"gemischt","recommendation":"Top-Tipp","summary":"Der vielseitigste große Sommertermin für Familie, Paare und Hund.","details":"Das Festivalgelände ist frei zugänglich. Hunde sind angeleint erlaubt, jedoch nicht bei kostenpflichtigen Veranstaltungen. Kinderprogramm, Behindertenparkplätze und rollstuhlgerechte Bereiche sind dokumentiert.","status":"bestätigt","evidence":"A","checked":"10.07.2026","age":"abhängig von Einzelveranstaltungen","access":"gute offizielle Angaben vorhanden","arrival":"ÖPNV empfohlen","link":""},{"id":"event-schall-im-schilf","name":"Schall im Schilf","type":"Veranstaltung","area":"Dance & Festivals","category":"Daydance","date_start":"2026-07-18","date_end":"2026-07-18","date_label":"18. Juli 2026","place":"Garchinger See","distance":70,"drive":65,"audiences":["Paare"],"dog":"nicht geklärt","indoor":"Outdoor","price":"mittel","free":false,"weather":"trocken","recommendation":"Top-Tipp","summary":"See, Daydance und ein erwachsenes elektronisches Line-up.","details":"Die bisherigen Recherchen nennen den Termin und die 18+-Regel. In der Verifikationsrecherche war die offizielle Seite technisch nicht belastbar auslesbar. Vor dem Besuch erneut prüfen.","status":"noch prüfen","evidence":"C","checked":"10.07.2026","age":"ab 18 Jahren laut Vorrecherche","access":"nicht geklärt","arrival":"Anreise vorab prüfen","link":""},{"id":"event-ios-beach","name":"Isle of Summer Beach","type":"Veranstaltung","area":"Dance & Festivals","category":"Beach Event","date_start":"2026-08-08","date_end":"2026-08-08","date_label":"8. August 2026","place":"München","distance":70,"drive":65,"audiences":["Paare"],"dog":"ungeeignet","indoor":"Outdoor","price":"mittel","free":false,"weather":"trocken","recommendation":"Top-Tipp","summary":"Beach- und Holiday-Vibes für einen elektronischen Paar-Ausflug.","details":"Die Angaben stammen aus der vorherigen Festivalrecherche. In der gezielten Verifikation konnte keine aktuelle offizielle 2026-Seite abgesichert werden.","status":"noch prüfen","evidence":"C","checked":"10.07.2026","age":"ab 18 Jahren laut Vorrecherche","access":"nicht geklärt","arrival":"nicht geklärt","link":""},{"id":"event-wannda","name":"Wannda Circus Open Air","type":"Veranstaltung","area":"Dance & Festivals","category":"Open Air","date_start":"2026-08-01","date_end":"2026-09-05","date_label":"1. August und 5. September 2026","place":"München-Freimann","distance":65,"drive":60,"audiences":["Paare"],"dog":"ungeeignet","indoor":"Gemischt","price":"günstig","free":false,"weather":"gemischt","recommendation":"Gut passend","summary":"Elektronische Musik, Zirkusatmosphäre und Performances.","details":"Die bisherigen Angaben sind plausibel, aber in der gezielten Verifikation konnte keine belastbare offizielle 2026-Seite abgesichert werden.","status":"noch prüfen","evidence":"C","checked":"10.07.2026","age":"Altersregeln vorab prüfen","access":"nicht geklärt","arrival":"U6 Freimann laut Vorrecherche","link":""},{"id":"ziel-hopfenmuseum","name":"Deutsches Hopfenmuseum","type":"Ausflugsziel","area":"Ausflugsziele","category":"Museum","date_start":"","date_end":"","date_label":"ganzjährig","place":"Wolnzach","distance":6,"drive":10,"audiences":["Familie","Paare","Allein mit Kind"],"dog":"nicht geklärt","indoor":"Indoor","price":"günstig","free":false,"weather":"Regen","recommendation":"Top-Tipp","summary":"Regionalgeschichte, Hopfen und Hallertau-Kompetenz direkt vor der Haustür.","details":"Dienstag bis Sonntag 10–17 Uhr. Erwachsene 6 Euro, Familien 9 Euro. Parkplätze und freie Tiefgarage vorhanden. Rollstuhlgerechter Zugang, Fahrstuhl und barrierefreies WC.","status":"ganzjährig","evidence":"A","checked":"10.07.2026","age":"familiengeeignet","access":"rollstuhlgerecht","arrival":"Parkplätze direkt am Museum","link":""},{"id":"ziel-waldkletterpark","name":"Waldkletterpark Oberbayern","type":"Ausflugsziel","area":"Ausflugsziele","category":"Action","date_start":"","date_end":"","date_label":"saisonal","place":"Jetzendorf","distance":18,"drive":25,"audiences":["Familie","Paare","Allein mit Kind"],"dog":"nicht geklärt","indoor":"Outdoor","price":"mittel","free":false,"weather":"trocken","recommendation":"Top-Tipp","summary":"Aktiver Familien- und Eltern-Kind-Ausflug in kurzer Entfernung.","details":"Die offizielle Besucherseite konnte in der Nachrecherche nicht verifiziert werden. Öffnungszeiten, Preise, Mindestgrößen und Wetterregeln fehlen noch.","status":"noch prüfen","evidence":"C","checked":"10.07.2026","age":"Mindestalter und Mindestgröße offen","access":"nicht geklärt","arrival":"nicht geklärt","link":""},{"id":"ziel-audi-museum","name":"Audi museum mobile","type":"Ausflugsziel","area":"Ausflugsziele","category":"Technik","date_start":"","date_end":"","date_label":"ganzjährig","place":"Ingolstadt","distance":30,"drive":30,"audiences":["Familie","Paare","Allein mit Kind"],"dog":"ungeeignet","indoor":"Indoor","price":"günstig","free":false,"weather":"Regen","recommendation":"Gut passend","summary":"Technik-, Design- und Mobilitätsziel für Familie und Regentage.","details":"Montag geschlossen, Dienstag bis Freitag 9–17 Uhr, Samstag, Sonntag und Feiertage 10–16 Uhr. Parken für Museumsbesucher kostenlos. Gelände und Museum rollstuhlgerecht. Eintrittspreis noch ergänzen.","status":"ganzjährig","evidence":"A","checked":"10.07.2026","age":"familiengeeignet","access":"rollstuhlgerecht","arrival":"Parken am Audi Forum","link":""},{"id":"ziel-kelten-roemer","name":"Kelten Römer Museum","type":"Ausflugsziel","area":"Ausflugsziele","category":"Museum","date_start":"","date_end":"","date_label":"ganzjährig","place":"Manching","distance":30,"drive":35,"audiences":["Familie","Paare","Allein mit Kind"],"dog":"ungeeignet","indoor":"Indoor","price":"günstig","free":false,"weather":"Regen","recommendation":"Gut passend","summary":"Geschichte am Originalort und ein verlässlicher Schlechtwetterjoker.","details":"Mittwoch bis Freitag 9:30–16 Uhr, Samstag, Sonntag und Feiertage 10–17 Uhr. Erwachsene 6 Euro. Kostenlose Parkplätze, Rampen, Fahrstühle und barrierefreies WC. Assistenztiere sind erlaubt.","status":"ganzjährig","evidence":"A","checked":"10.07.2026","age":"familiengeeignet","access":"barrierefrei","arrival":"kostenlose Parkplätze direkt am Museum","link":""},{"id":"ziel-weihenstephan-gaerten","name":"Weihenstephaner Gärten","type":"Ausflugsziel","area":"Ausflugsziele","category":"Natur","date_start":"","date_end":"","date_label":"saisonal","place":"Freising","distance":35,"drive":40,"audiences":["Familie","Paare","Allein mit Kind","Mit Hund"],"dog":"bedingt geeignet","indoor":"Outdoor","price":"kostenlos","free":true,"weather":"trocken","recommendation":"Top-Tipp","summary":"Ruhiger, kostenloser Natur- und Genussausflug nahe Freising.","details":"Sichtungs-, Klein- und Oberdieckgarten: 1. April bis 31. Oktober, 9–18 Uhr, Juni bis August bis 19 Uhr. Eintritt frei. Hunde sind nur im Hof- und Buchsgarten angeleint erlaubt.","status":"saisonal","evidence":"A","checked":"10.07.2026","age":"familiengeeignet","access":"nicht abschließend geklärt","arrival":"mit Freising kombinierbar","link":""},{"id":"event-mainburg-hopfenfest","name":"Mainburger Hopfenfest","type":"Veranstaltung","area":"Kalender","category":"Volksfest","date_start":"2026-07-10","date_end":"2026-07-13","date_label":"10.–13. Juli 2026","place":"Mainburg","distance":20,"drive":25,"audiences":["Familie","Paare","Allein mit Kind"],"dog":"bedingt geeignet","indoor":"Outdoor","price":"mittel","free":false,"weather":"trocken","recommendation":"Top-Tipp","summary":"Hallertau-Volksfest mit Marktcharakter, Oldtimertreffen und starkem Regionalbezug.","details":"Der Termin ist aus der regionalen Tiefenrecherche übernommen. Programmpunkte wie Oldtimertreffen, verkaufsoffener Sonntag und die Wahl der Hallertauer Bierkönigin wurden dort als zentrale Bestandteile genannt. Vor dem Besuch bitte die offizielle Veranstaltungsseite erneut prüfen.","status":"teilweise bestätigt","evidence":"B","checked":"10.07.2026","age":"familiengeeignet, Einzeltermine prüfen","access":"nicht abschließend geklärt","arrival":"Innenstadt Mainburg","link":"","source_link":""},{"id":"event-manchinger-sommernacht","name":"Manchinger Sommernacht","type":"Veranstaltung","area":"Kalender","category":"Sommerfest","date_start":"2026-07-10","date_end":"2026-07-11","date_label":"10.–11. Juli 2026","place":"Manching","distance":30,"drive":35,"audiences":["Familie","Paare","Allein mit Kind"],"dog":"bedingt geeignet","indoor":"Outdoor","price":"günstig","free":true,"weather":"trocken","recommendation":"Gut passend","summary":"Zwei Sommerabende mit Musik, Unterhaltung und Kulinarik in der Ortsmitte.","details":"Das Format ist als kompakte regionale Abendveranstaltung mit Musik und Gastronomie beschrieben. Hundeeignung, Barrierefreiheit und genaue Programmpunkte sollten vor dem Besuch noch einmal offiziell geprüft werden.","status":"teilweise bestätigt","evidence":"B","checked":"10.07.2026","age":"familiengeeignet","access":"nicht abschließend geklärt","arrival":"Ortsmitte Manching","link":"","source_link":""},{"id":"event-kirschmarkt-mainburg","name":"Kirschmarkt Mainburg","type":"Veranstaltung","area":"Kalender","category":"Markt","date_start":"2026-07-12","date_end":"2026-07-12","date_label":"12. Juli 2026","place":"Mainburg","distance":20,"drive":25,"audiences":["Familie","Paare","Allein mit Kind","Mit Hund"],"dog":"bedingt geeignet","indoor":"Outdoor","price":"kostenlos","free":true,"weather":"trocken","recommendation":"Gut passend","summary":"Regionaler Marktsonntag mit Stadtbetrieb und Hallertau-Atmosphäre.","details":"Der Termin ist als Markt mit verkaufsoffenem Sonntag beschrieben. Für Hunde ist der Besuch nur bei geringem Gedränge sinnvoll. Genaue Marktzeiten und Verkehrsregelungen müssen vorab noch offiziell geprüft werden.","status":"teilweise bestätigt","evidence":"B","checked":"10.07.2026","age":"familiengeeignet","access":"nicht geklärt","arrival":"Innenstadt Mainburg","link":"","source_link":""},{"id":"event-hohenwarter-volksfest","name":"Hohenwarter Volksfest","type":"Veranstaltung","area":"Kalender","category":"Volksfest","date_start":"2026-07-17","date_end":"2026-07-20","date_label":"17.–20. Juli 2026","place":"Hohenwart","distance":20,"drive":25,"audiences":["Familie","Paare","Allein mit Kind"],"dog":"ungeeignet","indoor":"Outdoor","price":"mittel","free":false,"weather":"trocken","recommendation":"Gut passend","summary":"Bodenständiges regionales Volksfest mit überschaubarer Größe.","details":"Das Hohenwarter Volksfest wurde in der Regionalrecherche als weniger überlaufen und alltagstauglich beschrieben. Detailprogramm, Barrierefreiheit und konkrete Öffnungszeiten sollten vor dem Besuch noch über die offizielle Gemeindequelle geprüft werden.","status":"teilweise bestätigt","evidence":"B","checked":"10.07.2026","age":"familiengeeignet","access":"nicht geklärt","arrival":"Hohenwart, Veranstaltungsort vorab prüfen","link":"","source_link":""},{"id":"event-hallertauer-radltag","name":"Hallertauer Radltag","type":"Veranstaltung","area":"Kalender","category":"Sport & Sommerfest","date_start":"2026-07-25","date_end":"2026-07-25","date_label":"25. Juli 2026","place":"Au i.d. Hallertau","distance":30,"drive":35,"audiences":["Familie","Paare","Allein mit Kind"],"dog":"bedingt geeignet","indoor":"Outdoor","price":"günstig","free":true,"weather":"trocken","recommendation":"Top-Tipp","summary":"Aktiver Familientag mit unterschiedlichen Radtouren und anschließendem Sommerfest.","details":"Die Recherche nennt mehrere Touren für unterschiedliche Niveaus, von Familienfahrt bis Mountainbike, mit Musik und Kulinarik beim Abschlussfest. Strecken, Teilnahmebedingungen und Hundeeignung müssen je Tour separat geprüft werden.","status":"teilweise bestätigt","evidence":"B","checked":"10.07.2026","age":"abhängig von gewählter Tour","access":"für einzelne Touren unterschiedlich","arrival":"Au i.d. Hallertau, Startpunkt vorab prüfen","link":"","source_link":""}];
+const state = {audience:"",search:"",area:"",radius:"",weather:"",status:"",sort:"distance",favoritesOnly:false};
+const favs = new Set(JSON.parse(localStorage.getItem("freizeitkompass-favoriten") || "[]"));
+
+function match(item){
+  const text=(item.name+" "+item.place+" "+item.category+" "+item.summary).toLowerCase();
+  if(state.audience && !item.audiences.includes(state.audience)) return false;
+  if(state.search && !text.includes(state.search.toLowerCase())) return false;
+  if(state.area && item.area!==state.area) return false;
+  if(state.radius==="over80" && item.distance<=80) return false;
+  if(state.radius && state.radius!=="over80" && item.distance>Number(state.radius)) return false;
+  if(state.weather==="Regen" && !(item.indoor==="Indoor" || item.indoor==="Gemischt" || item.weather==="Regen")) return false;
+  if(state.weather==="trocken" && item.indoor==="Indoor") return false;
+  if(state.status && item.status!==state.status) return false;
+  if(state.favoritesOnly && !favs.has(item.id)) return false;
+  return true;
+}
+function sortItems(items){
+  const rank={"Top-Tipp":0,"Gut passend":1,"Nur bei besonderem Interesse":2};
+  if(state.sort==="date") return items.sort((a,b)=>(a.date_start||"9999").localeCompare(b.date_start||"9999"));
+  if(state.sort==="recommendation") return items.sort((a,b)=>(rank[a.recommendation]??9)-(rank[b.recommendation]??9)||a.distance-b.distance);
+  return items.sort((a,b)=>a.distance-b.distance);
+}
+function render(){
+  const items=sortItems(DATA.filter(match));
+  document.getElementById("count").textContent=items.length+" passende Einträge";
+  const grid=document.getElementById("grid");
+  if(!items.length){
+    grid.innerHTML='<div class="empty">Keine passenden Einträge gefunden.</div>';
+    return;
+  }
+  grid.innerHTML=items.map(item=>`
+    <article class="card" data-area="${item.area}">
+      <div class="title-row">
+        <div>
+          <div class="eyebrow">${item.type} · ${item.recommendation}</div>
+          <h3>${item.name}</h3>
+        </div>
+        <button class="fav ${favs.has(item.id)?"active":""}" data-id="${item.id}" aria-label="Favorit">${favs.has(item.id)?"★":"☆"}</button>
+      </div>
+
+      <div class="meta">
+        <span>${item.date_label}</span><span>·</span><span>${item.place}</span><span>·</span><span>${item.distance} km / ca. ${item.drive} Min.</span>
+      </div>
+
+      <div class="tagrow">
+        <span class="tag">${item.category}</span>
+        <span class="tag">${item.indoor}</span>
+        <span class="tag">${item.price}</span>
+        <span class="tag">Hund: ${item.dog}</span>
+      </div>
+
+      <div class="tagrow">
+        <span class="tag status" data-status="${item.status}">${item.status}</span>
+        <span class="evidence evidence-${item.evidence}">Quellenstand ${item.evidence}</span>
+      </div>
+
+      <p class="summary">${item.summary}</p>
+      <div class="tagrow">${item.audiences.map(a=>`<span class="tag">${a}</span>`).join("")}</div>
+
+      <details>
+        <summary>Details anzeigen</summary>
+        <p>${item.details}</p>
+        <div class="detail-grid">
+          <div class="detail-item"><strong>Altersstatus</strong><br>${item.age}</div>
+          <div class="detail-item"><strong>Barrierefreiheit</strong><br>${item.access}</div>
+          <div class="detail-item"><strong>Anreise</strong><br>${item.arrival}</div>
+          <div class="detail-item"><strong>Zuletzt geprüft</strong><br>${item.checked}</div>
+        </div>
+        <div class="linkrow">
+          ${item.link?`<a class="link" href="${item.link}" target="_blank" rel="noopener">Offizielle Seite</a>`:`<span class="nolink">Offizieller Link fehlt noch</span>`}
+          ${item.source_link?`<a class="link" href="${item.source_link}" target="_blank" rel="noopener">Weitere Quelle</a>`:""}
+        </div>
+      </details>
+    </article>
+  `).join("");
+
+  document.querySelectorAll(".fav").forEach(btn=>btn.addEventListener("click",()=>{
+    const id=btn.dataset.id;
+    favs.has(id)?favs.delete(id):favs.add(id);
+    localStorage.setItem("freizeitkompass-favoriten",JSON.stringify([...favs]));
+    render();
+  }));
+}
+
+document.querySelectorAll("[data-audience]").forEach(btn=>btn.addEventListener("click",()=>{
+  state.audience=btn.dataset.audience;
+  document.querySelectorAll("[data-audience]").forEach(b=>b.classList.toggle("active",b===btn));
+  render();
+}));
+["search","area","radius","weather","status","sort"].forEach(id=>{
+  document.getElementById(id).addEventListener(id==="search"?"input":"change",e=>{
+    state[id]=e.target.value;
+    render();
+  });
+});
+document.getElementById("favoritesOnly").addEventListener("click",e=>{
+  state.favoritesOnly=!state.favoritesOnly;
+  e.currentTarget.classList.toggle("active",state.favoritesOnly);
+  render();
+});
+document.getElementById("reset").addEventListener("click",()=>{
+  Object.assign(state,{audience:"",search:"",area:"",radius:"",weather:"",status:"",sort:"distance",favoritesOnly:false});
+  ["search","area","radius","weather","status"].forEach(id=>document.getElementById(id).value="");
+  document.getElementById("sort").value="distance";
+  document.getElementById("favoritesOnly").classList.remove("active");
+  document.querySelectorAll("[data-audience]").forEach(b=>b.classList.toggle("active",b.dataset.audience===""));
+  render();
+});
+render();
+</script>
+</body>
+</html>
